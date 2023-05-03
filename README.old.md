@@ -1,0 +1,1 @@
+# platinum-binar-rental
