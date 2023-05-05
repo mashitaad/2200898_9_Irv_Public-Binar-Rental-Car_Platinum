@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/home/HomePage";
-import CarlistPage from "../pages/car/carList/CarlistPage";
+import CarListPage from "../pages/car/carList/CarListPage";
 import CarDetail from "../pages/car/carDetail/CarDetail";
 
 function IndexRoutes() {
@@ -9,7 +9,7 @@ function IndexRoutes() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/car/list" element={<CarlistPage />} />
+        <Route path="/car/list" element={<CarListPage />} />
         <Route path="/car/detail/:id" element={<CarDetail />} />
       </Routes>
     </Router>
