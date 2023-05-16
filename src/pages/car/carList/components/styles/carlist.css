@@ -1,0 +1,46 @@
+.card{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
+    height: 60vh !important;
+    padding: 20px !important;
+    margin-top: 55px !important;
+    grid-gap: 55px !important;
+}
+
+.card img {
+    height: 20vh ;
+    width: 100%;
+    object-fit: contain;
+    margin-top: 10%;
+}
+
+.card-text {
+    margin-left: 0% !important;
+    font-weight: 600;
+}
+
+.card a {
+    text-decoration: none !important;
+}
+
+
+.btn-flat {
+    background-color: #5CB85F !important;
+    border-radius: 1px !important; 
+    color: white !important;
+  }
+
+  .carnotfound {
+        text-align: center;
+        margin-top: 100px;
+        margin-bottom: 100px;
+  }
+
+  .active {
+    background: none !important;
+  }
+
+
+  /* .carousel-control-next-icon {
+    background-image: url();
+
+} */
