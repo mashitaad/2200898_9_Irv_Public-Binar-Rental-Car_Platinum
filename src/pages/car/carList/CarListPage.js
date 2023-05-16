@@ -1,41 +1,32 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import CarList from './components/CarList'
 import FromFillter from '../../../components/from-filter/FromFilter'
-import config from "../../../config/index"
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import LoadingSpinner from '../../../components/ui/LoadingSpinner';
+import { carSelectors, getAllCars } from '../../../features/carSlice';
+
 export default function CarListPage() {
-  
-  
-  const [dataCar, setDataCar] = useState({
-    cars: []
-  });
-
-
+  const dispatch = useDispatch();
+  const loading = useSelector(carSelectors.loading);
+  const data = useSelector(carSelectors.selectAllCars);
   useEffect(() => {
-    getCars();
-  }, []);
-
-  const apiUrl = config.apiBaseUrl
-  const getCars = async (params = {}) => {
-    const response = await axios.get(
-      apiUrl + "/customer/v2/car", {
-      params
-    }
-    );
-    setDataCar(response.data.cars);
-  };
+    dispatch(getAllCars());
+  }, [dispatch]);
 
   const onFilter = (payload) => {
-    getCars(payload)
-  }
+    dispatch(getAllCars(payload));
+  };
 
-
-  
   return (
     <>
-    
-    <FromFillter onSubmit={onFilter} />
-      <CarList data={dataCar} />
+      <FromFillter onSubmit={onFilter} />
+     {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <>{data.cars !== undefined && <CarList cars={data.cars} />}</>
+      )} 
+  
+
     </>
   );
 }
