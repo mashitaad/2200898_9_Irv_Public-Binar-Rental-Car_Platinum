@@ -24,7 +24,7 @@
   }
   
   #aboutServices li {
-    background: url(../../assets/icons/bullet.svg) no-repeat left center;
+    background: url(../../../../assets/icons/bullet.svg) no-repeat left center;
     padding: 0.5rem 3.0625rem 0.5rem 2.5rem;
     list-style: none;
     vertical-align: middle;

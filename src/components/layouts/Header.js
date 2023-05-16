@@ -1,8 +1,7 @@
 import React from 'react'
-import './styles/Banner.css'
-import imgCar from '../../../assets/images/img_car.svg'
-
-const Banner = () => {
+import './styles/header.css'
+import imgCar from '../../assets/img/img_car.svg'
+export const Header = () => {
   return (
     <div className='cust-container'
     style={{
@@ -32,5 +31,3 @@ const Banner = () => {
     </div>
   )
 }
-
-export default Banner

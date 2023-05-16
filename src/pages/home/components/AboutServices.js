@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles/AboutServices.css'
-import imgWoman from '../assets/images/lesti-kejora.svg'
+import imgWoman from '../../../assets/images/lesti-kejora.svg'
+
 
 const AboutServices = () => {
   return (
