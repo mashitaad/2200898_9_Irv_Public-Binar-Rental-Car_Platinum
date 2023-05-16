@@ -34,8 +34,8 @@ const WhyUs = () => {
   return (
     <div className='cust-container' id='whyUs'>
         <div className="why-us">
-            <h1>Why Us</h1>
-            <p style={{fontSize: '0.875rem', margin: '1rem 0'}}>
+            <h3><strong>Why Us</strong></h3>
+            <p style={{margin: '1rem 0'}}>
                 Mengapa harus pilih Binar Car Rental?
             </p>
         </div>
@@ -43,7 +43,9 @@ const WhyUs = () => {
             {benefits.map((benefit) => {
                 return (<div className='custom-card' key={benefit.id}>
                     <img src={benefit.img} alt={benefit.id}/>
-                    <p style={{margin:'1rem 0',fontSize:'1rem'}}>{benefit.title}</p>
+                    <p style={{margin:'1rem 0',fontSize:'1rem'}}>
+                        <strong>{benefit.title}</strong>
+                    </p>
                     <p style={{margin:'0',fontSize:'0.875rem'}}>{benefit.desc}</p>
                 </div>)
             })}

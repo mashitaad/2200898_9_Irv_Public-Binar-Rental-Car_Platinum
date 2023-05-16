@@ -13,7 +13,7 @@ const Banner = () => {
         <div className='hero-sect'>
             <div className="d-flex flex-column">
                 <div className='banner-title'>
-                    Sewa & Rental Mobil Terbaik di Tomioka
+                    <strong>Sewa & Rental Mobil Terbaik di Tomioka</strong>
                 </div>
                 <div className='banner-subtitle'>
                     Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam.

@@ -6,7 +6,7 @@ const Testimonial = () => {
   return (
     <div className='cust-container' id='testimony'>
         <div className='testimony'>
-            <h3>Testimonial</h3>
+            <h3><strong>Testimonial</strong></h3>
             <p style={{fontSize: '0.875rem'}}>Berbagai review positif dari para pelanggan kami</p>
         </div>
         <Carousel/>

@@ -45,7 +45,7 @@ const Faq = () => {
   return (
     <div className='cust-container' id='faq'>
       <div className='faq-head' style={{ width: 'clamp(20.5rem, 50%, 23rem)' }}>
-        <h3>Frequently Asked Question</h3>
+        <h3><strong>Frequently Asked Question</strong></h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
       </div>
       <div className='q-list'>

@@ -7,8 +7,8 @@ const AboutServices = () => {
     <div className="cust-container" id="aboutServices">
         <img src={imgWoman} style={{width: 'clamp(252px, 70%, 459px)'}} alt=''/>
         <div className="about-services">
-            <h3 style={{margin: '0 0 0 0.5rem'}}>
-                Best Car Rental for any kind of trip in Tomioka!
+            <h3 style={{margin: '0'}}>
+                <strong>Best Car Rental for any kind of trip in Tomioka!</strong>
             </h3>
             <p style={{margin: '1rem 0'}}>
                 Sewa mobil di Tomioka bersama Binar Car Rental jaminan harga lebih murah dibandingkan yang lain, kondisi mobil baru, serta kualitas pelayanan terbaik untuk perjalanan wisata, bisnis, wedding, meeting, dll.

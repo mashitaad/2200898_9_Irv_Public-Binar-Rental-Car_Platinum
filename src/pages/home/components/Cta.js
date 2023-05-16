@@ -5,7 +5,7 @@ const Cta = () => {
   return (
     <div className="cust-container cta">
         <div className='cta-inner'>
-            <h1> Sewa Mobil di Tomioka Sekarang</h1>
+            <h1><strong>Sewa Mobil di Tomioka Sekarang</strong></h1>
             <div className='cta-subtitle'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             </div>
