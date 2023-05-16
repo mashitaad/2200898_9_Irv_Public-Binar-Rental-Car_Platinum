@@ -1,0 +1,10 @@
+#testimony {
+    flex-direction: column;
+    row-gap: 1.5rem;
+    align-items: center;
+    padding: 0 8.5rem;
+  }
+
+.testimony {
+    text-align: center;
+}
