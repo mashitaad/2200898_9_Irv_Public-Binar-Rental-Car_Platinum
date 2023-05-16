@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/WhyUs.css'
-import icon_complete from '../assets/icons/icon_complete.svg';
-import icon_price from '../assets/icons/icon_price.svg';
-import icon_24hrs from '../assets/icons/icon_24hrs.svg';
-import icon_professional from '../assets/icons/icon_professional.svg';
+import icon_complete from '../../../assets/icons/icon_complete.svg';
+import icon_price from '../../../assets/icons/icon_price.svg';
+import icon_24hrs from '../../../assets/icons/icon_24hrs.svg';
+import icon_professional from '../../../assets/icons/icon_professional.svg';
 
 const WhyUs = () => {
 

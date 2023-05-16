@@ -1,5 +1,5 @@
 import React from 'react'
-import ArrowDown from '../assets/icons/fi_chevron-down.svg'
+import ArrowDown from '../../../assets/icons/fi_chevron-down.svg'
 
 const FaqEntry = (props) => {
     const handleClick = () => {
