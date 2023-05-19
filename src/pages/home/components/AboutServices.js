@@ -3,12 +3,12 @@ import './styles/AboutServices.css'
 import imgWoman from '../../../assets/images/lesti-kejora.svg'
 
 
-const AboutServices = () => {
+const AboutServices = ({linkOurService}) => {
   return (
-    <div className="cust-container" id="aboutServices">
+    <div className="cust-container" id="aboutServices" >
         <img src={imgWoman} style={{width: 'clamp(252px, 70%, 459px)'}} alt=''/>
-        <div className="about-services">
-            <h3 style={{margin: '0 0 0 0.5rem'}}>
+        <div className="about-services" >
+            <h3 ref={linkOurService} style={{margin: '0 0 0 0.5rem'} }>
                 Best Car Rental for any kind of trip in Tomioka!
             </h3>
             <p style={{margin: '1rem 0'}}>
