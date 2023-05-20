@@ -5,7 +5,7 @@ import icon_price from '../../../assets/icons/icon_price.svg';
 import icon_24hrs from '../../../assets/icons/icon_24hrs.svg';
 import icon_professional from '../../../assets/icons/icon_professional.svg';
 
-const WhyUs = () => {
+const WhyUs = ({linkWhyUs}) => {
 
     const benefits = [
         {
@@ -33,8 +33,8 @@ const WhyUs = () => {
 
   return (
     <div className='cust-container' id='whyUs'>
-        <div className="why-us">
-            <h1>Why Us</h1>
+        <div className="why-us" >
+            <h1 ref={linkWhyUs}>Why Us</h1>
             <p style={{fontSize: '0.875rem', margin: '1rem 0'}}>
                 Mengapa harus pilih Binar Car Rental?
             </p>

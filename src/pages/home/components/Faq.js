@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles/Faq.css';
 import Entry from './FaqEntry';
 
-const Faq = () => {
+const Faq = ({linkFaq}) => {
   const [entriesVisibility, setEntriesVisibility] = useState([
     false, // Visibility for entry 1
     false, // Visibility for entry 2
@@ -45,8 +45,8 @@ const Faq = () => {
   return (
     <div className='cust-container' id='faq'>
       <div className='faq-head' style={{ width: 'clamp(20.5rem, 50%, 23rem)' }}>
-        <h3>Frequently Asked Question</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+        <h3 >Frequently Asked Question</h3>
+        <p ref={linkFaq}>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
       </div>
       <div className='q-list'>
         <ul>
