@@ -7,7 +7,7 @@ import WhyUs from './components/WhyUs'
 import AboutServices from './components/AboutServices'
 import Banner from './components/Banner'
 import Navbar from '../../components/layouts/Navbar'
-import {testimonialStatic} from '../../internal/const/static'
+import {testimonialStatic, benefitStatic, faqEntries} from '../../internal/const/static'
 
 export default function HomePage() {
   const linkOurService = useRef(null);
@@ -18,6 +18,8 @@ export default function HomePage() {
 
   const props = {
     testimonialStatic,
+    benefitStatic,
+    faqEntries,
     linkOurService,
     linkWhyUs,
     linkTestimonial,

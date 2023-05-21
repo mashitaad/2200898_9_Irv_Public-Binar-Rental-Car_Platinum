@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles/Faq.css';
 import Entry from './FaqEntry';
 
-const Faq = ({linkFaq}) => {
+const Faq = ({linkFaq, faqEntries}) => {
   const [entriesVisibility, setEntriesVisibility] = useState([
     false, // Visibility for entry 1
     false, // Visibility for entry 2
@@ -19,29 +19,6 @@ const Faq = ({linkFaq}) => {
     });
   };
 
-  const entries = [
-    {
-      question: "Apa saja syarat yang dibutuhkan?",
-      answer: 'kosong'
-    },
-    {
-      question: "Berapa hari minimal sewa mobil lepas kunci?",
-      answer: 'kosong'
-    },
-    {
-      question: "Berapa hari sebelumnya sebaiknya booking sewa mobil?",
-      answer: 'kosong'
-    },
-    {
-      question: "Apakah ada biaya antar-jemput?",
-      answer: 'kosong'
-    },
-    {
-      question: "Bagaimana jika terjadi kecelakaan?",
-      answer: 'kosong'
-    }
-  ];
-
   return (
     <div className='cust-container' id='faq'>
       <div className='faq-head' style={{ width: 'clamp(20.5rem, 50%, 23rem)' }}>
@@ -50,7 +27,7 @@ const Faq = ({linkFaq}) => {
       </div>
       <div className='q-list'>
         <ul>
-          {entries.map((entry, index) => (
+          {faqEntries.map((entry, index) => (
             <Entry
               key={index}
               question={entry.question}
