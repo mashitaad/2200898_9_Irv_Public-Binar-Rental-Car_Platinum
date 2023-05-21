@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../images/rectangle.png';
+import logo from '../../../../images/rectangle.png';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { NavLink } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 
-const Signup = () => {
+const SignUp = () => {
 
     // const history = useNavigate();
 
@@ -122,4 +122,4 @@ const Signup = () => {
   )
 }
 
-export default Signup;
+export default SignUp;
