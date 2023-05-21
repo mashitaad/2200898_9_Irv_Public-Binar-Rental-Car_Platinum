@@ -19,8 +19,8 @@ const SiginInPage = () => {
     } catch (error) {
 
       // todo get error message
-       
-      console.log(error.message)      
+
+      console.log(error.message)
       return
     }
     navigate('/')
@@ -28,7 +28,7 @@ const SiginInPage = () => {
 
   return (
     <>
-    <SignIn onSubmit={submit} />
+      <SignIn onSubmit={submit} />
     </>
   )
 }

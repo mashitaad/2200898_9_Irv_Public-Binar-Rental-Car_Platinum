@@ -62,7 +62,7 @@ export default function CarList(props) {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est natus repellendus inventore, similique necessitatibus cumque architecto a nesciunt vitae! Minus.
                 </Card.Text>
                 <Link 
-                // to={`${o.id}`}
+                to={`${o.id}`}
                 >
                   <div className="d-grid gap-2">
                     <Button variant="flat">

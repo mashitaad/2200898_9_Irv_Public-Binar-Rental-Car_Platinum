@@ -11,6 +11,11 @@ export const getAllCars = createAsyncThunk("car/getAllCars", async (params = {})
     return response.data
 })
 
+export const getCarById = createAsyncThunk("car/getCar", async (id) => {
+    const apiUrl = config.apiBaseUrl
+    const response = await axios.get(apiUrl + `/customer/car/${id}`)
+    return response.data
+})
 
 const carSlice = createSlice({
     name: "car",
@@ -29,10 +34,14 @@ const carSlice = createSlice({
             .addCase(getAllCars.pending, (state, action) => {
                 state.loading = true
             })
+            .addCase(getCarById.fulfilled, (state, action) => {
+                state.data = action.payload
+            })
     }
 })
 export const carSelectors = {
     selectAllCars: (state) => state.car.data,
+    selectCarById: (state) => state.car.data,
     loading: (state) => state.car.loading,
 }
 export default carSlice.reducer;
