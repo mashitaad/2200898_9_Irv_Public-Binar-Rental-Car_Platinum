@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import Styles from "./styles/carlist.css";
 import { Link } from "react-router-dom";
 import ImageWithLoading from "../../../../components/ui/ImageWithLoading";
-import nullImage from '../../../../assets/img/imagenotfound.jpeg'
+import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 
 export default function CarList(props) {
 
