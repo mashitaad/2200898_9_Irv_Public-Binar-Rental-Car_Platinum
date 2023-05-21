@@ -113,7 +113,7 @@ const user = {
                     :
 
                     <Nav.Link
-                      href="/login"
+                      href="/signup"
                     >
                        <ButtonAuth text="Register" />
                     </Nav.Link>
