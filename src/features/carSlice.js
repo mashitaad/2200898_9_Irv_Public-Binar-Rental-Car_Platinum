@@ -21,8 +21,7 @@ const carSlice = createSlice({
     name: "car",
     initialState: {
         data: {},
-        loading: false,
-        addCarResponse: {},
+        loading: true,
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -36,6 +35,9 @@ const carSlice = createSlice({
             })
             .addCase(getCarById.fulfilled, (state, action) => {
                 state.data = action.payload
+            })
+            .addCase(getCarById.pending, (state, action) => {
+                state.loading = false
             })
     }
 })

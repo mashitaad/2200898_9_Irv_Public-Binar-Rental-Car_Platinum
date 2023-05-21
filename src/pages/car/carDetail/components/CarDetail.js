@@ -7,21 +7,21 @@ import LoadingSpiner from "../../../../components/ui/LoadingSpinner";
 import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 
 export default function CarDetail(props) {
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 2000);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setLoading(false);
+    //     }, 2000);
 
-        return () => clearTimeout(timer);
-    }, []);
+    //     return () => clearTimeout(timer);
+    // }, []);
 
-    if (loading) {
-        return (
-            <LoadingSpiner />
-        );
-    }
+    // if (loading) {
+    //     return (
+    //         <LoadingSpiner />
+    //     );
+    // }
 
 
 
@@ -93,25 +93,25 @@ export default function CarDetail(props) {
                 <div className="col-md-5 d-flex mt-5 detail-car-card">
                     <div className="card-car">
                         <div className="image-car-detail">
-                            {props.data.image ? <ImageWithLoading src={props.data.image} alt={props.data.name} /> : <ImageWithLoading src={nullImage} alt={'null image'} />}
+                            {props.data?.image ? <ImageWithLoading src={props.data?.image} alt={props.data?.name} /> : <ImageWithLoading src={nullImage} alt={'null image'} />}
 
-                            <p className="card-title-detail-name"> {props.data.name}</p>
+                            <p className="card-title-detail-name"> {props.data?.name}</p>
                             <p className="card-title-detail">
                                 <BsFillPeopleFill />
                                 {" "}
-                                {props.data.category === "small"
+                                {props.data?.category === "small"
                                     ? "2-4 orang"
-                                    : props.data.category === "medium"
+                                    : props.data?.category === "medium"
                                         ? "4-6 orang"
-                                        : props.data.category === "large"
+                                        : props.data?.category === "large"
                                             ? "6-8 orang"
-                                            : props.data.category}
+                                            : props.data?.category}
                             </p>
 
                             <div className="row align-items-start">
                                 <div className="col totaldetail">Total</div>
                                 <div className="col pricedetail">
-                                    {formatter.format(props.data.price)}
+                                    {formatter.format(props.data?.price)}
                                 </div>
                             </div>
                             {/* Calendar section */}
