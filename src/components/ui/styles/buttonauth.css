@@ -1,0 +1,15 @@
+.grid-input-button-auth {
+    margin-top: -10px;
+    margin-right: -10px;
+  }
+
+  .button_auth {
+    background: #5CB85F;
+    border: 0;
+    padding: 10px 28px;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+  
