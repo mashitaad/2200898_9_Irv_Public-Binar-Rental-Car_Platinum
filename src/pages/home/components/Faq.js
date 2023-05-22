@@ -22,7 +22,7 @@ const Faq = ({linkFaq, faqEntries}) => {
   return (
     <div className='cust-container' id='faq'>
       <div className='faq-head' style={{ width: 'clamp(20.5rem, 50%, 23rem)' }}>
-        <h3 >Frequently Asked Question</h3>
+        <h3 className='sect-title'>Frequently Asked Question</h3>
         <p ref={linkFaq}>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
       </div>
       <div className='q-list'>

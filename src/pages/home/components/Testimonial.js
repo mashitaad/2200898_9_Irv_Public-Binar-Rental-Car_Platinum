@@ -10,9 +10,9 @@ import star_icon from '../../../assets/icons/star.svg'
 export default function Testimonial({ testimonialStatic, linkTestimonial }) {
 
   return (
-    <>
+    <div>
       <div className="mb-5 title-slide" >
-        <h3 className="mb-3" ref={linkTestimonial}>Testimonial</h3>
+        <h3 className="mb-3 sect-title" ref={linkTestimonial}>Testimonial</h3>
         <p>Berbagai review positif dari para pelanggan kami</p>
       </div>
 
@@ -85,6 +85,6 @@ export default function Testimonial({ testimonialStatic, linkTestimonial }) {
         })}
       </Swiper>
 
-    </>
+    </div>
   );
 }
