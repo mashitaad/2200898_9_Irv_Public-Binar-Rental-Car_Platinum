@@ -5,6 +5,8 @@ import FromFilterDetail from '../../../components/from-filter/FromFilterDetail';
 import { useDispatch, useSelector } from 'react-redux';
 import { carSelectors, getCarById } from '../../../features/carSlice';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
+import Banner from '../../home/components/Banner';
+import NavbarLayout from '../../../components/layouts/Navbar';
 
 const CarDetailPage = () => {
   const { id } = useParams();
@@ -23,6 +25,8 @@ const CarDetailPage = () => {
 
   return (
     <>
+    <NavbarLayout />
+    <Banner/>
       <FromFilterDetail data={car} />
       {loading ? (
         <LoadingSpinner />

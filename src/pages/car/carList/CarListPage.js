@@ -4,6 +4,7 @@ import FromFillter from '../../../components/from-filter/FromFilter'
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import { carSelectors, getAllCars } from '../../../features/carSlice';
+import Banner from '../../home/components/Banner';
 
 export default function CarListPage() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export default function CarListPage() {
 
   return (
     <>
+    <Banner />
       <FromFillter onSubmit={onFilter} />
      {loading ? (
         <LoadingSpinner />
