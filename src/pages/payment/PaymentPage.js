@@ -41,7 +41,7 @@ export const PaymentPage = () => {
           "Content-Type": "application/json"
         }
       });
-      navigate(`/payment/validation/order/${response.data?.id}`)
+      navigate(`/payment/confirmation/order/${response.data?.id}`)
       return response;
     } catch (error) {
       console.log(error);

@@ -7,20 +7,23 @@ import SignUpPage from "../pages/auth/signup/SignUpPage";
 import CarDetailPage from "../pages/car/carDetail/CarDetailPage";
 import PrivateRoutesCustomer from "../utils/PrivateRouteCustomer";
 import { PaymentPage } from "../pages/payment/PaymentPage";
+import PaymentConfirmationPage from "../pages/payment/PaymentConfirmPage";
 
 function IndexRoutes() {
   return (
     <Router>
       <Routes>
-
-        <Route element={<PrivateRoutesCustomer />}>
-        <Route path="/payment" element={<PaymentPage />} />
-        </Route>
         <Route path="/" element={<HomePage />} />
-        <Route path="/car/list" element={<CarListPage />} />
-        <Route path="/car/list/:id" element={<CarDetailPage />} />
         <Route path="/signin" element={<SiginInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/car/list" element={<CarListPage />} />
+        <Route path="/car/list/:id" element={<CarDetailPage />} />
+     
+        <Route element={<PrivateRoutesCustomer />}>
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/payment/confirm/order/:id" element={<PaymentConfirmationPage />} />
+        </Route>
+
       </Routes>
     </Router>
   );
