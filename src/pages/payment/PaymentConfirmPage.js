@@ -15,15 +15,14 @@ export default function PaymentConfirmPage () {
     dispatch(customerGetOrderById(id))
   }, [])
 
-  const confirmationPayment = (payload) => {
+  const confirmPayment = (payload) => {
     console.log(payload)
   }
 
-  console.log(order)
 
   return (
     <>
-  <PaymentConfirm data = {order} handleClick ={confirmationPayment} >
+  <PaymentConfirm data = {order} handleClick ={confirmPayment} >
     <ReminderPaymnet data = {order}/>
    </PaymentConfirm >
   </>

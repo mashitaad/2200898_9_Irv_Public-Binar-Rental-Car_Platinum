@@ -1,8 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import '../styles/paymentconfirm.css'
+import '../styles/dropzone.css'
 import { Button, Col, Row } from 'react-bootstrap'
+import { useDropzone } from 'react-dropzone'
 
 export const PaymentConfirm = (props) => {
+    const [previewImage, setPreviewImage] = useState(null);
+    const [image, setImage] = useState(null)
     const [inputValue, setInputValue] = useState(0);
     const [inputBankType, setInputBankType] = useState('')
     const [inputNoRek, setInputNoRek] = useState('')
@@ -50,6 +54,56 @@ export const PaymentConfirm = (props) => {
         }
     }, [bankType])
 
+
+    const onDrop = useCallback(async (acceptedFiles) => {
+        const file = acceptedFiles[0];
+        setPreviewImage(URL.createObjectURL(file));
+        setImage(file)
+    }, []);
+    const { acceptedFiles, getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({ onDrop });
+
+    acceptedFiles.map(file => (
+        <li key={file.path}>
+            {file.path} - {file.size} bytes
+        </li>
+    ));
+
+    const handleClickConfirmation = (e) => {
+        e.preventDefault();
+        props.handleClick(image)
+    }
+
+
+    const dropzoneStyle = {
+        border: '2px dashed #ccc',
+        borderRadius: '5px',
+        padding: '20px',
+        textAlign: 'center',
+        cursor: 'pointer',
+    };
+
+    const activeStyle = {
+        border: '2px dashed #007bff',
+    };
+
+    const acceptStyle = {
+        border: '2px dashed #00e676',
+    };
+
+    const rejectStyle = {
+        border: '2px dashed #ff1744',
+    };
+
+    let dropzoneStyleDynamic = { ...dropzoneStyle };
+    if (isDragActive) {
+        dropzoneStyleDynamic = { ...dropzoneStyleDynamic, ...activeStyle };
+    }
+    if (isDragAccept) {
+        dropzoneStyleDynamic = { ...dropzoneStyleDynamic, ...acceptStyle };
+    }
+    if (isDragReject) {
+        dropzoneStyleDynamic = { ...dropzoneStyleDynamic, ...rejectStyle };
+    }
 
     return (
 
@@ -115,13 +169,27 @@ export const PaymentConfirm = (props) => {
                 <div className="col-md-4">
                     <div className='right-content-payment'>
                         <p>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
+                        <div>
+                            <section className="container">
+                                <div {...getRootProps({ className: 'dropzone', style: dropzoneStyleDynamic })}>
+                                    <input {...getInputProps()} accept="image/*" />
+                                    {previewImage ? (
+                                        <img src={previewImage} alt="Preview" style={{ maxHeight: '200px' }} />
+                                    ) : (
+                                        <p>Drag 'n' drop some files here, or click to select files</p>
+                                    )}
+                                </div>
+                                <aside>
 
+                                </aside>
+                            </section>
+                        </div>
                         {/* 
                         <Link to={'/payment/confrimation'}> */}
                         <div className="d-grid gap-2">
                             <Button
                                 variant="flat"
-
+                                onClick={handleClickConfirmation}
                             >
                                 konfirmasi pembayaran
                             </Button>
