@@ -5,10 +5,9 @@ import axios from "axios";
 export const customerGetOrderById = createAsyncThunk("customer/order/id", async (id) => {
     const token = localStorage.getItem('token')
     const apiUrl = config.apiBaseUrl
-    const response = await axios.get(apiUrl + `/order/${id}`,{
+    const response = await axios.get(apiUrl + `/customer/order/${id}`,{
         headers: {
-            "content-type": "multipart/form-data",
-                Authorization: `Bearer ${token}`
+                access_token: token
         }
     })
     return response.data
