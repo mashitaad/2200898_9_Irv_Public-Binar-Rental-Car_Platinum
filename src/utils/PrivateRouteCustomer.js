@@ -5,7 +5,6 @@ import { TokenValidation } from './tokenValidation';
 
 const PrivateRoutesCustomer = () => {
     const auth = TokenValidation();
-    console.log(auth)
     if (auth.customer && auth.token) {
         return <Outlet />;
     } else {
