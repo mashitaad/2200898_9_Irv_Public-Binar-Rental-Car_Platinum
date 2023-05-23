@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { customerGetOrderById, orderSelector } from '../../features/orderSlice'
 import ReminderPaymnet from './component/ReminderPayment'
+import { PaymentConfirm } from './component/PaymentConfirm'
 
 export default function PaymentConfirmPage () {
 
@@ -22,7 +23,9 @@ export default function PaymentConfirmPage () {
 
   return (
     <>
-   <ReminderPaymnet data = {order}/>
+  <PaymentConfirm data = {order} handleClick ={confirmationPayment} >
+    <ReminderPaymnet data = {order}/>
+   </PaymentConfirm >
   </>
   )
 }
