@@ -14,13 +14,11 @@ const CarDetailPage = () => {
   const dispatch = useDispatch();
   const car = useSelector(carSelectors.selectCarById);
   const loading = useSelector(carSelectors.loading)
-  console.log(loading)
-  
+
   useEffect(() => {
     dispatch(getCarById(id));
     
   }, [id]);
-  
   
 
   return (
