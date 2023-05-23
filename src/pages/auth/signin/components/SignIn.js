@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../../../../images/rectangle.png';
+import logo from '../../../../assets/images/rectangle.png';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { NavLink } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 const SignIn = (props) => {
 
   const [form, setForm] = useState({
-    email: "",
+    name: "",
     password: ""
   })
 

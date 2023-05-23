@@ -3,7 +3,7 @@ import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import Styles from "./styles/carlist.css";
 import { Link } from "react-router-dom";
 import ImageWithLoading from "../../../../components/ui/ImageWithLoading";
-import nullImage from '../../../../assets/img/imagenotfound.jpeg'
+import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 
 export default function CarList(props) {
 
@@ -62,7 +62,7 @@ export default function CarList(props) {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est natus repellendus inventore, similique necessitatibus cumque architecto a nesciunt vitae! Minus.
                 </Card.Text>
                 <Link 
-                // to={`${o.id}`}
+                to={`${o.id}`}
                 >
                   <div className="d-grid gap-2">
                     <Button variant="flat">
