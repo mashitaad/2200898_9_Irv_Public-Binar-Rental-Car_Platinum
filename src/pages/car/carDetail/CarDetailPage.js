@@ -7,6 +7,7 @@ import { carSelectors, getCarById } from '../../../features/carSlice';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import Banner from '../../home/components/Banner';
 import NavbarLayout from '../../../components/layouts/Navbar';
+import FormCalendar from './components/FormCalendar';
 
 const CarDetailPage = () => {
   const { id } = useParams();
@@ -19,6 +20,11 @@ const CarDetailPage = () => {
     dispatch(getCarById(id));
     
   }, [id]);
+
+
+  const calendarHandle = (payload) => {
+    console.log(payload)
+  }
   
 
   return (
@@ -29,7 +35,10 @@ const CarDetailPage = () => {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <>{car !== undefined && <CarDetail car={car} />}</>
+        <>{car !== undefined && 
+        <CarDetail car={car} > 
+          <FormCalendar onSubmit = {calendarHandle}/>
+        </CarDetail>}</>
       )} 
     </>
   )

@@ -1,29 +1,10 @@
-import React, { useEffect, useState } from "react";
 import ImageWithLoading from "../../../../components/ui/ImageWithLoading";
 import { BsFillPeopleFill } from 'react-icons/bs'
 import Accordion from "react-bootstrap/Accordion";
 import "../styles/cardetail.css";
-import LoadingSpiner from "../../../../components/ui/LoadingSpinner";
 import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 
 export default function CarDetail(props) {
-    // const [loading, setLoading] = useState(true);
-
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setLoading(false);
-    //     }, 2000);
-
-    //     return () => clearTimeout(timer);
-    // }, []);
-
-    // if (loading) {
-    //     return (
-    //         <LoadingSpiner />
-    //     );
-    // }
-
-console.log(props.car)
 
     const formatter = new Intl.NumberFormat("id-ID", {
         style: 'currency',
