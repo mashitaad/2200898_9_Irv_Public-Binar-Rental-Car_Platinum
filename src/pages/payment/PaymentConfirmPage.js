@@ -16,6 +16,7 @@ export default function PaymentConfirmPage () {
   }, [])
 
   const confirmPayment = (payload) => {
+    // TODO fecth api here
     console.log(payload)
   }
 
