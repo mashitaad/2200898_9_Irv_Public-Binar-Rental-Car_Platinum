@@ -8,6 +8,7 @@ import AboutServices from './components/AboutServices'
 import Banner from './components/Banner'
 import Navbar from '../../components/layouts/Navbar'
 import {testimonialStatic, benefitStatic, faqEntries} from '../../internal/const/static'
+import Footer from '../../components/layouts/Footer'
 
 export default function HomePage() {
   const linkOurService = useRef(null);
@@ -36,6 +37,7 @@ export default function HomePage() {
       <Testimonial {...props}/>
       <Cta {...props}/>
       <Faq {...props}/>
+      <Footer {...props}/>
       </>
     </div>
   )

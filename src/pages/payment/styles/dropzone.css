@@ -1,0 +1,19 @@
+.dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .dropzone.active {
+    border: 2px dashed #007bff;
+  }
+  
+  .dropzone.accept {
+    border: 2px dashed #00e676;
+  }
+  
+  .dropzone.reject {
+    border: 2px dashed #ff1744;
+  }
