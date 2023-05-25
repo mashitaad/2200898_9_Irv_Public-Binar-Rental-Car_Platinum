@@ -7,7 +7,7 @@ import 'moment/locale/id';
 moment.locale('id')
 
 
-export default function NotPaidPaymentStatus(props) {
+export default function CompletedPaymentStatus(props) {
 
   const formatter = new Intl.NumberFormat("id-ID", {
     style: 'currency',
@@ -15,7 +15,7 @@ export default function NotPaidPaymentStatus(props) {
     minimumFractionDigits: 0
   });
 
-  const filteredOrder = props.data?.orders?.filter(o => !o.status && !o.slip);
+  const filteredOrder = props.data?.orders?.filter(o => o.status&& o.slip );
 
 
   return (
@@ -62,8 +62,6 @@ export default function NotPaidPaymentStatus(props) {
             
             <div className='payment-option-button'>
                 <>
-                  <Button variant="primary">Bayar Sekarang</Button>
-                  <Button variant="primary">Batalkan Pesanan</Button>
                   <Button variant="primary">Lihat Detail</Button>
                 </>
             </div>

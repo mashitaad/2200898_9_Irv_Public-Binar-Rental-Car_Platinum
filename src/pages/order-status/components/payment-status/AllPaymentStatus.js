@@ -50,6 +50,7 @@ export default function AllPaymentStatus(props) {
                   <h5>Nama/Type Mobil {o.car?.name} </h5>
                   <h5>tanggal Sewa {moment(o.car?.start_rent_at).format('DD MMMM YYYY')}</h5>
                   <h5>tanggal berakhir sewa {moment(o.car?.finish_rent_at).format('DD MMMM YYYY')}</h5>
+                  <p>No pesanan: {o.id}</p>
                 </div>
               </div>
               <div className='col-md-3'>

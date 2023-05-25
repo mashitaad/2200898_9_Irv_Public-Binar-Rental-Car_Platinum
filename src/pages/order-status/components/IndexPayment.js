@@ -5,6 +5,7 @@ import { customerGetAllOrder, orderSelector } from "../../../features/orderSlice
 import AllPaymentStatus from "./payment-status/AllPaymentStatus";
 import NotPaidPaymentStatus from "./payment-status/NotPaidPaymentStatus";
 import ProccesPaymentStatus from "./payment-status/ProccesPaymentStatus";
+import CompletedPaymentStatus from "./payment-status/CompletedPaymentStatus";
 
 export default function IndexPayment() {
 const dispatch = useDispatch()
@@ -36,7 +37,7 @@ const data = useSelector(orderSelector.selectCustomerAllOrders)
             <ProccesPaymentStatus data = {data} />
             </Tab>
             <Tab eventKey="payment-finish" title="Selesai">
-            <h1>content</h1>
+            <CompletedPaymentStatus data = {data} />
             </Tab>
           </Tabs>
         </div>
