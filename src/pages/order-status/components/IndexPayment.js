@@ -6,11 +6,13 @@ import AllPaymentStatus from "./payment-status/AllPaymentStatus";
 
 export default function IndexPayment() {
 const dispatch = useDispatch()
-const data = useSelector(orderSelector.selectCustomerAllOrders)
 
 useEffect(() => {
     dispatch(customerGetAllOrder())
 }, [])
+
+const data = useSelector(orderSelector.selectCustomerAllOrders)
+
 
   return (
     <>

@@ -1,6 +1,7 @@
 .card-status-payment {
     height: auto !important;
     grid-gap: 0 !important;
+    margin-top: 7px !important;
     }
     
     .card img.card-img-payment {
@@ -23,3 +24,4 @@
         justify-content: end;
         gap: 15px;
     }
+

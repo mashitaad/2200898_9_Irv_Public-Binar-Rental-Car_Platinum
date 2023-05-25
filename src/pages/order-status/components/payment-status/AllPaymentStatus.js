@@ -1,6 +1,7 @@
 import { Button, Card } from 'react-bootstrap'
-import exampleImg from '../../../../assets/person/person1.png'
+import ImageWithLoading from '../../../../components/ui/ImageWithLoading'
 import moment from 'moment';
+import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 import '../../styles/cardpayment.css'
 import 'moment/locale/id';
 moment.locale('id')
@@ -26,8 +27,25 @@ export default function AllPaymentStatus(props) {
           </Card.Header><Card.Body>
             <div className='row'>
               <div className='col-md-9 card-content-payment'>
-                <img className='card-img-payment' src={exampleImg} alt='Example' />
-
+                {/* <img className='card-img-payment' src={exampleImg} alt='Example' /> */}
+                {o.image === null || o.image === undefined ?
+                (
+                  <div>
+                    <ImageWithLoading
+                      src={nullImage}
+                      alt={'null'}
+                    />
+                  </div>
+                ) :
+                (
+                  <div>
+                    <ImageWithLoading
+                      src={o.image}
+                      alt={o.name}
+                    />
+                  </div>
+                )
+              }
                 <div>
                   <h5>Nama/Type Mobil {o.car?.name} </h5>
                   <h5>tanggal Sewa {moment(o.car?.start_rent_at).format('DD MMMM YYYY')}</h5>
@@ -56,7 +74,10 @@ export default function AllPaymentStatus(props) {
               }
               {
                 o.status && o.slip &&
+                <>
                 <Button variant="primary">Lihat Detail</Button>
+                <Button variant="primary">Sewa Lagi</Button>
+                </>
               }
             </div>
 
