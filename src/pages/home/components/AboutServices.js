@@ -8,7 +8,7 @@ const AboutServices = ({linkOurService}) => {
     <div className="cust-container" id="aboutServices" >
         <img src={imgWoman} style={{width: 'clamp(252px, 70%, 459px)'}} alt=''/>
         <div className="about-services" >
-            <h3 ref={linkOurService} style={{margin: '0 0 0 0.5rem'} }>
+            <h3 className='sect-title' ref={linkOurService} style={{margin: '0'} }>
                 Best Car Rental for any kind of trip in Tomioka!
             </h3>
             <p style={{margin: '1rem 0'}}>
