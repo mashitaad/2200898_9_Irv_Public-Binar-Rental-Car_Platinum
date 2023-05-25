@@ -3,6 +3,7 @@ import { Tab, Tabs } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { customerGetAllOrder, orderSelector } from "../../../features/orderSlice";
 import AllPaymentStatus from "./payment-status/AllPaymentStatus";
+import NotPaidPaymentStatus from "./payment-status/NotPaidPaymentStatus";
 
 export default function IndexPayment() {
 const dispatch = useDispatch()
@@ -28,7 +29,7 @@ const data = useSelector(orderSelector.selectCustomerAllOrders)
              <AllPaymentStatus data = {data} />
               </Tab>
             <Tab eventKey="payment-pending" title="Belum Bayar">
-            <h1>content</h1>
+            <NotPaidPaymentStatus data = {data} />
             </Tab>
             <Tab eventKey="payemnt-onprocces" title="Sedang Diproses">
             <h1>content</h1>
