@@ -2,16 +2,15 @@ import React, { useEffect } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { customerGetAllOrder, orderSelector } from "../../../features/orderSlice";
+import AllPaymentStatus from "./payment-status/AllPaymentStatus";
 
-export default function IndexPayment(props) {
+export default function IndexPayment() {
 const dispatch = useDispatch()
 const data = useSelector(orderSelector.selectCustomerAllOrders)
 
 useEffect(() => {
     dispatch(customerGetAllOrder())
 }, [])
-
-console.log(data)
 
   return (
     <>
@@ -24,7 +23,7 @@ console.log(data)
             justify
           >
             <Tab eventKey="payment-all" title="Semua">
-             <h1>content</h1>
+             <AllPaymentStatus data = {data} />
               </Tab>
             <Tab eventKey="payment-pending" title="Belum Bayar">
             <h1>content</h1>
