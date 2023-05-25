@@ -30,6 +30,8 @@
 .accordion-detail .accordion-header button {
     font-weight:500;
     padding: 0px;
+    background-color: aqua;
+    width: 80px;
 }
 
 .accordion-detail .accordion-item {
