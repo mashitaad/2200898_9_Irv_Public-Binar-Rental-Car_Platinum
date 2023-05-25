@@ -18,7 +18,7 @@ function IndexRoutes() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/car/list" element={<CarListPage />} />
         <Route path="/car/list/:id" element={<CarDetailPage />} />
-     
+       
         <Route element={<PrivateRoutesCustomer />}>
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/payment/confirm/order/:id" element={<PaymentConfirmationPage />} />
