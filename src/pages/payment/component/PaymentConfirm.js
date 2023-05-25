@@ -3,6 +3,7 @@ import '../styles/paymentconfirm.css'
 import '../styles/dropzone.css'
 import { Button, Col, Row } from 'react-bootstrap'
 import { useDropzone } from 'react-dropzone'
+import PaymentInstruction from './PaymentInstruction'
 
 export const PaymentConfirm = (props) => {
     const [previewImage, setPreviewImage] = useState(null);
@@ -169,9 +170,10 @@ export const PaymentConfirm = (props) => {
 
                             </div>
                         </div>
+                        {/* PaymentInstruction */}
                         <div className='payment-section'>
                             <div className='payment-info'>
-                                <h5>intruksi pemabayaran</h5>
+                                <PaymentInstruction />
                             </div>
                         </div>
                     </div>
