@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tab, Tabs } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { customerGetAllOrder, orderSelector } from "../../../features/orderSlice";
 
 export default function IndexPayment(props) {
+const dispatch = useDispatch()
+const data = useSelector(orderSelector.selectCustomerAllOrders)
 
+useEffect(() => {
+    dispatch(customerGetAllOrder())
+}, [])
+
+console.log(data)
 
   return (
     <>
