@@ -9,16 +9,19 @@ const SignUpPage = () => {
 
   const registerCustomer = async (payload) => {
     try {
+
+   
+
       const url = 'https://bootcamp-rent-cars.herokuapp.com/customer/auth/register';
-      
-  
+
+
       const response = await axios.post(url, payload);
       console.log(response.data); // You can handle the response data here
       navigate('/signin')
-  
+
       // Additional logic after successful registration
     } catch (error) {
-      console.error(error);
+      console.log(error.message)
       // Handle error appropriately
     }
   };
@@ -26,14 +29,14 @@ const SignUpPage = () => {
   const handleSignUp = (payload) => {
     console.log(payload)
     registerCustomer(payload)
-  // todo fecth api auth
-  // /customer/auth/register
-  // if success page login
+    // todo fecth api auth
+    // /customer/auth/register
+    // if success page login
   }
 
 
   return (
-   <SignUp onSubmit = {handleSignUp}/>
+    <SignUp onSubmit={handleSignUp} />
   )
 }
 
