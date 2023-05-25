@@ -109,7 +109,7 @@ const SignUp = (props) => {
                                 })} placeholder="6+ karakter" />
                             </Form.Group>
 
-                            <Button variant="primary" className='col-lg-9 mt-3' nChange={e => setForm({
+                            <Button variant="primary" className='col-lg-9 mt-3' onChange={e => setForm({
                                     ...form, ...{ password: e.target.value }
                                 })} style={{ background: "rgb(13,40,166)" }} type="submit">
                                 SignUp
