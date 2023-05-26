@@ -7,7 +7,7 @@ import WhyUs from './components/WhyUs'
 import AboutServices from './components/AboutServices'
 import Banner from './components/Banner'
 import Navbar from '../../components/layouts/Navbar'
-import {testimonialStatic} from '../../internal/const/static'
+import {testimonialStatic, benefitStatic, faqEntries} from '../../internal/const/static'
 import Footer from '../../components/layouts/Footer'
 
 export default function HomePage() {
@@ -19,6 +19,8 @@ export default function HomePage() {
 
   const props = {
     testimonialStatic,
+    benefitStatic,
+    faqEntries,
     linkOurService,
     linkWhyUs,
     linkTestimonial,

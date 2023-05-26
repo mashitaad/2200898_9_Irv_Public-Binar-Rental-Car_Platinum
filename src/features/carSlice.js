@@ -22,6 +22,7 @@ const carSlice = createSlice({
     initialState: {
         data: {},
         loading: true,
+        
     },
     reducers: {},
     extraReducers: (builder) => {

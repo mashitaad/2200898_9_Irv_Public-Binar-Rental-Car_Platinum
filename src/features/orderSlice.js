@@ -15,6 +15,22 @@ export const customerGetOrderById = createAsyncThunk("customer/order/id", async 
 
 
 
+export const customerGetAllOrder = createAsyncThunk('order/customer/getAllOrder', async (params = {}) => {
+    const token = localStorage.getItem('token')
+    const apiUrl = config.apiBaseUrl
+    try {
+        const response = await axios.get(apiUrl + "/customer/v2/order", {
+            params,
+            headers: {
+                access_token: token
+            }
+        });
+        return response.data
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 const orderSlice = createSlice({
     name: 'order',
     initialState: {
@@ -30,10 +46,14 @@ const orderSlice = createSlice({
             .addCase(customerGetOrderById.fulfilled, (state, action) => {
                 state.data = action.payload
             })
+            .addCase(customerGetAllOrder.fulfilled, (state, action) => {
+                state.data = action.payload
+            })
     }
 })
 export const orderSelector = {
-    selectCustomerOrdeyById: (state) => state.order.data 
+    selectCustomerOrdeyById: (state) => state.order.data,
+    selectCustomerAllOrders: (state) => state.order.data,
 
 }
 
