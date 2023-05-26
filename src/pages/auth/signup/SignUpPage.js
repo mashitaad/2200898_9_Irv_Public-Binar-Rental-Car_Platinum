@@ -1,17 +1,19 @@
 import React from 'react'
 import SignUp from './components/SignUp';
 import axios from 'axios';
+import config from '../../../config';
 import { useNavigate } from 'react-router';
 
 const SignUpPage = () => {
 
   const navigate = useNavigate()
 
+  const baseUrl = config.apiBaseUrl
+
   const registerCustomer = async (payload) => {
     try {
-      const url = 'https://bootcamp-rent-cars.herokuapp.com/customer/auth/register';
+      const response = await axios.post(baseUrl + '/customer/auth/register', payload);
 
-      const response = await axios.post(url, payload);
       console.log(response.data); // You can handle the response data here
       navigate('/signin')
       // Additional logic after successful registration
@@ -24,12 +26,7 @@ const SignUpPage = () => {
   // registerCustomer();
 
   const handleSignUp = (payload) => {
-  // todo fecth api auth
-  // /customer/auth/register
-
-    registerCustomer(payload);
-    console.log(payload)
-
+    registerCustomer(payload)
   }
 
 
