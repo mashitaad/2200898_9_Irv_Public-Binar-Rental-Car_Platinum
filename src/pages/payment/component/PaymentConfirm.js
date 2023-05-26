@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Button, Col, Modal, Row, Form } from 'react-bootstrap';
+import { Button, Col, Modal, Row, Form, Nav, Tabs, Tab } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
 import PaymentInstruction from './PaymentInstruction';
 import { useNavigate } from 'react-router-dom';
 import '../styles/paymentconfirm.css'
 import '../styles/dropzone.css'
-
-import { Button, Col, Row, Nav, Tab, Tabs } from 'react-bootstrap'
-import { useDropzone } from 'react-dropzone'
 
 export const PaymentConfirm = (props) => {
     const navigate = useNavigate();
@@ -15,11 +12,9 @@ export const PaymentConfirm = (props) => {
     const [previewImage, setPreviewImage] = useState(null);
     const [image, setImage] = useState(null);
     const [inputValue, setInputValue] = useState(0);
-
-    const [inputBankType, setInputBankType] = useState('')
-    const [inputNoRek, setInputNoRek] = useState('')
-    const [inputTitleBank, setInputTitleBank] = useState('')
-    const [changeColor, setChangeColor]=useState(false)
+    const [inputBankType, setInputBankType] = useState('');
+    const [inputNoRek, setInputNoRek] = useState('');
+    const [inputTitleBank, setInputTitleBank] = useState('');
 
     const handleChange = (event) => {
         const newValue = event.target.value;
@@ -121,7 +116,6 @@ export const PaymentConfirm = (props) => {
         dropzoneStyleDynamic = { ...dropzoneStyleDynamic, ...rejectStyle };
     }
 
-
     const [tabKey, initTabKey] = useState(
         'atmbca',
         'mbca',
@@ -129,7 +123,6 @@ export const PaymentConfirm = (props) => {
         'internetbanking'
     )
 
-    return (
 
 
     const [bcaTransfer, setBCATransfer] = useState(false);
@@ -216,16 +209,7 @@ export const PaymentConfirm = (props) => {
                                 </div>
                                 <div className="payment-section">
                                     <div className="payment-info">
-                                        <PaymentInstruction />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='payment-section'>
-                            <div className='payment-info'>
-                                <h5 >Intruksi Pembayaran</h5>
-                                <Nav className='payment-option d-flex gap-5 '>
+                                    <Nav className='payment-option d-flex gap-5 '>
                                     <Tabs activeKey={tabKey} onSelect={(e) => initTabKey(e)} >
                                         <Tab eventKey="atmbca" title="ATM BCA" >
                                             <div className='payment-detail '>
@@ -273,7 +257,37 @@ export const PaymentConfirm = (props) => {
                                         </Tab>
                                     </Tabs>
                                 </Nav>
-
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="right-content-payment">
+                            <p>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
+                            <div>
+                                <section className="container">
+                                    <div {...getRootProps({ className: 'dropzone', style: dropzoneStyleDynamic })}>
+                                        <input {...getInputProps()} accept="image/*" />
+                                        {previewImage ? (
+                                            <img src={previewImage} alt="Preview" style={{ maxHeight: '200px' }} />
+                                        ) : (
+                                            <p>Drag 'n' drop some files here, or click to select files</p>
+                                        )}
+                                    </div>
+                                    <aside>
+                                        {acceptedFiles.map((file) => (
+                                            <li key={file.path}>
+                                                {file.path} - {file.size} bytes
+                                            </li>
+                                        ))}
+                                    </aside>
+                                </section>
+                            </div>
+                            <div className="d-grid gap-2">
+                                <Button variant="flat" onClick={handleClickConfirmation}>
+                                    konfirmasi pembayaran
+                                </Button>
                             </div>
                         </div>
                     </div>
