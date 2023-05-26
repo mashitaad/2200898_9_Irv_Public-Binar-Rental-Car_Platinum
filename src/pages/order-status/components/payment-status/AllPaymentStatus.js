@@ -16,10 +16,27 @@ export default function AllPaymentStatus(props) {
     minimumFractionDigits: 0
   });
 
+  const newDataOrders = props.data?.orders?.map(orderItem => {
+    const carItem = props.cars?.cars?.find(carItem => carItem.id === orderItem.CarId);
+    return {
+      id: orderItem.id,
+      total_price: orderItem.total_price,
+      start_rent_at: orderItem.start_rent_at,
+      finish_rent_at: orderItem.finish_rent_at,
+      status: orderItem.status,
+      slip: orderItem.slip,
+      UserId: orderItem.UserId,
+      CarId: orderItem.CarId,
+      carName: carItem ? carItem.name : 'unknown',
+      carImage: carItem ? carItem.image : 'unknown',
+      createdAt: orderItem.createdAt,
+      updatedAt: orderItem.updatedAt
+    };
+  });
 
   return (
     <>
-      {props.data?.orders?.map(o => (
+      {newDataOrders?.map(o => (
         <Card className='card-status-payment' key={o.id}>
           <Card.Header>
             {!o.status && !o.slip ? "BELUM BAYAR" :
@@ -28,8 +45,7 @@ export default function AllPaymentStatus(props) {
           </Card.Header><Card.Body>
             <div className='row'>
               <div className='col-md-9 card-content-payment'>
-                {/* <img className='card-img-payment' src={exampleImg} alt='Example' /> */}
-                {o.image === null || o.image === undefined ?
+                {o.carImage === null || o.carImage === undefined ?
                 (
                   <div>
                     <ImageWithLoading
@@ -41,16 +57,16 @@ export default function AllPaymentStatus(props) {
                 (
                   <div>
                     <ImageWithLoading
-                      src={o.image}
-                      alt={o.name}
+                      src={o.carImage}
+                      alt={o.CarName}
                     />
                   </div>
                 )
               }
                 <div>
-                  <h5>Nama/Type Mobil {o.car?.name} </h5>
-                  <h5>tanggal Sewa {moment(o.car?.start_rent_at).format('DD MMMM YYYY')}</h5>
-                  <h5>tanggal berakhir sewa {moment(o.car?.finish_rent_at).format('DD MMMM YYYY')}</h5>
+                  <h5>Nama/Type Mobil {o?.carName} </h5>
+                  <h5>tanggal Sewa {moment(o?.start_rent_at).format('DD MMMM YYYY')}</h5>
+                  <h5>tanggal berakhir sewa {moment(o?.finish_rent_at).format('DD MMMM YYYY')}</h5>
                   <p>No pesanan: {o.id}</p>
                 </div>
               </div>
