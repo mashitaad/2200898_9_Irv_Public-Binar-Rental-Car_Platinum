@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Accordion, Button, Col, Row } from "react-bootstrap";
 import '../styles/payment.css'
+import FiUser from "../../../assets/icons/fi_users.svg"
 
 
 
@@ -107,26 +108,36 @@ export default function Payment(props) {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-5 mt-5 detail-payment">
+                <div className="col-md-5 mt-5 pt-3 detail-payment">
                     <Row>
                         <div className="car-name-payment">
-                            <p>{props.data.name}</p>
+                            <p className="fw-bold">{props.data.name}</p>
+                            <div className="d-flex">
+                            <img src={FiUser} className="pe-2" style={{  marginTop: "-9px" }}></img>
+                            <p>{props.data.category}</p>
+                           
+                            </div>
                         </div>
 
                     </Row>
                     <Row>
-                        <Accordion className="accordion-detail" defaultActiveKey="1">
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header >
+                        <Accordion className="accordion-detail " defaultActiveKey="1">
+                            <Accordion.Item eventKey="0" >
+                                <div className="d-flex justify-content-between fw-bold">
+                                <Accordion.Header className=""  >
                                     Total
                                 </Accordion.Header>
+                                {formatter.format(props.data.price * dayDifference)}
+                                </div>
                                 <Accordion.Body>
                                     <h5>Harga</h5>
                                     <ul>
                                         <li>
-                                            <Row>
+                                            <Row >
+                                              
                                                 <Col>Sewa Mobil {formatter.format(props.data.price)}  x {dayDifference} hari </Col>
-                                                <Col>{formatter.format(props.data.price * dayDifference)}</Col>
+                                                <Col className="d-flex justify-content-end">{formatter.format(props.data.price * dayDifference)}</Col>
+                                                
                                             </Row></li>
                                     </ul>
                                     <h5>Biaya Lainya</h5>
@@ -134,11 +145,11 @@ export default function Payment(props) {
                                         <li>
                                             <Row>
                                                 <Col>Pajak </Col>
-                                                <Col>Termasuk</Col>
+                                                <Col className="d-flex justify-content-end">Termasuk</Col>
                                             </Row></li><li>
                                             <Row>
                                                 <Col>Biaya Makan Sopir </Col>
-                                                <Col>Termasuk</Col>
+                                                <Col className="d-flex justify-content-end">Termasuk</Col>
                                             </Row></li>
                                     </ul>
                                     <h5>Belum Termasuk</h5>
@@ -153,9 +164,9 @@ export default function Payment(props) {
                     </Row>
                     <Row>
                         <div className="total-payment">
-                            <Row>
+                            <Row className="fw-bold mb-3">
                                 <Col>Total</Col>
-                                <Col>{formatter.format(props.data.price * dayDifference)}</Col>
+                                <Col className="d-flex justify-content-end">{formatter.format(props.data.price * dayDifference)}</Col>
                             </Row>
                         </div>
 

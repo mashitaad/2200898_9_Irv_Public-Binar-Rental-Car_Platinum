@@ -16,6 +16,7 @@
   .banner-subtitle {
     max-width: 468px;
     font-size: 0.875rem;
+    max-width: 550px;
     line-height: 150%;
     padding: 1rem 0;
   }
