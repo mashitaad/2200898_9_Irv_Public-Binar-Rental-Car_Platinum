@@ -27,7 +27,7 @@ const SignUp = (props) => {
 
   const validate = (values) => {
     const errors = {};
-    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+    const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/i;
 
     if (!values.email) {
       errors.email = " Email is required";

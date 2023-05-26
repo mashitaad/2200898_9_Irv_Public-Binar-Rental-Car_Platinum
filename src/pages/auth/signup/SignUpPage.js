@@ -1,8 +1,8 @@
 import React from 'react'
 import SignUp from './components/SignUp';
-import { useNavigate } from 'react-router';
 import axios from 'axios';
 import config from '../../../config';
+import { useNavigate } from 'react-router';
 
 const SignUpPage = () => {
 
@@ -16,13 +16,14 @@ const SignUpPage = () => {
 
       console.log(response.data); // You can handle the response data here
       navigate('/signin')
-
       // Additional logic after successful registration
     } catch (error) {
-      console.log(error.message)
+      console.log(error.response.data);
       // Handle error appropriately
     }
   };
+
+  // registerCustomer();
 
   const handleSignUp = (payload) => {
     registerCustomer(payload)

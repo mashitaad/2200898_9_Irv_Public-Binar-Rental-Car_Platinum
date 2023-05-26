@@ -4,6 +4,7 @@ import moment from 'moment';
 import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 import '../../styles/cardpayment.css'
 import 'moment/locale/id';
+import { Link } from 'react-router-dom';
 moment.locale('id')
 
 
@@ -64,7 +65,9 @@ export default function AllPaymentStatus(props) {
                 <>
                   <Button variant="primary">Bayar Sekarang</Button>
                   <Button variant="primary">Batalkan Pesanan</Button>
+                  <Link to={`/payment/confirm/order/${o.id}`}>
                   <Button variant="primary">Lihat Detail</Button>
+                  </Link>
                 </>
               }
               {
