@@ -6,15 +6,18 @@ import AllPaymentStatus from "./payment-status/AllPaymentStatus";
 import NotPaidPaymentStatus from "./payment-status/NotPaidPaymentStatus";
 import ProccesPaymentStatus from "./payment-status/ProccesPaymentStatus";
 import CompletedPaymentStatus from "./payment-status/CompletedPaymentStatus";
+import { carSelectors, getAllCars } from "../../../features/carSlice";
 
 export default function IndexPayment() {
 const dispatch = useDispatch()
 
 useEffect(() => {
     dispatch(customerGetAllOrder())
+    dispatch(getAllCars())
 }, [])
 
 const data = useSelector(orderSelector.selectCustomerAllOrders)
+const cars = useSelector(carSelectors.selectAllCars)
 
 
   return (
@@ -28,16 +31,16 @@ const data = useSelector(orderSelector.selectCustomerAllOrders)
             justify
           >
             <Tab eventKey="payment-all" title="Semua">
-             <AllPaymentStatus data = {data} />
+             <AllPaymentStatus data = {data} cars ={ cars} />
               </Tab>
             <Tab eventKey="payment-pending" title="Belum Bayar">
-            <NotPaidPaymentStatus data = {data} />
+            <NotPaidPaymentStatus data = {data} cars ={ cars}/>
             </Tab>
             <Tab eventKey="payemnt-onprocces" title="Sedang Diproses">
-            <ProccesPaymentStatus data = {data} />
+            <ProccesPaymentStatus data = {data} cars ={ cars}/>
             </Tab>
             <Tab eventKey="payment-finish" title="Selesai">
-            <CompletedPaymentStatus data = {data} />
+            <CompletedPaymentStatus data = {data} cars ={ cars}/>
             </Tab>
           </Tabs>
         </div>
