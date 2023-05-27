@@ -7,6 +7,7 @@ import config from "../../config";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderPayment from "./component/HeaderPayment";
+import NavbarLayout from "../../components/layouts/Navbar";
 
 export const PaymentPage = () => {
   const [disabledButton, setDisableButton] = useState(true);
@@ -15,6 +16,11 @@ export const PaymentPage = () => {
   const navigate = useNavigate();
   const orderDetailData = localStorage.getItem("order_detail");
   const orderDetailDataJson = JSON.parse(orderDetailData);
+
+  const navigateBack = () => {
+    navigate(-1);
+  };
+
   const bankType = (payload) => {
     let orderData = {
       user_email: user.email,
@@ -25,7 +31,6 @@ export const PaymentPage = () => {
       totalPrice: payload.totalPrice,
     };
     setDisableButton(payload.BankType ? false : true);
-
     localStorage.setItem("order_data", JSON.stringify(orderData));
   };
 
@@ -60,7 +65,8 @@ export const PaymentPage = () => {
 
   return (
     <>
-      <HeaderPayment />
+      <NavbarLayout />
+      <HeaderPayment navigateBack={navigateBack} padingBottom={true} />
       <OrderDetail data={orderDetailDataJson} />
       <Payment data={orderDetailDataJson} handleClick={bankType}>
         <div className="d-grid gap-2">
