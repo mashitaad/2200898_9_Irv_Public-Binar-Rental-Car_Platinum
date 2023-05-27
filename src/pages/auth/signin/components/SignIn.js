@@ -15,9 +15,21 @@ const SignIn = (props) => {
   return (
     <>
       <div className='container'>
-        <section className='d-flex justify-content-center'>
-          <div className="left_data" style={{ width: "45%", display: "flex", justifyContent: "center", flexDirection: "column", paddingLeft: "2vh" }}>
-            <img src={logo} style={{ width: "15%" }} className="signup-logo" alt="logo" />
+        <section className='d-flex'>
+          <div className="left_data" 
+          style={{ 
+            flex: "0 0 50%",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            paddingLeft: "16vh",
+          }}>
+            <img
+              src={logo}
+              style={{ width: "15%" }}
+              className="signup-logo"
+              alt="logo"
+            />
             <h3 className='text-start mt-4 col-lg-6'>Welcome Back!</h3>
 
             <Form onSubmit={(e => {
@@ -51,11 +63,45 @@ const SignIn = (props) => {
               </Button>
             </Form>
             <p className='mt-3'>Don't have an account? <span>
-              <NavLink to="/signup">Sign Up for free</NavLink>
+              <NavLink to="/signup"> Sign Up for free</NavLink>
             </span></p>
           </div>
-          <div className="right_data" style={{ width: "45%" }}>
-            <img src="./sign_img.png" style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="" />
+          <div
+            className="right_data"
+            style={{
+              flex: "0 0 100%",
+              backgroundColor: "#0D28A6",
+              height: "100vh",
+              position: "relative",
+            }}
+          >
+            <p
+              style={{
+                position: "absolute",
+                width: "429px",
+                height: "72px",
+                left: "115px",
+                top: "90px",
+                fontFamily: "Rubik",
+                fontStyle: "normal",
+                fontWeight: 500,
+                fontSize: "48px",
+                lineHeight: "150%",
+                color: "#D9D9D9",
+              }}
+            >
+              Binar rental car
+            </p>
+            <img
+              src="./sign_img.png"
+              alt=""
+              style={{
+                position: "absolute",
+                left: "115px",
+                top: "200px",
+                maxHeight: "calc(100vh - 200px)",
+              }}
+            />
           </div>
         </section>
       </div>
