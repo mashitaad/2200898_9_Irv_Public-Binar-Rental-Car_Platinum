@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Button, Col, Modal, Row, Form } from 'react-bootstrap';
+import { Button, Col, Modal, Row, Form, Nav, Tabs, Tab } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
 import PaymentInstruction from './PaymentInstruction';
 import { useNavigate } from 'react-router-dom';
@@ -116,6 +116,9 @@ export const PaymentConfirm = (props) => {
         dropzoneStyleDynamic = { ...dropzoneStyleDynamic, ...rejectStyle };
     }
 
+   
+
+
 
     const [bcaTransfer, setBCATransfer] = useState(false);
     const [bniTransfer, setBNITransfer] = useState(false);
@@ -201,7 +204,7 @@ export const PaymentConfirm = (props) => {
                                 </div>
                                 <div className="payment-section">
                                     <div className="payment-info">
-                                        <PaymentInstruction />
+                                        <PaymentInstruction/>
                                     </div>
                                 </div>
                             </div>

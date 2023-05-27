@@ -7,12 +7,16 @@ import NotPaidPaymentStatus from "./payment-status/NotPaidPaymentStatus";
 import ProccesPaymentStatus from "./payment-status/ProccesPaymentStatus";
 import CompletedPaymentStatus from "./payment-status/CompletedPaymentStatus";
 import { carSelectors, getAllCars } from "../../../features/carSlice";
+import { useCookies } from 'react-cookie';
 
 export default function IndexPayment() {
 const dispatch = useDispatch()
+const [cookies] = useCookies(['token']);
+const params = {}
+
 
 useEffect(() => {
-    dispatch(customerGetAllOrder())
+    dispatch(customerGetAllOrder(params))
     dispatch(getAllCars())
 }, [])
 

@@ -31,9 +31,25 @@
     margin-bottom: 10px;
 }
 
+.payment-section .payment-info h5{
+    color: black;
+    font-weight: 600;
+}
+
+.payment-section .payment-info .payment-option .nav-link{
+    color: black;
+    width: 159px;
+    height: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+
 .right-content-payment {
     border: 3px solid #e5e5e5;
     padding: 40px !important;
     border-radius: 10px;
    
 }
+
