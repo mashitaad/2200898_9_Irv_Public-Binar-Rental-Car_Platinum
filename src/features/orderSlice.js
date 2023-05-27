@@ -2,12 +2,20 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import config from "../config";
 import axios from "axios";
 
+
+
+
 export const customerGetOrderById = createAsyncThunk("customer/order/id", async (id) => {
-    const token = localStorage.getItem('token')
+
+    const token= document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('token='))
+        ?.split('=')[1];
+
     const apiUrl = config.apiBaseUrl
     const response = await axios.get(apiUrl + `/customer/order/${id}`,{
         headers: {
-                access_token: token
+            access_token: token
         }
     })
     return response.data
@@ -16,8 +24,13 @@ export const customerGetOrderById = createAsyncThunk("customer/order/id", async 
 
 
 export const customerGetAllOrder = createAsyncThunk('order/customer/getAllOrder', async (params = {}) => {
-    const token = localStorage.getItem('token')
-    const apiUrl = config.apiBaseUrl
+    const token= document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('token='))
+        ?.split('=')[1];
+
+    const apiUrl = config.apiBaseUrl;
+
     try {
         const response = await axios.get(apiUrl + "/customer/v2/order", {
             params,
@@ -25,11 +38,13 @@ export const customerGetAllOrder = createAsyncThunk('order/customer/getAllOrder'
                 access_token: token
             }
         });
-        return response.data
+        return response.data;
     } catch (error) {
-        console.log(error)
+        console.log(error);
+        throw error;
     }
-})
+});
+
 
 const orderSlice = createSlice({
     name: 'order',
