@@ -1,5 +1,10 @@
-.trans-02{
+  .trans-02{
     transition: .4s ease-in-out;
+  }
+
+  .offCanvas{
+    width: 150px !important;
+    text-decoration: none;
   }
   
   .logo {
@@ -50,18 +55,26 @@
 
   .navlist a {
     color: black;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    padding-top: 24px;
+    margin-right:12px;
   }
 
   .ml-auto{
     margin: 0 0 0 auto;
     padding-right: 20%;
+    margin-right: 0;
   }
 
   .logobrand {
-    padding-left: 16%;
+    padding-left: 90px;
+    padding-right: 260px;
+    padding-top: 32px;
   }
-
-
 
   .nav-ant{
     background-color: #FFFFFF;
