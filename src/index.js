@@ -5,13 +5,17 @@ import IndexRoutes from './routes/index.routes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import store from './store';
 import { Provider } from 'react-redux';
+import { CookiesProvider } from 'react-cookie';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-     <IndexRoutes />
-    </Provider>
+    <CookiesProvider>
+      <Provider store={store}>
+        <IndexRoutes />
+      </Provider>
+    </CookiesProvider>
   </React.StrictMode>
 );
 
