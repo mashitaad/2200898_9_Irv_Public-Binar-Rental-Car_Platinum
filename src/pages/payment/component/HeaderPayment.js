@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/headerpayment.css";
-import rectangle from "../assets/images/rectangle36.png";
+import rectangle from "../../../assets/images/rectangle36.png";
 import { useParams } from "react-router-dom";
 import {
   BsArrowLeftShort,
