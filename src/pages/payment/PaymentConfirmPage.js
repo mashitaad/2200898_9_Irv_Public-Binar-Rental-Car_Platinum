@@ -13,9 +13,14 @@ export default function PaymentConfirmPage() {
   const order = useSelector(orderSelector.selectCustomerOrdeyById);
   const [namaBank, setNamaBank] = useState("");
   const navigate = useNavigate();
+
+
+
   useEffect(() => {
     dispatch(customerGetOrderById(id));
   }, []);
+  
+  
   const confirmPayment = (payload) => {
     // TODO fecth api here
     console.log(payload);
@@ -24,6 +29,9 @@ export default function PaymentConfirmPage() {
   const getOrderData = localStorage.getItem("order_detail");
   const getOrderDataJson = JSON.parse(getOrderData);
   const bankType = getOrderDataJson.bankType;
+  
+  
+  
   useEffect(() => {
     if (bankType === "BCA") {
       setNamaBank("BCA");

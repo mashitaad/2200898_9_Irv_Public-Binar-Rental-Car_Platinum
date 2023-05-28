@@ -8,10 +8,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderPayment from "./component/HeaderPayment";
 import NavbarLayout from "../../components/layouts/Navbar";
+import { useCookies } from 'react-cookie';
 
 export const PaymentPage = () => {
   const [disabledButton, setDisableButton] = useState(true);
-  const token = localStorage.getItem("token");
+  const [cookies] = useCookies(['token']);
+  const token = cookies.token;
+  
   const user = jwtDecode(token);
   const navigate = useNavigate();
   const orderDetailData = localStorage.getItem("order_detail");
@@ -37,7 +40,7 @@ export const PaymentPage = () => {
   const apiUrl = config.apiBaseUrl;
   const addOrder = async (params) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = cookies.token;
       const response = await axios.post(apiUrl + "/customer/order", params, {
         headers: {
           access_token: token,

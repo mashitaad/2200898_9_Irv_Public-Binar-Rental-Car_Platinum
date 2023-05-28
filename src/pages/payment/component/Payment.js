@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Accordion, Button, Col, Row } from "react-bootstrap";
 import "../styles/payment.css";
 
+import FiUser from "../../../assets/icons/fi_users.svg"
+
+
 export default function Payment(props) {
   const { children } = props;
 
@@ -36,6 +39,7 @@ export default function Payment(props) {
       totalPrice: totalPriceRent,
       BankName: "BCA Transfer",
     });
+
   };
 
   const handleBNIClick = (e) => {
@@ -168,6 +172,7 @@ export default function Payment(props) {
                 <Col>Total</Col>
                 <Col>{formatter.format(props.data.price * dayDifference)}</Col>
               </Row>
+
             </div>
           </Row>
           <Row>{children}</Row>
