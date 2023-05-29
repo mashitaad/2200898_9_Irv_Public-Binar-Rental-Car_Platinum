@@ -1,0 +1,12 @@
+.payment-ticket {
+    border: 3px solid #e5e5e5;
+    padding: 40px !important;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+    margin-top: 50px;
+}
+
+.description-title-ticket {
+    margin-top: 100px;
+}

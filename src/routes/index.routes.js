@@ -20,11 +20,11 @@ function IndexRoutes() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/car/list" element={<CarListPage />} />
         <Route path="/car/list/:id" element={<CarDetailPage />} />
-        <Route path="/download" element={<PaymentReceiptPage />} />
        
         <Route element={<PrivateRoutesCustomer />}>
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/payment/confirm/order/:id" element={<PaymentConfirmationPage />} />
+        <Route path="/payment/ticket" element={<PaymentReceiptPage />} />
         <Route path="/order/status" element={<OrderStatusPage />} />
         </Route>
 
