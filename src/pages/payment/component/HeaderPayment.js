@@ -11,11 +11,11 @@ import {
   Bs2CircleFill,
   Bs3CircleFill,
 } from "react-icons/bs";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 
 function HeaderPayment({ navigateBack, set, bankName, padingBottom }) {
-  const location = useLocation();
+
   const { id } = useParams();
   const [style, setStyle] = useState(padingBottom);
   const renderIcons = () => {

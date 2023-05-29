@@ -18,7 +18,7 @@ const SignUp = (props) => {
   const dispatch = useDispatch();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -32,7 +32,7 @@ const SignUp = (props) => {
     }
 
     try {
-      const response = await dispatch(register(form));
+      const response =  dispatch(register(form));
       setIsSubmitting(false);
 
       if (response.error) {

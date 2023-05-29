@@ -8,13 +8,14 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderPayment from "./component/HeaderPayment";
 import NavbarLayout from "../../components/layouts/Navbar";
+import FooterLayout from "../../components/layouts/Footer"
 import { useCookies } from 'react-cookie';
 
 export const PaymentPage = () => {
   const [disabledButton, setDisableButton] = useState(true);
   const [cookies] = useCookies(['token']);
   const token = cookies.token;
-  
+
   const user = jwtDecode(token);
   const navigate = useNavigate();
   const orderDetailData = localStorage.getItem("order_detail");
@@ -82,6 +83,7 @@ export const PaymentPage = () => {
           </Button>
         </div>
       </Payment>
+      <FooterLayout />
     </>
   );
 };

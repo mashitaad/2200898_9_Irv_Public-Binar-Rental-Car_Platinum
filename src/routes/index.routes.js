@@ -9,6 +9,7 @@ import PrivateRoutesCustomer from "../utils/PrivateRouteCustomer";
 import { PaymentPage } from "../pages/payment/PaymentPage";
 import PaymentConfirmationPage from "../pages/payment/PaymentConfirmPage";
 import OrderStatusPage from "../pages/order-status/OrderStatusPage";
+import PaymentReceiptPage from "../pages/payment/PaymentReceiptPage";
 
 function IndexRoutes() {
   return (
@@ -19,6 +20,7 @@ function IndexRoutes() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/car/list" element={<CarListPage />} />
         <Route path="/car/list/:id" element={<CarDetailPage />} />
+        <Route path="/download" element={<PaymentReceiptPage />} />
        
         <Route element={<PrivateRoutesCustomer />}>
         <Route path="/payment" element={<PaymentPage />} />

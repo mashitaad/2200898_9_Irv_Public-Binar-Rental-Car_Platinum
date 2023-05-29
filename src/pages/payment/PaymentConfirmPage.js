@@ -6,7 +6,7 @@ import ReminderPaymnet from "./component/ReminderPayment";
 import { PaymentConfirm } from "./component/PaymentConfirm";
 import HeaderPayment from "./component/HeaderPayment";
 import NavbarLayout from "../../components/layouts/Navbar";
-
+import FooterLayout from "../../components/layouts/Footer"
 export default function PaymentConfirmPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -58,6 +58,7 @@ export default function PaymentConfirmPage() {
       <PaymentConfirm data={order} handleClick={confirmPayment}>
         <ReminderPaymnet data={order} />
       </PaymentConfirm>
+      <FooterLayout />
     </>
   );
 }

@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { Accordion, Button, Col, Row } from "react-bootstrap";
 import "../styles/payment.css";
 
-import FiUser from "../../../assets/icons/fi_users.svg"
 
 
 export default function Payment(props) {
   const { children } = props;
 
-  const [loading, setLoading] = useState(true);
 
   const [bcaTransfer, setBCATransfer] = useState(false);
   const [bniTransfer, setBNITransfer] = useState(false);
