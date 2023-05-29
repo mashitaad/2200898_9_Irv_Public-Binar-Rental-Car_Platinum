@@ -34,6 +34,9 @@ export default function AllPaymentStatus(props) {
     };
   });
 
+
+  console.log(newDataOrders)
+
   return (
     <>
       {newDataOrders?.map(o => (
