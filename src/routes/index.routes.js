@@ -24,7 +24,7 @@ function IndexRoutes() {
         <Route element={<PrivateRoutesCustomer />}>
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/payment/confirm/order/:id" element={<PaymentConfirmationPage />} />
-        <Route path="/payment/ticket" element={<PaymentReceiptPage />} />
+        <Route path="/payment/invoice/:id" element={<PaymentReceiptPage />} />
         <Route path="/order/status" element={<OrderStatusPage />} />
         </Route>
 

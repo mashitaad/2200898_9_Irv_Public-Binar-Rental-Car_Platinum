@@ -1,21 +1,32 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import NavbarLayout from '../../components/layouts/Navbar';
-import HeaderPayment from './component/HeaderPayment';
-import './styles/paymentreceipt.css'
-import "./styles/paymentticket.css"
+import React, { useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from 'react';
+import { customerGetOrderById, orderSelector } from '../../features/orderSlice';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import NavbarLayout from '../../components/layouts/Navbar';
+import HeaderPayment from './component/HeaderPayment';
 import logo from '../../assets/icons/logo.png'
+import moment from 'moment';
+import 'moment/locale/id';
+import './styles/paymentreceipt.css'
+import "./styles/paymentticket.css"
 
 
 export default function PaymentReceiptPage() {
+  const { id } = useParams()
+  const dispatch = useDispatch();
+  const order = useSelector(orderSelector.selectCustomerOrdeyById);
   const navigate = useNavigate();
   const navigateBack = () => {
     navigate(-1);
   };
 
+
+  useEffect(() => {
+    dispatch(customerGetOrderById(id))
+  }, [])
 
   const [loader, setLoader] = useState(false);
 
@@ -32,6 +43,20 @@ export default function PaymentReceiptPage() {
       doc.save('receipt.pdf');
     })
   }
+
+
+  const finishDate = new Date(order?.finish_rent_at);
+  const startDate = new Date(order?.start_rent_at);
+
+  const millisecondsPerDay = 24 * 60 * 60 * 1000;
+  const timeDifference = finishDate.getTime() - startDate.getTime();
+  const dayDifference = Math.round(timeDifference / millisecondsPerDay)
+
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 0,
+  });
 
   return (
     <>
@@ -78,14 +103,6 @@ export default function PaymentReceiptPage() {
                     </a>
                   </p>
                   <p> 081-233-334-808</p>
-                  <p>
-                    <a
-                      href="https://www.youtube.com/@jsSolutions"
-                      target="blank"
-                    >
-                    </a>
-                  </p>
-
                 </div>
 
                 <div className="colored-row first">
@@ -94,7 +111,7 @@ export default function PaymentReceiptPage() {
 
                 <div className="data-row">
                   <span className="font-weight">Email</span>
-                  <span>example@gmail.com</span>
+                  <span>{order?.User?.email}</span>
                 </div>
                 <div className="colored-row first">
                   <span>Order Number</span>
@@ -103,7 +120,7 @@ export default function PaymentReceiptPage() {
 
                 <div className="data-row">
                   <span className="font-weight">number</span>
-                  <span>1233</span>
+                  <span>{order?.id}</span>
                 </div>
 
 
@@ -119,7 +136,7 @@ export default function PaymentReceiptPage() {
                       :
                     </span>
                     {' '}
-                    expander
+                    {order?.Car?.name}
                   </span>
                   <span>
                     <span className="font-weight">
@@ -128,7 +145,7 @@ export default function PaymentReceiptPage() {
                       :
                     </span>
                     {' '}
-                    500.000
+                    {formatter.format(order?.Car?.price)}
                   </span>
                 </div>
 
@@ -140,14 +157,14 @@ export default function PaymentReceiptPage() {
 
                     </span>
                     {' '}
-                    2023-02-12
+                    {moment(order?.start_rent_at).format('DD MMMM YYYY')}
                   </span>
                   <span>
                     <span className="font-weight">
                       finish rent :
                     </span>
                     {' '}
-                    2023-02-14
+                    {moment(order?.finish_rent_at).format('DD MMMM YYYY')}
                   </span>
                 </div>
                 <div className="data-row border-bottom">
@@ -158,13 +175,19 @@ export default function PaymentReceiptPage() {
                       :
                     </span>
                     {' '}
-                    2
+                    {dayDifference}
                   </span>
 
                 </div>
+                <div className="colored-row">
+                  <span>total Price </span>
+                  <span />
+                </div>
                 <div className="data-row border-bottom">
+
                   <span className="font-weight">
-                    Transaction: 1.000.000
+
+                    {formatter.format(order?.total_price)}
                   </span>
                   <span />
                 </div>
