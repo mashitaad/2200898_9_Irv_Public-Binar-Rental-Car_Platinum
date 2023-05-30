@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 const SignIn = (props) => {
 
   const [form, setForm] = useState({
-    name: "",
+    email: "",
     password: ""
   })
 

@@ -26,7 +26,7 @@
     bottom: 0;
     top: 0;
     padding: 20px;
-    height: 40%;
+    height: 100%;
  }
   .ant-sidenav .ant-little-brand {
     width: 100%;
@@ -78,9 +78,9 @@
     padding: 10px;
  }
   .ant-content {
-    background-color: #E5E5E5;
+    background-color: white;
     padding: 7rem 2rem;
-    height: auto;
+    height: 100vh;
  }
   .ant-main-head {
     width: 50%;
@@ -89,3 +89,7 @@
     box-shadow: none;
  }
   
+
+ .nav-customer {
+   justify-content: end;
+ }
