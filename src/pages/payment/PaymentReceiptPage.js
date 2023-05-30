@@ -1,21 +1,20 @@
-import React, { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react';
-import { customerGetOrderById, orderSelector } from '../../features/orderSlice';
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import NavbarLayout from '../../components/layouts/Navbar';
-import HeaderPayment from './component/HeaderPayment';
-import logo from '../../assets/icons/logo.png'
-import moment from 'moment';
-import 'moment/locale/id';
-import './styles/paymentreceipt.css'
-import "./styles/paymentticket.css"
-
+import { useState } from "react";
+import { customerGetOrderById, orderSelector } from "../../features/orderSlice";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import NavbarLayout from "../../components/layouts/Navbar";
+import HeaderPayment from "./component/HeaderPayment";
+import logo from "../../assets/icons/logo.png";
+import moment from "moment";
+import "moment/locale/id";
+import "./styles/paymentreceipt.css";
+import "./styles/paymentticket.css";
 
 export default function PaymentReceiptPage() {
-  const { id } = useParams()
+  const { id } = useParams();
   const dispatch = useDispatch();
   const order = useSelector(orderSelector.selectCustomerOrdeyById);
   const navigate = useNavigate();
@@ -23,34 +22,32 @@ export default function PaymentReceiptPage() {
     navigate(-1);
   };
 
-
   useEffect(() => {
-    dispatch(customerGetOrderById(id))
-  }, [])
+    dispatch(customerGetOrderById(id));
+  }, []);
 
   const [loader, setLoader] = useState(false);
 
   const downloadPDF = () => {
-    const capture = document.querySelector('.actual-receipt');
+    const capture = document.querySelector(".actual-receipt");
     setLoader(true);
     html2canvas(capture).then((canvas) => {
-      const imgData = canvas.toDataURL('img/png');
-      const doc = new jsPDF('p', 'mm', 'a4');
+      const imgData = canvas.toDataURL("img/png");
+      const doc = new jsPDF("p", "mm", "a4");
       const componentWidth = doc.internal.pageSize.getWidth();
       const componentHeight = doc.internal.pageSize.getHeight();
-      doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
+      doc.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
       setLoader(false);
-      doc.save('receipt.pdf');
-    })
-  }
-
+      doc.save("receipt.pdf");
+    });
+  };
 
   const finishDate = new Date(order?.finish_rent_at);
   const startDate = new Date(order?.start_rent_at);
 
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
   const timeDifference = finishDate.getTime() - startDate.getTime();
-  const dayDifference = Math.round(timeDifference / millisecondsPerDay)
+  const dayDifference = Math.round(timeDifference / millisecondsPerDay);
 
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -63,26 +60,20 @@ export default function PaymentReceiptPage() {
       <NavbarLayout />
       <HeaderPayment navigateBack={navigateBack} padingBottom={true} />
       <div className="container">
-        <div className='description-title-ticket'>
+        <div className="description-title-ticket">
           <h4>Pembayaran berhasil</h4>
           <p>Tunjukan Invoice ini Ke Petugas BCR di titik temu</p>
         </div>
         <div className="payment-ticket">
-          <div>
-            Invoice
-          </div>
+          <div>Invoice</div>
           <div>
             <button
               className="receipt-modal-download-button"
               onClick={downloadPDF}
-              disabl ed={!(loader === false)}
+              disabl
+              ed={!(loader === false)}
             >
-              {loader ? (
-                <span>Downloading</span>
-              ) : (
-                <span>Download</span>
-              )}
-
+              {loader ? <span>Downloading</span> : <span>Download</span>}
             </button>
           </div>
 
@@ -93,9 +84,7 @@ export default function PaymentReceiptPage() {
                   <img alt="logo" src={logo} />
                 </div>
                 <h5>Binar Car Rental</h5>
-                <h6>
-                  Jalan Suroyo No. 161 Mayangan Kota robolonggo 672000
-                </h6>
+                <h6>Jalan Suroyo No. 161 Mayangan Kota robolonggo 672000</h6>
                 <div className="phone-and-website">
                   <p>
                     <a href={`binarcarrental@gmail.com`}>
@@ -123,7 +112,6 @@ export default function PaymentReceiptPage() {
                   <span>{order?.id}</span>
                 </div>
 
-
                 <div className="colored-row">
                   <span>Transaction Details</span>
                   <span />
@@ -131,62 +119,37 @@ export default function PaymentReceiptPage() {
 
                 <div className="data-row border-bottom">
                   <span>
-                    <span className="font-weight">
-                      Car Type
-                      :
-                    </span>
-                    {' '}
+                    <span className="font-weight">Car Type :</span>{" "}
                     {order?.Car?.name}
                   </span>
                   <span>
-                    <span className="font-weight">
-                      Price
-                      {' '}
-                      :
-                    </span>
-                    {' '}
+                    <span className="font-weight">Price :</span>{" "}
                     {formatter.format(order?.Car?.price)}
                   </span>
                 </div>
 
                 <div className="data-row border-bottom">
                   <span>
-                    <span className="font-weight">
-                      start rent :
-                      {' '}
-
-                    </span>
-                    {' '}
-                    {moment(order?.start_rent_at).format('DD MMMM YYYY')}
+                    <span className="font-weight">start rent : </span>{" "}
+                    {moment(order?.start_rent_at).format("DD MMMM YYYY")}
                   </span>
                   <span>
-                    <span className="font-weight">
-                      finish rent :
-                    </span>
-                    {' '}
-                    {moment(order?.finish_rent_at).format('DD MMMM YYYY')}
+                    <span className="font-weight">finish rent :</span>{" "}
+                    {moment(order?.finish_rent_at).format("DD MMMM YYYY")}
                   </span>
                 </div>
                 <div className="data-row border-bottom">
                   <span>
-                    <span className="font-weight">
-                      total day
-                      {' '}
-                      :
-                    </span>
-                    {' '}
+                    <span className="font-weight">total day :</span>{" "}
                     {dayDifference}
                   </span>
-
                 </div>
                 <div className="colored-row">
                   <span>total Price </span>
                   <span />
                 </div>
                 <div className="data-row border-bottom">
-
                   <span className="font-weight">
-
                     {formatter.format(order?.total_price)}
                   </span>
                   <span />
@@ -201,5 +164,5 @@ export default function PaymentReceiptPage() {
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 .container-fluid {
-  background-color: transparent
+  background-color: transparent;
 }
 
 .image_hero {
@@ -24,7 +24,7 @@
 }
 
 .button_banner {
-  background: #5CB85F;
+  background: #5cb85f;
   border: 0;
   padding: 12px 28px;
   color: white;
@@ -38,11 +38,10 @@
 
 .main-banner {
   height: 65vh;
-  background-color: #F1F3FF;
+  background-color: #f1f3ff;
   display: flex;
   align-items: center;
 }
-
 
 .main {
   padding-bottom: 75px;

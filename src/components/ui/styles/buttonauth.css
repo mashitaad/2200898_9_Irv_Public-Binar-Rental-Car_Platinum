@@ -1,20 +1,18 @@
 .grid-input-button-auth {
-    margin-top: -10px;
-    margin-right: -70px;
-    margin-left: 5px;
-  }
-
-  .button_auth {
-    background: #5CB85F;
-    border-radius: 2px;
-    color: white;
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    width: 81px;
-    height: 36px;
+  margin-top: -10px;
+  margin-right: -70px;
+  margin-left: 5px;
 }
 
-  
+.button_auth {
+  background: #5cb85f;
+  border-radius: 2px;
+  color: white;
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  width: 81px;
+  height: 36px;
+}

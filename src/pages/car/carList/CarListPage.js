@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
-import CarList from './components/CarList'
-import FromFillter from '../../../components/from-filter/FromFilter'
-import { useDispatch, useSelector } from 'react-redux';
-import LoadingSpinner from '../../../components/ui/LoadingSpinner';
-import { carSelectors, getAllCars } from '../../../features/carSlice';
-import Banner from '../../home/components/Banner';
-import NavbarLayout from '../../../components/layouts/Navbar';
+import React, { useEffect } from "react";
+import CarList from "./components/CarList";
+import FromFillter from "../../../components/from-filter/FromFilter";
+import { useDispatch, useSelector } from "react-redux";
+import LoadingSpinner from "../../../components/ui/LoadingSpinner";
+import { carSelectors, getAllCars } from "../../../features/carSlice";
+import Banner from "../../home/components/Banner";
+import NavbarLayout from "../../../components/layouts/Navbar";
 
 export default function CarListPage() {
   const dispatch = useDispatch();
@@ -21,16 +21,14 @@ export default function CarListPage() {
 
   return (
     <>
-    <NavbarLayout/>
-    <Banner />
+      <NavbarLayout />
+      <Banner />
       <FromFillter onSubmit={onFilter} />
-     {loading ? (
+      {loading ? (
         <LoadingSpinner />
       ) : (
         <>{data.cars !== undefined && <CarList cars={data.cars} />}</>
-      )} 
-  
-
+      )}
     </>
   );
 }

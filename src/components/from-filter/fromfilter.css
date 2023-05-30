@@ -1,51 +1,49 @@
 .from-input {
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    border: 1px solid gray;
-    padding: 23px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-  }
-  .table-option {
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-gap: 20px;
-  }
-  
-  
-  .table-option-detailcar {
-    display: grid;
-    grid-template-columns: 23% 23% 23% 23%;
-    grid-gap: 10px;
-    place-content: space-around;
-  }
-  
-  .seacrh-car {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    padding: 24px;
-    background: white;
-    margin-top: -50px;
-    position: relative;
-    z-index: 99;
-    border-radius: 10px;
-  }
-  
-  .title-search {
-      margin-bottom: 20px;
-      margin-left: 10px;
-  }
-  
-  .form-select {
-    font-weight: 700;
-  }
-  
-  .content-option {
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  
-  .grid-input-button {
-    margin-top: 31px;
-  }
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  border: 1px solid gray;
+  padding: 23px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.table-option {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-gap: 20px;
+}
+
+.table-option-detailcar {
+  display: grid;
+  grid-template-columns: 23% 23% 23% 23%;
+  grid-gap: 10px;
+  place-content: space-around;
+}
+
+.seacrh-car {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  background: white;
+  margin-top: -50px;
+  position: relative;
+  z-index: 99;
+  border-radius: 10px;
+}
+
+.title-search {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.form-select {
+  font-weight: 700;
+}
+
+.content-option {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.grid-input-button {
+  margin-top: 31px;
+}

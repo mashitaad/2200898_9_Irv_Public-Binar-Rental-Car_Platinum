@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { Accordion, Button, Col, Row } from "react-bootstrap";
 import "../styles/payment.css";
 
-
-
 export default function Payment(props) {
   const { children } = props;
-
 
   const [bcaTransfer, setBCATransfer] = useState(false);
   const [bniTransfer, setBNITransfer] = useState(false);
@@ -37,7 +34,6 @@ export default function Payment(props) {
       totalPrice: totalPriceRent,
       BankName: "BCA Transfer",
     });
-
   };
 
   const handleBNIClick = (e) => {
@@ -170,7 +166,6 @@ export default function Payment(props) {
                 <Col>Total</Col>
                 <Col>{formatter.format(props.data.price * dayDifference)}</Col>
               </Row>
-
             </div>
           </Row>
           <Row>{children}</Row>

@@ -1,95 +1,93 @@
+.nav-ant {
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.nav-ant .brand-cat {
+  width: 150px;
+}
+.nav-ant .ant-container {
+  padding: 0 8rem;
+  justify-content: unset;
+}
+.nav-ant .ant-brand {
+  width: 15%;
+}
+.ant-sidenav {
+  width: 12%;
+  background-color: #0d28a6;
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  top: 0;
+  padding: 20px;
+  height: 100%;
+}
+.ant-sidenav .ant-little-brand {
+  width: 100%;
+  height: 56px;
+  object-fit: cover;
+}
+.ant-sidenav .ant-list-clip {
+  padding: 0;
+  margin: 0;
+  margin-top: 1.5rem;
+}
+.ant-sidenav .ant-list-clip li {
+  list-style: none;
+  margin-bottom: 25px;
+}
+.ant-sidenav .ant-list-clip li a {
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 8px;
+}
+.ant-sidenav .ant-list-clip li a i {
+  font-size: 18px;
+}
+.ant-siderside {
+  background-color: white;
+  width: 15%;
+  margin-left: 5%;
+  height: 100vh;
+  padding-top: 6rem;
+}
+.ant-siderside .ant-list-clip {
+  padding: 0;
+  margin: 0;
+}
+.ant-siderside .ant-list-clip li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+.ant-siderside .ant-list-clip li a {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  display: block;
+  padding: 10px;
+}
+.ant-content {
+  background-color: white;
+  padding: 7rem 2rem;
+  height: 100vh;
+}
+.ant-main-head {
+  width: 50%;
+}
+.ant-collapse:focus {
+  box-shadow: none;
+}
 
-   .nav-ant {
-    background-color: #FFFFFF;
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-    height: 80px;
-    display: flex;
-    align-items: center;
- }
-  .nav-ant .brand-cat {
-    width: 150px;
- }
-  .nav-ant .ant-container {
-    padding: 0 8rem;
-    justify-content: unset;
- }
-  .nav-ant .ant-brand {
-    width: 15%;
- }
-  .ant-sidenav {
-    width: 12%;
-    background-color: #0D28A6;
-    position: fixed;
-    z-index: 9;
-    bottom: 0;
-    top: 0;
-    padding: 20px;
-    height: 100%;
- }
-  .ant-sidenav .ant-little-brand {
-    width: 100%;
-    height: 56px;
-    object-fit: cover;
- }
-  .ant-sidenav .ant-list-clip {
-    padding: 0;
-    margin: 0;
-    margin-top: 1.5rem;
- }
-  .ant-sidenav .ant-list-clip li {
-    list-style: none;
-    margin-bottom: 25px;
- }
-  .ant-sidenav .ant-list-clip li a {
-    text-decoration: none;
-    color: white;
-    font-size: 13px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 8px;
- }
-  .ant-sidenav .ant-list-clip li a i {
-    font-size: 18px;
- }
-  .ant-siderside {
-     background-color: white;
-    width: 15%;
-    margin-left: 5%;
-    height: 100vh;
-    padding-top: 6rem;
- }
-  .ant-siderside .ant-list-clip {
-    padding: 0;
-    margin: 0;
- }
-  .ant-siderside .ant-list-clip li {
-    list-style: none;
-    margin-bottom: 10px;
- }
-  .ant-siderside .ant-list-clip li a {
-    text-decoration: none;
-    color: white;
-    background-color: black;
-    display: block;
-    padding: 10px;
- }
-  .ant-content {
-    background-color: white;
-    padding: 7rem 2rem;
-    height: 100vh;
- }
-  .ant-main-head {
-    width: 50%;
- }
-  .ant-collapse:focus {
-    box-shadow: none;
- }
-  
-
- .nav-customer {
-   justify-content: end;
- }
+.nav-customer {
+  justify-content: end;
+}

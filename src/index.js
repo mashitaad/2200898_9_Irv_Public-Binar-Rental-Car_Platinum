@@ -1,14 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import IndexRoutes from './routes/index.routes';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import store from './store';
-import { Provider } from 'react-redux';
-import { CookiesProvider } from 'react-cookie';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import IndexRoutes from "./routes/index.routes";
+import "bootstrap/dist/css/bootstrap.min.css";
+import store from "./store";
+import { Provider } from "react-redux";
+import { CookiesProvider } from "react-cookie";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <CookiesProvider>

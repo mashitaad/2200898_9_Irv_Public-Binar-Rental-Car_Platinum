@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import './styles/Faq.css';
-import Entry from './FaqEntry';
+import React, { useState } from "react";
+import "./styles/Faq.css";
+import Entry from "./FaqEntry";
 
-const Faq = ({linkFaq, faqEntries}) => {
+const Faq = ({ linkFaq, faqEntries }) => {
   const [entriesVisibility, setEntriesVisibility] = useState([
     false, // Visibility for entry 1
     false, // Visibility for entry 2
     false, // Visibility for entry 3
     false, // Visibility for entry 4
-    false  // Visibility for entry 5
+    false, // Visibility for entry 5
   ]);
 
   const handleVisibilityChange = (index) => {
@@ -20,12 +20,12 @@ const Faq = ({linkFaq, faqEntries}) => {
   };
 
   return (
-    <div className='cust-container' id='faq'>
-      <div className='faq-head' style={{ width: 'clamp(20.5rem, 50%, 23rem)' }}>
-        <h3 className='sect-title'>Frequently Asked Question</h3>
+    <div className="cust-container" id="faq">
+      <div className="faq-head" style={{ width: "clamp(20.5rem, 50%, 23rem)" }}>
+        <h3 className="sect-title">Frequently Asked Question</h3>
         <p ref={linkFaq}>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
       </div>
-      <div className='q-list'>
+      <div className="q-list">
         <ul>
           {faqEntries.map((entry, index) => (
             <Entry

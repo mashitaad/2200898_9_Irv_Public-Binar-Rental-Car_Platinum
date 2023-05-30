@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 
 function HeaderPayment({ navigateBack, set, bankName, padingBottom }) {
-
   const { id } = useParams();
   const [style, setStyle] = useState(padingBottom);
   const renderIcons = () => {

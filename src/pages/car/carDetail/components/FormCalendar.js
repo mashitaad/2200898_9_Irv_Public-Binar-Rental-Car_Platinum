@@ -15,7 +15,11 @@ const FormCalendar = (props) => {
 
   return (
     <>
-      <DateRangePicker showOneCalendar value={dateRange} onChange={handleDateChange} />
+      <DateRangePicker
+        showOneCalendar
+        value={dateRange}
+        onChange={handleDateChange}
+      />
       <div className="grid-input-button">
         <button
           type="submit"

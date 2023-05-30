@@ -8,12 +8,12 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderPayment from "./component/HeaderPayment";
 import NavbarLayout from "../../components/layouts/Navbar";
-import FooterLayout from "../../components/layouts/Footer"
-import { useCookies } from 'react-cookie';
+import FooterLayout from "../../components/layouts/Footer";
+import { useCookies } from "react-cookie";
 
 export const PaymentPage = () => {
   const [disabledButton, setDisableButton] = useState(true);
-  const [cookies] = useCookies(['token']);
+  const [cookies] = useCookies(["token"]);
   const token = cookies.token;
 
   const user = jwtDecode(token);

@@ -32,7 +32,7 @@ const SignUp = (props) => {
     }
 
     try {
-      const response =  dispatch(register(form));
+      const response = dispatch(register(form));
       setIsSubmitting(false);
 
       if (response.error) {

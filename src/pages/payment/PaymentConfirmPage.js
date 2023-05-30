@@ -6,7 +6,7 @@ import ReminderPaymnet from "./component/ReminderPayment";
 import { PaymentConfirm } from "./component/PaymentConfirm";
 import HeaderPayment from "./component/HeaderPayment";
 import NavbarLayout from "../../components/layouts/Navbar";
-import FooterLayout from "../../components/layouts/Footer"
+import FooterLayout from "../../components/layouts/Footer";
 export default function PaymentConfirmPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -14,13 +14,10 @@ export default function PaymentConfirmPage() {
   const [namaBank, setNamaBank] = useState("");
   const navigate = useNavigate();
 
-
-
   useEffect(() => {
     dispatch(customerGetOrderById(id));
   }, []);
-  
-  
+
   const confirmPayment = (payload) => {
     // TODO fecth api here
     console.log(payload);
@@ -29,9 +26,7 @@ export default function PaymentConfirmPage() {
   const getOrderData = localStorage.getItem("order_detail");
   const getOrderDataJson = JSON.parse(getOrderData);
   const bankType = getOrderDataJson.bankType;
-  
-  
-  
+
   useEffect(() => {
     if (bankType === "BCA") {
       setNamaBank("BCA");

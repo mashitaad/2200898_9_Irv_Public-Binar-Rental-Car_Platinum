@@ -1,20 +1,19 @@
-.bg-secondary-custom{
-    background: #F1F3FF;
+.bg-secondary-custom {
+  background: #f1f3ff;
 }
-.mb-40px{
-margin-bottom: -80px;
-/* margin-top: 100px; */
-padding-top: 80px;
+.mb-40px {
+  margin-bottom: -80px;
+  /* margin-top: 100px; */
+  padding-top: 80px;
 }
-.pb-custom{
-    padding-bottom: 50px;
-}
-  
-.mb-113px{
-    margin-bottom: 113px;
+.pb-custom {
+  padding-bottom: 50px;
 }
 
-.mb-7{
-    margin-bottom: 64px;
+.mb-113px {
+  margin-bottom: 113px;
 }
 
+.mb-7 {
+  margin-bottom: 64px;
+}
