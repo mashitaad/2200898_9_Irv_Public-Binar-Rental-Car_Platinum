@@ -1,6 +1,0 @@
-module.exports = {
-    // Other configurations...
-    collectCoverage: true,
-    // Other configurations...
-  };
-  
