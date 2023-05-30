@@ -1,10 +1,8 @@
 import '../styles/sidebarpayment.css'
-import person from '../../../assets/person/person1.png'
+import logo from '../../../assets/images/rectangle.png'
 import {
-  FaTh,
   FaUserAlt,
   FaRegChartBar,
-  FaCommentAlt,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 export default function SideBarAdmin({ children }) {
@@ -17,7 +15,12 @@ export default function SideBarAdmin({ children }) {
       {
         path: "/order/status",
         name: "Pesanan Saya",
-        icon: <FaUserAlt />,
+        icon: <FaRegChartBar />,
+      },
+      {
+        path: "/",
+        name: "home",
+        icon: <FaRegChartBar />,
       },
       
     ];
@@ -26,7 +29,7 @@ export default function SideBarAdmin({ children }) {
 <>
 
 <div className="ant-sidenav">
-   <img src={person} alt="brand little" className="ant-little-brand img-fluid" /> 
+   <img src={logo} alt="brand little" className="ant-little-brand img-fluid" /> 
    <ul className="ant-list-clip">
   {menuItem.map((item, index) => {
     return (
