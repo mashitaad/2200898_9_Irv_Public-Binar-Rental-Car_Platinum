@@ -47,3 +47,69 @@
     padding: 0px;
     margin-top: 15px;
 }
+
+.title-payment h5{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+}
+
+.title-payment p{
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 40px;
+}
+
+.custom-button.custom-btn-light {
+    width: 68px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #D0D0D0;
+    border-radius: 4px;
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+  }
+    .divider{
+    background: #EEEEEE;
+}
+  
+  .ket-bank {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+    margin-left: -100px;
+    margin-top: 4px;
+  }
+
+  .custom-button.active {
+    /* Untuk banknya */
+    background-color: green;
+    color: white;
+  }
+  
+  .icon {
+    color: #5CB85F;
+    justify-content: end;
+    margin-left: 150px;
+    font-size: 16px;
+  }
+  
+  
+    
+  
+  
+  
+  
