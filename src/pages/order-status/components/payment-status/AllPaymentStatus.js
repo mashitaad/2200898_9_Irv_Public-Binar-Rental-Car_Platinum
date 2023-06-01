@@ -34,6 +34,7 @@ export default function AllPaymentStatus(props) {
     };
   });
 
+
   return (
     <>
       {newDataOrders?.map(o => (
@@ -80,7 +81,16 @@ export default function AllPaymentStatus(props) {
                 !o.status && !o.slip &&
                 <>
                   <Button variant="primary">Bayar Sekarang</Button>
-                  <Button variant="primary">Batalkan Pesanan</Button>
+                 
+                  <Button
+                      variant="outline-danger"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        props.handleDelete(o.id)
+                      }}
+                    >
+                      Batalkan Pesanan
+                    </Button>
                   <Link to={`/payment/confirm/order/${o.id}`}>
                   <Button variant="primary">Lihat Detail</Button>
                   </Link>
@@ -108,3 +118,5 @@ export default function AllPaymentStatus(props) {
     </>
   )
 }
+
+

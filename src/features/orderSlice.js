@@ -46,6 +46,29 @@ export const customerGetAllOrder = createAsyncThunk('order/customer/getAllOrder'
 });
 
 
+export const customerDeletOrderById = createAsyncThunk('order/customer/delete', async (id) => {
+    const token= document.cookie
+        .split('; ')
+        .find((row) => row.startsWith('token='))
+        ?.split('=')[1];
+
+    const apiUrl = config.apiBaseUrl;
+
+    try {
+       
+       await axios.delete(apiUrl + `/customer/order/${id}`, {
+            headers: {
+                access_token: token
+            }
+        });
+        return id;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+});
+
+
 const orderSlice = createSlice({
     name: 'order',
     initialState: {

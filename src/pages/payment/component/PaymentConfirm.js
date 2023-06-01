@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Button, Col, Modal, Row, Form, Nav, Tabs, Tab } from 'react-bootstrap';
+import { Button, Col, Modal, Row} from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
 import PaymentInstruction from './PaymentInstruction';
 import { useNavigate } from 'react-router-dom';
