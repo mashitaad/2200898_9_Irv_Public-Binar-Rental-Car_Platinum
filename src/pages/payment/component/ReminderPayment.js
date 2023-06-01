@@ -50,12 +50,18 @@ const ReminderPaymnet = (props) => {
     <div className='row'>
       <div className='col-md-6'>
         <div className='reminder-title'>
-          <h5>Selesaikan pembayaran sebelum</h5>
-          <h5>{deadlineTime}</h5>
+          <h5 className='title'>Selesaikan pembayaran sebelum</h5>
+          <h5 className='date'>{deadlineTime}</h5>
         </div>
       </div>
       <div className='col-md-6'>
-        <p className="countdown">{formatTime(time)}</p>
+        <div className="countdown">
+          <span className="time-block">{formatTime(time).split(":")[0]}</span>
+          <span>:</span>
+          <span className="time-block">{formatTime(time).split(":")[1]}</span>
+          <span>:</span>
+          <span className="time-block">{formatTime(time).split(":")[2]}</span>
+        </div>
       </div>
     </div>
   );
