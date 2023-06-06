@@ -35,7 +35,7 @@ export default function SideBarAdmin({ children }) {
     return (
       <li key={index}>
         <NavLink to={item.path}>
-          <span className="icon">{item.icon} {item.name}</span>
+          <span className="icon-order-status">{item.icon} {item.name}</span>
           
         </NavLink>
       </li>
