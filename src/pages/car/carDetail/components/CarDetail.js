@@ -5,7 +5,6 @@ import "../styles/cardetail.css";
 import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 
 export default function CarDetail(props) {
-
     const formatter = new Intl.NumberFormat("id-ID", {
         style: 'currency',
         currency: 'IDR',
@@ -96,6 +95,11 @@ export default function CarDetail(props) {
                                 </div>
                             </div>
                             {/* Calendar section */}
+                            {props.message && (
+                                <div className="alert alert-danger" role="alert">
+                                    {props.message}
+                                </div>
+                            )}
                             <div className="calendar-section">
                                 {props.children}
 
