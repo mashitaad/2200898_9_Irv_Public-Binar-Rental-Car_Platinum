@@ -1,30 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Navbar, Nav, Offcanvas, NavDropdown } from "react-bootstrap";
 import logo from '../../assets/icons/logo.png'
 import { useNavigate } from "react-router-dom";
 import './styles/navbar.css'
 import { ButtonAuth } from "../ui/ButtonAuth";
-
+import { useCookies } from "react-cookie";
+import jwtDecode from "jwt-decode";
+import Cookies from 'js-cookie';
 
 export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurService, linkFaq }) {
-//   const dispatch = useDispatch()
+  const [cookies ] = useCookies(['token']);
+  const [user, setUser] = useState('')
+  const token = cookies.token
+  
   const navigate = useNavigate()
   
-
-//   fake data 
-const auth = {
-    token: false
-}
-
-const user = {
-    email: 'fakeemail'
-}
-  const handdleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("refresh_token")
-    navigate('/login')
+  const  splitEmail = (email) => {
+    const atIndex = email.indexOf('@');
+    
+    if (atIndex !== -1) {
+      const username = email.substring(0, atIndex);
+      return username;
+    } else {
+      throw new Error('Email tidak valid');
+    }
   }
+
+useEffect(() => {
   
+  if (token) {
+    const tokenDecode = jwtDecode(token)
+  setUser(splitEmail(tokenDecode.email))
+  }
+}, [])
+
+const handdleLogout = () => {
+  Cookies.remove('token', { path: '/' }) 
+  navigate('/signin')
+}
   const handleClick = (link) => {
     if (link.current) {
       link.current.scrollIntoView({
@@ -74,10 +87,10 @@ const user = {
                   <Nav.Link href="#" onClick={() => handleClick(linkTestimonial)}>Testimonial</Nav.Link>
                   <Nav.Link href="#" onClick={() => handleClick(linkFaq)}>FAQ</Nav.Link>
 
-                  {auth.token ?
-                    <NavDropdown title={user.email} id="collasible-nav-dropdown">
+                  {user ?
+                    <NavDropdown title={user} id="collasible-nav-dropdown">
                       <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
-                      <NavDropdown.Item href="/user/profile/setting">Setting</NavDropdown.Item>
+                      <NavDropdown.Item href="/order/status">Pesanan Saya</NavDropdown.Item>
 
                       <NavDropdown.Divider />
                       <NavDropdown.Item href="#action/3.4" onClick={() => handdleLogout()}>
