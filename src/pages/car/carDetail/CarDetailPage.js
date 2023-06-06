@@ -54,6 +54,7 @@ const CarDetailPage = () => {
 
 
   const calendarHandle = (payload) => {
+    console.log(payload)
     if (payload.length <= 0) {
       setMessage('pilih tanggal sewa terlebih dahulu');
     } else {

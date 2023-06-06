@@ -5,12 +5,18 @@ import "../styles/formcalendar.css";
 const FormCalendar = (props) => {
   const [dateRange, setDateRange] = useState([]);
   const handleDateChange = (value) => {
+  
     setDateRange(value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit(dateRange);
+    if (!dateRange) {
+      props.onSubmit([])
+    } else {
+      props.onSubmit(dateRange);
+
+    }
   };
 
   return (
