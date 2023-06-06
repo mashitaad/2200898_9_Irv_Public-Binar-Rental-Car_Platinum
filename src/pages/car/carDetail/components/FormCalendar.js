@@ -21,13 +21,13 @@ const FormCalendar = (props) => {
           type="submit"
           className="button_banner"
           onClick={handleSubmit}
-          disabled={dateRange.length === 0}
+          disabled={dateRange?.length === 0 || dateRange === null}
           style={{
             width: "358px",
             height: "36px",
             left: "861px",
             top: "794px",
-            background: dateRange.length === 0 ? "#D0D0D0" : "#5CB85F",
+            background: dateRange?.length === 0  || dateRange === null? "#D0D0D0" : "#5CB85F",
             borderRadius: "2px",
           }}
         >

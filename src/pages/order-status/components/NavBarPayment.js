@@ -2,16 +2,30 @@ import React, { useState } from 'react'
 import { NavDropdown } from 'react-bootstrap'
 import { useCookies } from 'react-cookie'
 import jwtDecode from 'jwt-decode';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavBarPayment(props) {
   const [cookies] = useCookies(['token'])
   const [search, setSearch] = useState('')
-
+  const navigate = useNavigate()
   const token = cookies.token
   const decoded = jwtDecode(token);
   const handdleLogout = () => {
-
+    Cookies.remove('token', { path: '/' }) 
+    navigate('/signin')
   }
+  const  splitEmail = (email) => {
+    const atIndex = email.indexOf('@');
+    
+    if (atIndex !== -1) {
+      const username = email.substring(0, atIndex);
+      return username;
+    } else {
+      throw new Error('Email tidak valid');
+    }
+  }
+
 
   return (
     <>
@@ -41,7 +55,7 @@ export default function NavBarPayment(props) {
 
             <div className='user-profile-admin'>
               <NavDropdown
-                title={decoded.email}
+                title={splitEmail(decoded.email)}
                 id="collasible-nav-dropdown">
                 <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item href="/user/profile/setting">
