@@ -105,8 +105,13 @@ export default function AllPaymentStatus(props) {
               {
                 o.status && o.slip &&
                 <>
+                <link to  = {`/payment/confirm/order/${o.id}`}>
                 <Button variant="primary">Lihat Detail</Button>
-                <Button variant="primary">Sewa Lagi</Button>
+                </link>
+                <link to  = {`/car/list/${o.CarId}`}>
+                <Button variant="primary">Sewa lagi</Button>
+                </link>
+                
                 </>
               }
             </div>

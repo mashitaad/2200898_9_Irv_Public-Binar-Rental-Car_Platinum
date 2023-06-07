@@ -73,7 +73,8 @@ export const PaymentPage = () => {
       <HeaderPayment navigateBack={navigateBack} padingBottom={true} />
       <OrderDetail data={orderDetailDataJson} />
       <Payment data={orderDetailDataJson} handleClick={bankType}>
-        <div className="d-grid gap-2">
+        <div className="button-payment-detail">
+        <div className="d-grid gap-2 button-payment-detail" >
           <Button
             variant="flat"
             onClick={clickButtonPayment}
@@ -81,6 +82,7 @@ export const PaymentPage = () => {
           >
             Bayar
           </Button>
+        </div>
         </div>
       </Payment>
       <FooterLayout />

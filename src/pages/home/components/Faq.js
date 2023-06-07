@@ -1,45 +1,40 @@
-import React, { useState } from 'react';
-import './styles/Faq.css';
-import Entry from './FaqEntry';
+import React from "react";
+import Accordion from 'react-bootstrap/Accordion';
+import './styles/Faq.css'
 
-const Faq = ({linkFaq, faqEntries}) => {
-  const [entriesVisibility, setEntriesVisibility] = useState([
-    false, // Visibility for entry 1
-    false, // Visibility for entry 2
-    false, // Visibility for entry 3
-    false, // Visibility for entry 4
-    false  // Visibility for entry 5
-  ]);
-
-  const handleVisibilityChange = (index) => {
-    setEntriesVisibility((prevVisibility) => {
-      const updatedVisibility = [...prevVisibility];
-      updatedVisibility[index] = !updatedVisibility[index];
-      return updatedVisibility;
-    });
-  };
-
+function Faq({ faqStatic, linkFaq }) {
   return (
-    <div className='cust-container' id='faq'>
-      <div className='faq-head' style={{ width: 'clamp(20.5rem, 50%, 23rem)' }}>
-        <h3 className='sect-title'>Frequently Asked Question</h3>
-        <p ref={linkFaq}>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-      </div>
-      <div className='q-list'>
-        <ul>
-          {faqEntries.map((entry, index) => (
-            <Entry
-              key={index}
-              question={entry.question}
-              isVisible={entriesVisibility[index]}
-              answer={entry.answer}
-              onVisibilityChange={() => handleVisibilityChange(index)}
-            />
-          ))}
-        </ul>
+  
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="left-content">
+              <h1 ref={linkFaq}>Frequently Asked Question</h1>
+              <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto, tempore.</h5>
+            </div>
+          </div>
+          <div className="col-md-6">
+
+            <Accordion className="accordion" defaultActiveKey='1'>
+              {faqStatic.map((item) => {
+                return (
+                  <div key={item.id}>
+
+                    <Accordion.Item eventKey={item.id} >
+                      <Accordion.Header>{item.question}</Accordion.Header>
+                      <Accordion.Body>
+                        {item.answer}
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </div>
+                )
+              })}
+            </Accordion>
+       
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default Faq;

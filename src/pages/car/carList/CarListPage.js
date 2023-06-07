@@ -6,10 +6,12 @@ import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import { carSelectors, getAllCars } from '../../../features/carSlice';
 import Banner from '../../home/components/Banner';
 import NavbarLayout from '../../../components/layouts/Navbar';
+import FooterLayout from '../../../components/layouts/Footer';
 
 export default function CarListPage() {
   const dispatch = useDispatch();
   const loading = useSelector(carSelectors.loading);
+  console.log(loading)
   const data = useSelector(carSelectors.selectAllCars);
   useEffect(() => {
     dispatch(getAllCars());
@@ -29,7 +31,7 @@ export default function CarListPage() {
       ) : (
         <>{data.cars !== undefined && <CarList cars={data.cars} />}</>
       )} 
-  
+      <FooterLayout/> 
 
     </>
   );

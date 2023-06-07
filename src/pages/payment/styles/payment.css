@@ -1,7 +1,7 @@
 .detail-payment {
     justify-content: center;
-    padding-top: 60px;
-    height: 500px;
+    padding-top: 30px;
+    height: auto;
     border-radius: 10px;
     border: 3px solid #e5e5e5;
     margin: 0 0 0 auto;
@@ -13,13 +13,18 @@
     border-radius: 10px;
 }
 
+.button-payment-detail {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
 
 .w-100-payment{
     width: 100%;
 }
 
 .row-payment {
-    padding-bottom: 150px;
+    padding-bottom: 10px;
     column-gap: 40px;
 }
 
@@ -46,6 +51,10 @@
 .accordion-detail .accordion-body {
     padding: 0px;
     margin-top: 15px;
+}
+
+.accordion-detail h5 {
+    font-size: 16px;
 }
 
 .title-payment h5{
