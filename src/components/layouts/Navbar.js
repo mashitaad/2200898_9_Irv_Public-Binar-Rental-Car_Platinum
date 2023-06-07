@@ -7,17 +7,18 @@ import { ButtonAuth } from "../ui/ButtonAuth";
 import { useCookies } from "react-cookie";
 import jwtDecode from "jwt-decode";
 import Cookies from 'js-cookie';
+import personImage from '../../assets/person/default.jpg'
 
 export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurService, linkFaq }) {
-  const [cookies ] = useCookies(['token']);
+  const [cookies] = useCookies(['token']);
   const [user, setUser] = useState('')
   const token = cookies.token
-  
+
   const navigate = useNavigate()
-  
-  const  splitEmail = (email) => {
+
+  const splitEmail = (email) => {
     const atIndex = email.indexOf('@');
-    
+
     if (atIndex !== -1) {
       const username = email.substring(0, atIndex);
       return username;
@@ -26,18 +27,18 @@ export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurServic
     }
   }
 
-useEffect(() => {
-  
-  if (token) {
-    const tokenDecode = jwtDecode(token)
-  setUser(splitEmail(tokenDecode.email))
-  }
-}, [])
+  useEffect(() => {
 
-const handdleLogout = () => {
-  Cookies.remove('token', { path: '/' }) 
-  navigate('/signin')
-}
+    if (token) {
+      const tokenDecode = jwtDecode(token)
+      setUser(splitEmail(tokenDecode.email))
+    }
+  }, [])
+
+  const handdleLogout = () => {
+    Cookies.remove('token', { path: '/' })
+    navigate('/signin')
+  }
   const handleClick = (link) => {
     if (link.current) {
       link.current.scrollIntoView({
@@ -46,7 +47,7 @@ const handdleLogout = () => {
       });
     }
   }
-  
+
 
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
@@ -80,7 +81,7 @@ const handdleLogout = () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
 
-              <Offcanvas.Body className="justify-content-end"> 
+              <Offcanvas.Body className="justify-content-end">
                 <Nav className="ml-auto navlist">
                   <Nav.Link href="#" onClick={() => handleClick(linkOurService)}>Our Service</Nav.Link>
                   <Nav.Link href="#" onClick={() => handleClick(linkWhyUs)}>Why Us</Nav.Link>
@@ -88,18 +89,28 @@ const handdleLogout = () => {
                   <Nav.Link href="#" onClick={() => handleClick(linkFaq)}>FAQ</Nav.Link>
 
                   {user ?
-                    <NavDropdown title={user} id="collasible-nav-dropdown">
-                      <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
-                      <NavDropdown.Item href="/order/status">Pesanan Saya</NavDropdown.Item>
+                    <>
+                      <div className="image-person-nav" >
+                        <img src={personImage} style={{
+                          width: '25px',
+                          height: '25px',
+                          borderRadius: '50%',
+                          objectFit: 'cover',
+                        }} />
+                      </div>
+                      <NavDropdown title={user} id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
+                        <NavDropdown.Item href="/order/status">Pesanan Saya</NavDropdown.Item>
 
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item href="#action/3.4" onClick={() => handdleLogout()}>
-                        Logout
-                      </NavDropdown.Item>
-                    </NavDropdown>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action/3.4" onClick={() => handdleLogout()}>
+                          Logout
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                    </>
                     :
                     <Nav.Link href="/signup">
-                       <ButtonAuth text="Register" />
+                      <ButtonAuth text="Register" />
                     </Nav.Link>
                   }
                 </Nav>
