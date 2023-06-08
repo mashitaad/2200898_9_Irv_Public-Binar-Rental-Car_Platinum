@@ -91,22 +91,27 @@ export default function AllPaymentStatus(props) {
                     >
                       Batalkan Pesanan
                     </Button>
-                  <Link to={`/payment/confirm/order/${o.id}`}>
+                  <Link to={`/order/detail/${o.id}`}>
                   <Button variant="primary">Lihat Detail</Button>
                   </Link>
                 </>
               }
               {
                 !o.status && o.slip &&
-                <>
-                  <Button variant="primary">Lihat Detail</Button>
-                </>
+                <Link to={`/order/detail/${o.id}`}>
+                <Button variant="primary">Lihat Detail</Button>
+                </Link>
               }
               {
                 o.status && o.slip &&
                 <>
-                <Button variant="primary">Lihat Detail</Button>
-                <Button variant="primary">Sewa Lagi</Button>
+               <Link to={`/order/detail/${o.id}`}>
+                  <Button variant="primary">Lihat Detail</Button>
+                  </Link>
+                <Link to  = {`/car/list/${o.CarId}`}>
+                <Button variant="primary">Sewa lagi</Button>
+                </Link>
+                
                 </>
               }
             </div>

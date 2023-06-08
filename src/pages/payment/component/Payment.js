@@ -135,7 +135,7 @@ export default function Payment(props) {
             </div>
           </Row>
           <Row>
-            <Accordion className="accordion-detail" defaultActiveKey="1">
+            <Accordion className="accordion-detail" defaultActiveKey="0">
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Total</Accordion.Header>
                 <Accordion.Body>
@@ -158,13 +158,15 @@ export default function Payment(props) {
                     <li>
                       <Row>
                         <Col>Pajak </Col>
-                        <Col>Termasuk</Col>
+                        <Col style={{ color: 'green' }}>Termasuk</Col>
+
                       </Row>
                     </li>
                     <li>
                       <Row>
                         <Col>Biaya Makan Sopir </Col>
-                        <Col>Termasuk</Col>
+                        <Col style={{ color: 'green' }}>Termasuk</Col>
+
                       </Row>
                     </li>
                   </ul>

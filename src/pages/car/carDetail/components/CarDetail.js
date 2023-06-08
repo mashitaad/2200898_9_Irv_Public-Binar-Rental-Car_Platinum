@@ -40,7 +40,8 @@ export default function CarDetail(props) {
 
                         <Accordion className="accordion-detail" defaultActiveKey="1">
                             <Accordion.Item eventKey="0">
-                                <Accordion.Header >
+                               
+                                <Accordion.Header className="title-accordion-cardetail" >
                                     Refund, Reschedule, Overtime
                                 </Accordion.Header>
                                 <Accordion.Body>

@@ -43,14 +43,14 @@
     margin-bottom: 25px;
  }
   .ant-sidenav .ant-list-clip li a {
-    text-decoration: none;
-    color: white;
-    font-size: 13px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 8px;
+   text-decoration: none;
+   color: white;
+   font-size: 13px;
+   text-align: left;
+   display: flex;
+   align-items: flex-start;
+   flex-direction: column;
+   row-gap: 8px;
  }
   .ant-sidenav .ant-list-clip li a i {
     font-size: 18px;
@@ -81,6 +81,7 @@
     background-color: white;
     padding: 7rem 2rem;
     height: 100vh;
+    padding-top: 0;
  }
   .ant-main-head {
     width: 50%;

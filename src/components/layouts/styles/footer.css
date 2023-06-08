@@ -2,6 +2,8 @@
 .footer {
     font-family: 'Arial';
     padding: auto;
+    margin-bottom: 100px;
+    margin-top: 100px;
 }
 
 .icon-footer {
