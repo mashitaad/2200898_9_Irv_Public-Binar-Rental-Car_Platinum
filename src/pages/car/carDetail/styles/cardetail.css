@@ -65,6 +65,9 @@
   margin-top: 15px;
 }
 
+.title-accordion-cardetail button{
+  width: 100% !important;
+}
 .button-car-detail {
   background: #5cb85f;
   border: 0;

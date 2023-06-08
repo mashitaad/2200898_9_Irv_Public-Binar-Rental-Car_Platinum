@@ -5,8 +5,26 @@
     margin-bottom: 10px;
     width: 50%;
     margin-top: 50px;
+    margin: 0 auto;
 }
 
 .description-title-ticket {
     margin-top: 100px;
+    text-align: center;
+    line-height: 33px;
+}
+
+.description-title-ticket p {
+    opacity: 0.6;
+}
+
+.invoice-download {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.invoice-download p {
+    font-weight: 600;
+    font-size: 18px;
 }

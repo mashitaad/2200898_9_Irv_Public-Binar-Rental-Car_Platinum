@@ -60,7 +60,7 @@ export default function OrderDetailPage() {
         <>
             <NavBarPayment />
             <SideBarAdmin>
-                <div className="container rounded bg-white mt-5 mb-5">
+                <div className="container rounded bg-white mb-5">
                     <div className="row">
                         <div className="col-md-3 border-right">
                             <div className="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -87,7 +87,7 @@ export default function OrderDetailPage() {
                                             }}
                                             onClick={toggleZoom}
                                         >
-                                            <img src={orderDetail.slip} alt={''} style={{ maxWidth: '90%', maxHeight: '90%' }} />
+                                            <img src={orderDetail.slip ? orderDetail.slip : notFoundSlip } alt={''} style={{ maxWidth: '90%', maxHeight: '90%' }} />
                                         </div>
                                     )}
                                 </div>

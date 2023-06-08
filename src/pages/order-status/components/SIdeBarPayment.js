@@ -50,7 +50,7 @@ export default function SideBarAdmin({ children }) {
 
 <div className="container-fluid">
   <div className="row">
-  <div className="col ant-content d-flex align-items-stretch">
+  <div className="col ant-content d-flex align-items-start">
    {children}
     </div>
     <div>

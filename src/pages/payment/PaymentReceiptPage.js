@@ -6,8 +6,12 @@ import { customerGetOrderById, orderSelector } from '../../features/orderSlice';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import NavbarLayout from '../../components/layouts/Navbar';
+import FooterLayout from '../../components/layouts/Footer'
 import HeaderPayment from './component/HeaderPayment';
 import logo from '../../assets/icons/logo.png'
+import successLogo from '../../assets/icons/success.svg'
+import { BsDownload } from "react-icons/bs";
+import { MdOutlineDownloading } from "react-icons/md";
 import moment from 'moment';
 import 'moment/locale/id';
 import './styles/paymentreceipt.css'
@@ -63,24 +67,24 @@ export default function PaymentReceiptPage() {
       <NavbarLayout />
       <HeaderPayment navigateBack={navigateBack} padingBottom={true} />
       <div className="container">
-        <div className='description-title-ticket'>
+        <div className='description-title-ticket mb-5'>
+          <img src={successLogo} alt='success'className='mb-3' />
           <h4>Pembayaran berhasil</h4>
           <p>Tunjukan Invoice ini Ke Petugas BCR di titik temu</p>
         </div>
         <div className="payment-ticket">
-          <div>
-            Invoice
-          </div>
-          <div>
+
+          <div className='invoice-download mb-1'>
+            <p>Invoice</p>
             <button
               className="receipt-modal-download-button"
               onClick={downloadPDF}
-              disabl ed={!(loader === false)}
+              disabled={!(loader === false)}
             >
               {loader ? (
-                <span>Downloading</span>
+                <span><MdOutlineDownloading /> Mengunduh</span>
               ) : (
-                <span>Download</span>
+                <span><BsDownload /> Unduh </span>
               )}
 
             </button>
@@ -200,6 +204,7 @@ export default function PaymentReceiptPage() {
           </div>
         </div>
       </div>
+      <FooterLayout />
     </>
   )
 }
