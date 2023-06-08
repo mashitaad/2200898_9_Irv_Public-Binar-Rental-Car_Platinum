@@ -94,7 +94,9 @@ export default function NotPaidPaymentStatus(props) {
                     >
                       Batalkan Pesanan
                     </Button>
-                  <Button variant="primary">Lihat Detail</Button>
+                    <Link to={`/order/detail/${o.id}`}>
+                    <Button variant="primary">Lihat Detail</Button>
+                  </Link>
                 </>
             </div>
 

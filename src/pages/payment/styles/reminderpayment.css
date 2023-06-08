@@ -1,70 +1,57 @@
 .timer-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .countdown {
-    font-size: 30px;
-    font-weight: bold;
-    color: red;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .title{
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .date {
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    color: #3C3C3C;
-  }
-  .countdown {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    justify-content: end;
-  }
-  
-  .countdown .time-block {
-    display: inline-block;
-    background-color:#FA2C5A;
-    color: white;
-    padding: 5px;
-    margin-right: 5px;
-    border-radius: 2px;
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 26px;
-  }
+.countdown {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
 
-  .countdown span:not(.time-block) {
-    color: #000000;
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    margin-top: 8px;
-    margin-right: 4px;
-  }
-  
-  /* .countdown .time-block {
-    display: inline-block;
-    background-color: red;
-    color: white;
-    padding: 5px;
-    margin-right: 5px;
-  } */
-  
-  
+.title {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.date {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #3C3C3C;
+}
+
+.countdown .time-block {
+  display: inline-block;
+  background-color: #FA2C5A;
+  color: white;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 2px;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.countdown span:not(.time-block) {
+  color: #000000;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  margin-right: 4px;
+}

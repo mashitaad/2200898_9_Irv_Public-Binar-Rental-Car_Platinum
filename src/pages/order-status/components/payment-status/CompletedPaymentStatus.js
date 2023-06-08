@@ -46,7 +46,7 @@ export default function CompletedPaymentStatus(props) {
               !o.status && o.slip ? "SEDANG PROSES" : "SELESAI"}
 
           </Card.Header><Card.Body>
-          <div className='row'>
+            <div className='row'>
               <div className='col-md-9 card-content-payment'>
                 {o.carImage === null || o.carImage === undefined ?
                   (
@@ -80,10 +80,17 @@ export default function CompletedPaymentStatus(props) {
 
             <div className='payment-option-button'>
               <>
-              <Link to={`/payment/invoice/${o.id}`}>
-                
-                <Button variant="primary">donwload slip</Button>
-              </Link>
+                <Link to={`/payment/invoice/${o.id}`}>
+
+                  <Button variant="primary">Donwload Slip</Button>
+                </Link>
+                <Link to={`/car/list/${o.CarId}`}>
+
+                  <Button variant="primary">Sewa Lagi</Button>
+                </Link>
+                <Link to={`/order/detail/${o.id}`}>
+                  <Button variant="primary">Lihat Detail</Button>
+                </Link>
               </>
             </div>
 

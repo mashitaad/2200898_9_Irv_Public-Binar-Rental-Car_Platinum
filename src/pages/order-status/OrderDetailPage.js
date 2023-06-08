@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { customerGetOrderById, orderSelector } from '../../features/orderSlice';
+import { customerDeletOrderById, customerGetOrderById, orderSelector } from '../../features/orderSlice';
 import { carSelectors, getCarById } from '../../features/carSlice';
 import { Button } from 'react-bootstrap';
-import NavBarPayment from './components/NavBarPayment';
 import SideBarAdmin from './components/SIdeBarPayment';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import notFoundSlip from '../../assets/images/imagenotfound.jpeg'
+import Swal from 'sweetalert2'
 import moment from 'moment';
 
 
 export default function OrderDetailPage() {
+    const navigate = useNavigate();
+
+    const navigateBack = () => {
+        navigate(-1);
+    };
     const [isZoomed, setIsZoomed] = useState(false);
 
     const toggleZoom = () => {
@@ -54,11 +59,30 @@ export default function OrderDetailPage() {
 
     }
 
-    console.log(orderDetail)
+    const handleDeleteOrder = () => {
+        Swal.fire({
+            title: 'Apakah anda ingin membatalkan Pesanan ini?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(customerDeletOrderById(orderDetail.id))
 
+                Swal.fire(
+                    'dibatalkan!',
+                    'Pesanan Anda Berhasil dibatalkan.',
+                    'success'
+                ).then(() => {
+                    navigate('/order/status')
+                });
+            }
+        });
+    }
     return (
         <>
-            <NavBarPayment />
             <SideBarAdmin>
                 <div className="container rounded bg-white mb-5">
                     <div className="row">
@@ -66,7 +90,7 @@ export default function OrderDetailPage() {
                             <div className="d-flex flex-column align-items-center text-center p-3 py-5">
                                 <div>
                                     <img
-                                        src={orderDetail.slip ? orderDetail.slip : notFoundSlip }
+                                        src={orderDetail.slip ? orderDetail.slip : notFoundSlip}
                                         alt={''}
                                         onClick={toggleZoom}
                                         style={{ cursor: 'pointer', maxWidth: '100%', maxHeight: '100%' }}
@@ -87,7 +111,7 @@ export default function OrderDetailPage() {
                                             }}
                                             onClick={toggleZoom}
                                         >
-                                            <img src={orderDetail.slip ? orderDetail.slip : notFoundSlip } alt={''} style={{ maxWidth: '90%', maxHeight: '90%' }} />
+                                            <img src={orderDetail.slip ? orderDetail.slip : notFoundSlip} alt={''} style={{ maxWidth: '90%', maxHeight: '90%' }} />
                                         </div>
                                     )}
                                 </div>
@@ -141,22 +165,34 @@ export default function OrderDetailPage() {
                                     {
                                         orderDetail.status && orderDetail.slip &&
                                         <>
-                                            <Button variant='success'>Sewa Lagi</Button>
-                                            <Button variant='success'>download slip</Button>
+                                            <Link to={`/car/list/${orderDetail.CarId}`}>
+                                                <Button variant="primary">Sewa Lagi</Button>
+                                            </Link>
+                                            <Link to={`/payment/invoice/${orderDetail.id}`}>
+                                                <Button variant="primary">Donwload Slip</Button>
+                                            </Link>
                                         </>
                                     }
                                     {
                                         !orderDetail.status && orderDetail.slip &&
                                         <>
-                                            <Button variant='success'>Kembali</Button>
+                                            <Button variant='success' onClick={navigateBack}>Kembali</Button>
                                         </>
 
                                     }
                                     {
                                         !orderDetail.status && !orderDetail.slip &&
                                         <>
-                                            <Button variant='success'>Bayar Sekarang</Button>
-                                            <Button variant='danger'>Batalkan Pesanan</Button>
+
+                                            <Link to={`/payment/confirm/order/${orderDetail.id}`}>
+                                                <Button variant="primary">Bayar Sekarang</Button>
+                                            </Link>
+                                            <Button
+                                                variant="outline-danger"
+                                                onClick={handleDeleteOrder}
+                                            >
+                                                Batalkan Pesanan
+                                            </Button>
                                         </>
                                     }
                                 </div>

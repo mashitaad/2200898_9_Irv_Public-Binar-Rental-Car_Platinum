@@ -8,6 +8,9 @@ import { useCookies } from "react-cookie";
 import jwtDecode from "jwt-decode";
 import Cookies from 'js-cookie';
 import personImage from '../../assets/person/default.jpg'
+import {CgProfile} from 'react-icons/cg'
+import {FaShoppingCart} from 'react-icons/fa'
+import {FiLogOut} from 'react-icons/fi'
 
 export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurService, linkFaq }) {
   const [cookies] = useCookies(['token']);
@@ -99,12 +102,12 @@ export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurServic
                         }} />
                       </div>
                       <NavDropdown title={user} id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="/user/profile">Profile</NavDropdown.Item>
-                        <NavDropdown.Item href="/order/status">Pesanan Saya</NavDropdown.Item>
+                        <NavDropdown.Item href="/user/profile"><CgProfile  /> Profile</NavDropdown.Item>
+                        <NavDropdown.Item href="/order/status"> <FaShoppingCart /> Pesanan Saya</NavDropdown.Item>
 
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4" onClick={() => handdleLogout()}>
-                          Logout
+                         <FiLogOut /> Logout
                         </NavDropdown.Item>
                       </NavDropdown>
                     </>

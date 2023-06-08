@@ -41,29 +41,29 @@ export default function AllPaymentStatus(props) {
         <Card className='card-status-payment' key={o.id}>
           <Card.Header>
             {!o.status && !o.slip ? "BELUM BAYAR" :
-            !o.status&& o.slip ? "SEDANG PROSES" : "SELESAI"}
-          
+              !o.status && o.slip ? "SEDANG PROSES" : "SELESAI"}
+
           </Card.Header><Card.Body>
             <div className='row'>
               <div className='col-md-9 card-content-payment'>
                 {o.carImage === null || o.carImage === undefined ?
-                (
-                  <div>
-                    <ImageWithLoading
-                      src={nullImage}
-                      alt={'null'}
-                    />
-                  </div>
-                ) :
-                (
-                  <div>
-                    <ImageWithLoading
-                      src={o.carImage}
-                      alt={o.CarName}
-                    />
-                  </div>
-                )
-              }
+                  (
+                    <div>
+                      <ImageWithLoading
+                        src={nullImage}
+                        alt={'null'}
+                      />
+                    </div>
+                  ) :
+                  (
+                    <div>
+                      <ImageWithLoading
+                        src={o.carImage}
+                        alt={o.CarName}
+                      />
+                    </div>
+                  )
+                }
                 <div>
                   <h5>Nama/Type Mobil {o?.carName} </h5>
                   <h5>tanggal Sewa {moment(o?.start_rent_at).format('DD MMMM YYYY')}</h5>
@@ -75,43 +75,46 @@ export default function AllPaymentStatus(props) {
                 total bayar: {formatter.format(o.total_price)}
               </div>
             </div>
-            
+
             <div className='payment-option-button'>
               {
                 !o.status && !o.slip &&
                 <>
                   <Button variant="primary">Bayar Sekarang</Button>
-                 
+
                   <Button
-                      variant="outline-danger"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        props.handleDelete(o.id)
-                      }}
-                    >
-                      Batalkan Pesanan
-                    </Button>
+                    variant="outline-danger"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      props.handleDelete(o.id)
+                    }}
+                  >
+                    Batalkan Pesanan
+                  </Button>
                   <Link to={`/order/detail/${o.id}`}>
-                  <Button variant="primary">Lihat Detail</Button>
+                    <Button variant="primary">Lihat Detail</Button>
                   </Link>
                 </>
               }
               {
                 !o.status && o.slip &&
                 <Link to={`/order/detail/${o.id}`}>
-                <Button variant="primary">Lihat Detail</Button>
+                  <Button variant="primary">Lihat Detail</Button>
                 </Link>
               }
               {
                 o.status && o.slip &&
+
                 <>
-               <Link to={`/order/detail/${o.id}`}>
-                  <Button variant="primary">Lihat Detail</Button>
+                  <Link to={`/payment/invoice/${o.id}`}>
+                    <Button variant="primary">Donwload Slip</Button>
                   </Link>
-                <Link to  = {`/car/list/${o.CarId}`}>
-                <Button variant="primary">Sewa lagi</Button>
-                </Link>
-                
+                  <Link to={`/car/list/${o.CarId}`}>
+                    <Button variant="primary">Sewa Lagi</Button>
+                  </Link>
+                  <Link to={`/order/detail/${o.id}`}>
+                    <Button variant="primary">Lihat Detail</Button>
+                  </Link>
                 </>
               }
             </div>
