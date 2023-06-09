@@ -64,6 +64,10 @@
     margin-right:12px;
   }
 
+  .image-person-nav {
+    padding-top: 20px;
+  }
+
   .ml-auto{
     margin: 0 0 0 auto;
     padding-right: 20%;

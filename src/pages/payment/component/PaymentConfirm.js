@@ -218,7 +218,7 @@ export const PaymentConfirm = (props) => {
                                     <div {...getRootProps({ className: 'dropzone', style: dropzoneStyleDynamic })}>
                                         <input {...getInputProps()} accept="image/*" />
                                         {previewImage ? (
-                                            <img src={previewImage} alt="Preview" style={{ maxHeight: '200px' }} />
+                                            <img src={previewImage} className='img-fluid' alt="Preview" style={{ height: '40vh', objectFit: 'cover' }} />
                                         ) : (
                                             <p>Drag 'n' drop some files here, or click to select files</p>
                                         )}

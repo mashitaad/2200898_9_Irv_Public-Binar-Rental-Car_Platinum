@@ -10,6 +10,7 @@ import { PaymentPage } from "../pages/payment/PaymentPage";
 import PaymentConfirmationPage from "../pages/payment/PaymentConfirmPage";
 import OrderStatusPage from "../pages/order-status/OrderStatusPage";
 import PaymentReceiptPage from "../pages/payment/PaymentReceiptPage";
+import OrderDetailPage from "../pages/order-status/OrderDetailPage";
 
 function IndexRoutes() {
   return (
@@ -26,6 +27,7 @@ function IndexRoutes() {
         <Route path="/payment/confirm/order/:id" element={<PaymentConfirmationPage />} />
         <Route path="/payment/invoice/:id" element={<PaymentReceiptPage />} />
         <Route path="/order/status" element={<OrderStatusPage />} />
+        <Route path="/order/detail/:id" element={<OrderDetailPage />} />
         </Route>
 
       </Routes>

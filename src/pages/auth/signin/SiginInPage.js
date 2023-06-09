@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import jwtDecode from "jwt-decode";
 import SignIn from './components/SignIn';
 import { useDispatch } from "react-redux";
@@ -9,7 +9,7 @@ import { useCookies } from 'react-cookie';
 
 const SiginInPage = () => {
   const [cookies, setCookie] = useCookies(['token']);
-
+  const [errorMessage, setErrorMessage] = useState('')
 const dispatch = useDispatch();
 const navigate = useNavigate();
 const submit = async (payload) => {
@@ -21,7 +21,7 @@ const submit = async (payload) => {
     setCookie('token', result.access_token, { path: '/' });
     
   } catch (error) {
-    console.log(error.message);
+    setErrorMessage(error.message)
     return;
   }
   
@@ -30,7 +30,7 @@ const submit = async (payload) => {
 
   return (
     <>
-      <SignIn onSubmit={submit} />
+      <SignIn onSubmit={submit} message = {errorMessage}/>
     </>
   )
 }

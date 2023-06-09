@@ -16,14 +16,14 @@ const SignIn = (props) => {
     <>
       <div className='container'>
         <section className='d-flex'>
-          <div className="left_data" 
-          style={{ 
-            flex: "0 0 50%",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            paddingLeft: "16vh",
-          }}>
+          <div className="left_data"
+            style={{
+              flex: "0 0 50%",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              paddingLeft: "16vh",
+            }}>
             <img
               src={logo}
               style={{ width: "15%" }}
@@ -37,6 +37,11 @@ const SignIn = (props) => {
               props.onSubmit(form)
             })}>
               <Form.Group className="mb-3 col-lg-8" controlId="formBasicEmail">
+                {props.message && (
+                  <div className="alert alert-danger" role="alert">
+                    {props.message}
+                  </div>
+                )}
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
@@ -58,7 +63,7 @@ const SignIn = (props) => {
                   placeholder="6+ karakter" />
               </Form.Group>
 
-              <Button variant="primary" className='col-lg-8 mt-3'  style={{ background: "rgb(13,40,166)" }} type="submit">
+              <Button variant="primary" className='col-lg-8 mt-3' style={{ background: "rgb(13,40,166)" }} type="submit">
                 Sign In
               </Button>
             </Form>
@@ -113,5 +118,5 @@ export default SignIn
 
 
 SignIn.defaultProps = {
-  onSubmit: () => {}
+  onSubmit: () => { }
 }

@@ -4,6 +4,7 @@ import moment from 'moment';
 import nullImage from '../../../../assets/images/imagenotfound.jpeg'
 import '../../styles/cardpayment.css'
 import 'moment/locale/id';
+import { Link } from 'react-router-dom';
 moment.locale('id')
 
 
@@ -79,7 +80,11 @@ export default function NotPaidPaymentStatus(props) {
             
             <div className='payment-option-button'>
                 <>
+                <Link to = {`/payment/confirm/order/${o.id}`}>
+
                   <Button variant="primary">Bayar Sekarang</Button>
+                </Link>
+              
                   <Button
                       variant="outline-danger"
                       onClick={(e) => {

@@ -40,7 +40,7 @@ describe('authSlice', () => {
 
   describe('authSelector', () => {
     it('should select the token from the state', () => {
-      const state = { auth: { data: { token: 'fake-token' } } };
+      const state = { auth: { data: 'fake-token'  } };
       const selectedToken = authSelector.selectToken(state);
 
       expect(selectedToken).toEqual('fake-token');

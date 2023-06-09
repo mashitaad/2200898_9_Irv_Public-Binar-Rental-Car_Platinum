@@ -35,7 +35,7 @@ export default function SideBarAdmin({ children }) {
     return (
       <li key={index}>
         <NavLink to={item.path}>
-          <span className="icon">{item.icon} {item.name}</span>
+          <span className="icon-order-status">{item.icon} {item.name}</span>
           
         </NavLink>
       </li>
@@ -50,7 +50,7 @@ export default function SideBarAdmin({ children }) {
 
 <div className="container-fluid">
   <div className="row">
-  <div className="col ant-content d-flex align-items-stretch">
+  <div className="col ant-content d-flex align-items-start">
    {children}
     </div>
     <div>
