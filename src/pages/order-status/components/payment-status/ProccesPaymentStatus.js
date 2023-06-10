@@ -81,9 +81,9 @@ export default function ProccesPaymentStatus(props) {
 
             <div className='payment-option-button'>
               <>
-              <Link to={`/payment/confirm/order/${o.id}`}>
-                <Button variant="primary">Lihat Detail</Button>
-              </Link>
+              <Link to={`/order/detail/${o.id}`}>
+                    <Button variant="primary">Lihat Detail</Button>
+                  </Link>
               </>
             </div>
 
