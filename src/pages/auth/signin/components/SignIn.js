@@ -53,7 +53,7 @@ const SignIn = (props) => {
               </Form.Group>
 
               <Form.Group className="mb-3 col-lg-8" controlId="formBasicPassword">
-                <Form.Label>Create Password</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
                   name='password'
