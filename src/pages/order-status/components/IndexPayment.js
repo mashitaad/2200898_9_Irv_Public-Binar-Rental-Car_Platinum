@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 
 export default function IndexPayment() {
 const dispatch = useDispatch()
-const params = {}
+const params = {sort : 'created_at'}
 useEffect(() => {
   dispatch(customerGetAllOrder(params))
   dispatch(getAllCars())

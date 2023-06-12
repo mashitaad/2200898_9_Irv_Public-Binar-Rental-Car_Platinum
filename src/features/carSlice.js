@@ -5,7 +5,7 @@ import config from '../config';
 
 export const getAllCars = createAsyncThunk("car/getAllCars", async (params = {}) => {
     const apiUrl = config.apiBaseUrl
-    const response = await axios.get(apiUrl + "/customer/v2/car", {
+    const response = await axios.get(apiUrl + "/admin/v2/car", {
         params
     })
     return response.data
@@ -13,7 +13,7 @@ export const getAllCars = createAsyncThunk("car/getAllCars", async (params = {})
 
 export const getCarById = createAsyncThunk("car/getCar", async (id) => {
     const apiUrl = config.apiBaseUrl
-    const response = await axios.get(apiUrl + `/customer/car/${id}`)
+    const response = await axios.get(apiUrl + `/admin/car/${id}`)
     return response.data
 })
 
