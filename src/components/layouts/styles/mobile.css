@@ -1,33 +1,33 @@
-
 @media screen and (max-width: 660px) {
+  .logobrand {
+    width: 10%;
+  }
+  .main {
+    margin-top: 30px;
+    padding-bottom: 10px;
+  }
+  .title-banner {
+    font-size: 30px;
+    line-height: 39px;
+  }
+  .main-banner {
+    height: 100vh;
+    position: relative !important;
+    align-items: flex-start;
+    padding-top: 11rem;
+    font-size: 5vw !;
+    line-height: 25px;
+    font-weight: 500;
+  }
 
-    .main {
-      margin-top: 30px;
-      padding-bottom: 10px;
-    }
-    .title-banner{
-      font-size: 30px;
-      line-height: 39px;
-    }
-    .main-banner {
-      height: 100vh;
-      position: relative!important;
-      align-items: flex-start;
-      padding-top: 11rem;
-      font-size: 5vw !;
-      line-height: 25px;
-      font-weight: 500;
-    }
+  .image_hero {
+    width: 100% !important;
+  }
 
-    .image_hero{
-      width: 100% !important;
-    }
-
-    .service-description h1 {
-      font-size: 5.6vw;
-      line-height: 30px;
-      padding-bottom: 0px;
-
+  .service-description h1 {
+    font-size: 5.6vw;
+    line-height: 30px;
+    padding-bottom: 0px;
   }
   .service-description {
     padding-left: 0;
@@ -40,10 +40,9 @@
     font-size: 15px;
   }
 
-
   .title-why-us h1 {
     text-align: center;
-  } 
+  }
   .title-why-us p {
     text-align: center;
     padding-bottom: 0px;
@@ -67,68 +66,62 @@
   }
 
   .cta-banner {
-  
     height: 60vh;
-    }
+  }
 
- .left-content h5 {
-  text-align: center;
- }
- 
- .left-content h1 {
-  text-align: center;
- }
- 
- .contact {
+  .left-content h5 {
+    text-align: center;
+  }
+
+  .left-content h1 {
+    text-align: center;
+  }
+
+  .contact {
     font-weight: 600;
- }
+  }
 
- .address {
+  .address {
     font-weight: 600;
- }
+  }
 
- .logobrand {
-  padding-left: 0;
+  .logobrand {
+    padding-left: 0;
+  }
+
+  .table-option {
+    grid-template-columns: 100%;
+  }
+  .table-option-detailcar {
+    grid-template-columns: 100%;
+  }
+
+  .card {
+    height: auto !important;
+  }
+
+  .swiper-button-prev {
+    transform: translateX(-33px);
+  }
+
+  .swiper-button-next {
+    transform: translateX(40px);
+  }
+
+  .ket-bank {
+    margin-left: 9px;
+  }
 }
-
-.table-option {
-
-  grid-template-columns: 100%;
-
-}
-.table-option-detailcar {
-
-  grid-template-columns: 100%;
-
-}
-
-.card{
-
-  height: auto !important;
- 
-}
-
-.swiper-button-prev {
-  
-  transform: translateX(-33px);
-}
-
-.swiper-button-next {
-  transform: translateX(40px);
-
-
-}
-}
-@media screen and (max-width: 375px){
-  .main-banner{
+@media screen and (max-width: 375px) {
+  .main-banner {
     padding-top: 4rem;
   }
-  .title-banner{
+  .title-banner {
     font-size: 26px;
     line-height: 35px;
   }
 
-  .hero_description p{
+  .hero_description p {
     font-size: 16px;
   }
 
