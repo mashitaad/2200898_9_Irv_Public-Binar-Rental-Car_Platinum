@@ -10,10 +10,10 @@ export default function Banner() {
           <div className="row">
             <div className="col-md-6 d-flex align-items-center mt-5">
               <div className="hero_description">
-                <h1 className="title">
+                <h1 className="title-banner">
                   Sewa & Rental Mobil Terbaik di kawasan (Lokasimu)
                 </h1>
-                <p className="decription">
+                <p className="decription-banner">
                   Selamat datang di Binar Car Rental. Kami menyediakan mobil
                   kualitas terbaik dengan harga terjangkau. Selalu siap melayani
                   kebutuhanmu untuk sewa mobil selama 24 jam.

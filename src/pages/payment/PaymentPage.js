@@ -26,6 +26,7 @@ export const PaymentPage = () => {
   };
 
   const bankType = (payload) => {
+    console.log(payload)
     let orderData = {
       user_email: user.email,
       bankType: payload.BankType,
