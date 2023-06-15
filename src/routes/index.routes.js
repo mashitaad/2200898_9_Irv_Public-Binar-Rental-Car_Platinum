@@ -10,11 +10,7 @@ import { PaymentPage } from "../pages/payment/PaymentPage";
 import PaymentConfirmationPage from "../pages/payment/PaymentConfirmPage";
 import OrderStatusPage from "../pages/order-status/OrderStatusPage";
 import PaymentReceiptPage from "../pages/payment/PaymentReceiptPage";
-<<<<<<< HEAD
-import OrderDetailPage from "../pages/order-status/OrderDetailPage";
-=======
 import UserPage from "../pages/user/userPage";
->>>>>>> 50750b9 (checkout dev)
 
 function IndexRoutes() {
   return (
@@ -31,11 +27,7 @@ function IndexRoutes() {
         <Route path="/payment/confirm/order/:id" element={<PaymentConfirmationPage />} />
         <Route path="/payment/invoice/:id" element={<PaymentReceiptPage />} />
         <Route path="/order/status" element={<OrderStatusPage />} />
-<<<<<<< HEAD
-        <Route path="/order/detail/:id" element={<OrderDetailPage />} />
-=======
         <Route path="/user/profile" element={<UserPage />} />
->>>>>>> 50750b9 (checkout dev)
         </Route>
 
       </Routes>
