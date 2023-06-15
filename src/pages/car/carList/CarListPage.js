@@ -11,7 +11,7 @@ import FooterLayout from '../../../components/layouts/Footer';
 export default function CarListPage() {
   const dispatch = useDispatch();
   const loading = useSelector(carSelectors.loading);
-  console.log(loading)
+  
   const data = useSelector(carSelectors.selectAllCars);
   useEffect(() => {
     dispatch(getAllCars());
