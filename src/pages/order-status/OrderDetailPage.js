@@ -161,7 +161,7 @@ export default function OrderDetailPage() {
                                 </div>
                                 <div className="row mt-3">
                                 </div>
-                                <div className="mt-5 text-center">
+                                <div className="mt-5 text-center order-detail-button">
                                     {
                                         orderDetail.status && orderDetail.slip &&
                                         <>
@@ -188,7 +188,7 @@ export default function OrderDetailPage() {
                                                 <Button variant="primary">Bayar Sekarang</Button>
                                             </Link>
                                             <Button
-                                                variant="outline-danger"
+                                                variant="danger"
                                                 onClick={handleDeleteOrder}
                                             >
                                                 Batalkan Pesanan

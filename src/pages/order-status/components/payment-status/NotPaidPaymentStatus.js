@@ -43,61 +43,79 @@ export default function NotPaidPaymentStatus(props) {
         <Card className='card-status-payment' key={o.id}>
           <Card.Header>
             {!o.status && !o.slip ? "BELUM BAYAR" :
-            !o.status&& o.slip ? "SEDANG PROSES" : "SELESAI"}
-          
+              !o.status && o.slip ? "SEDANG PROSES" : "SELESAI"}
+
           </Card.Header><Card.Body>
             <div className='row'>
-            <div className='col-md-9 card-content-payment'>
+              <div className='col-md-9 card-content-payment'>
                 {o.carImage === null || o.carImage === undefined ?
-                (
-                  <div>
-                    <ImageWithLoading
-                      src={nullImage}
-                      alt={'null'}
-                    />
+                  (
+                    <div>
+                      <ImageWithLoading
+                        src={nullImage}
+                        alt={'null'}
+                      />
+                    </div>
+                  ) :
+                  (
+                    <div>
+                      <img
+                        src={o.carImage}
+                        alt={o.carName}
+                        style={{ width: "350px", height: "250px" }}
+                      />
+                    </div>
+                  )
+                }
+                <div className="col-md-5 border-right">
+                  <div className="p-3">
+                    <div className="row">
+                      <div className="col-md-6"><label className="labels"><strong>No Pesanan</strong></label> <p> {o?.id} </p></div>
+                    </div>
+                    <div className="col-md-6"><label className="labels"><strong>Total Bayar</strong></label>
+                      <p>{formatter.format(o.total_price)}</p>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-6"><label className="labels"><strong>Car / Type</strong></label>
+                        <p>{o?.carName}</p>
+                      </div>
+
+                      <div className="col-md-12"><label className="labels"><strong>Mulai sewa</strong></label>
+                        <p>{moment(o?.start_rent_at).format('DD MMMM YYYY')}</p>
+                      </div>
+                      <div className="col-md-12"><label className="labels"><strong>Berakhir sewa</strong></label>
+                        <p>{moment(o?.finish_rent_at).format('DD MMMM YYYY')}</p>
+                      </div>
+                    </div>
                   </div>
-                ) :
-                (
-                  <div>
-                    <ImageWithLoading
-                      src={o.carImage}
-                      alt={o.CarName}
-                    />
-                  </div>
-                )
-              }
-               <div>
-                  <h5>Nama/Type Mobil {o?.carName} </h5>
-                  <h5>tanggal Sewa {moment(o?.start_rent_at).format('DD MMMM YYYY')}</h5>
-                  <h5>tanggal berakhir sewa {moment(o?.finish_rent_at).format('DD MMMM YYYY')}</h5>
-                  <p>No pesanan: {o.id}</p>
                 </div>
               </div>
-              <div className='col-md-3'>
-                total bayar: {formatter.format(o.total_price)}
+              <div className='col-md-3 mt-3'>
+                <div className="col-md-6"><label className="labels"><strong>Tanggal order :</strong></label>  <p>{moment(o?.created_at).format('DD MMMM YYYY')}</p></div>
               </div>
             </div>
-            
+
+
             <div className='payment-option-button'>
-                <>
-                <Link to = {`/payment/confirm/order/${o.id}`}>
+              <>
+                <Link to={`/payment/confirm/order/${o.id}`}>
 
                   <Button variant="primary">Bayar Sekarang</Button>
                 </Link>
-              
-                  <Button
-                      variant="outline-danger"
-                      onClick={(e) => {
-                        e.preventDefault()
-                        props.handleDelete(o.id)
-                      }}
-                    >
-                      Batalkan Pesanan
-                    </Button>
-                    <Link to={`/order/detail/${o.id}`}>
-                    <Button variant="primary">Lihat Detail</Button>
-                  </Link>
-                </>
+
+                <Button
+                  variant="danger"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    props.handleDelete(o.id)
+                  }}
+                >
+                  Batalkan Pesanan
+                </Button>
+                <Link to={`/order/detail/${o.id}`}>
+                  <Button variant="info">Lihat Detail</Button>
+                </Link>
+              </>
             </div>
 
           </Card.Body>

@@ -94,3 +94,9 @@
  .nav-customer {
    justify-content: end;
  }
+ 
+
+ .order-detail-button {
+   display: flex;
+   column-gap: 10px;
+}

@@ -12,6 +12,7 @@ import OrderStatusPage from "../pages/order-status/OrderStatusPage";
 import PaymentReceiptPage from "../pages/payment/PaymentReceiptPage";
 import UserPage from "../pages/user/userPage";
 import '../components/layouts/styles/mobile.css'
+import OrderDetailPage from "../pages/order-status/OrderDetailPage";
 
 function IndexRoutes() {
   return (
@@ -29,6 +30,7 @@ function IndexRoutes() {
         <Route path="/payment/invoice/:id" element={<PaymentReceiptPage />} />
         <Route path="/order/status" element={<OrderStatusPage />} />
         <Route path="/user/profile" element={<UserPage />} />
+        <Route path="/order/detail/:id" element={<OrderDetailPage />} />
         </Route>
 
       </Routes>
