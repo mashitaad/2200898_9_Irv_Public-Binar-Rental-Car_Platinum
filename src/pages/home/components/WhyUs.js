@@ -1,27 +1,33 @@
 import React from 'react'
 import './styles/WhyUs.css'
 
-const WhyUs = ({linkWhyUs, benefitStatic}) => {
+const WhyUs = ({ linkWhyUs, benefitStatic}) => {
 
-  return (
-    <div className='cust-container' id='whyUs'>
-        <div className="why-us" >
-            <h3 className='sect-title' ref={linkWhyUs}>Why Us</h3>
-            <p style={{fontSize: '0.875rem', margin: '1rem 0'}}>
-                Mengapa harus pilih Binar Car Rental?
-            </p>
-        </div>
-        <div className='inner'>
-            {benefitStatic.map((benefit) => {
-                return (<div className='custom-card' key={benefit.id}>
-                    <img src={benefit.img} alt={benefit.id}/>
-                    <p className='sect-title' style={{margin:'1rem 0',fontSize:'1rem'}}>{benefit.title}</p>
-                    <p style={{margin:'0',fontSize:'0.875rem'}}>{benefit.desc}</p>
-                </div>)
-            })}
-        </div>
-    </div>
-  )
+    return (
+        <>
+            <div className="container" >
+                <div className='title-why-us' >
+                    <h1 ref={linkWhyUs}>Why Us? </h1>
+                    <p>Mengapa harus pilih Binar Car Rental?</p>
+                </div>
+                <div className="row why-us">
+                    {benefitStatic.map((item) => {
+                        return (
+                            <div className="col-md-3" key={item.id}>
+                                <div className="card-whyus">
+                                    <img src={item.img} alt="icon_complete" />
+                                    <div className="card-body">
+                                        <h5 className="title-whyus">{item.title}</h5>
+                                        <p className="text-whyus">{item.desc}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default WhyUs

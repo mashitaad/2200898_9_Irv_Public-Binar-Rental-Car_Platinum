@@ -11,6 +11,7 @@ import PaymentConfirmationPage from "../pages/payment/PaymentConfirmPage";
 import OrderStatusPage from "../pages/order-status/OrderStatusPage";
 import PaymentReceiptPage from "../pages/payment/PaymentReceiptPage";
 import UserPage from "../pages/user/userPage";
+import '../components/layouts/styles/mobile.css'
 
 function IndexRoutes() {
   return (

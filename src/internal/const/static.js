@@ -8,7 +8,7 @@ import icon_complete from "../../assets/icons/icon_complete.svg"
 import icon_price from "../../assets/icons/icon_price.svg"
 import icon_24hrs from "../../assets/icons/icon_24hrs.svg"
 import icon_professional from "../../assets/icons/icon_professional.svg"
-
+import icon_check from "../../assets/icons/icon_check.svg";
 const benefitStatic = [
   {
       title: 'Mobil Lengkap', 
@@ -32,6 +32,39 @@ const benefitStatic = [
       desc: 'Supir yang profesional, berpengalaman, jujur, ramah dan selalu tepat waktu'
   }
 ]
+
+const bestCarStatic = [
+  {
+    id: 1,
+    image: icon_check,
+    alt: "icon_check",
+    content: "Sewa Mobil Dengan Supir di Bali 12 Jam",
+  },
+  {
+    id: 2,
+    image: icon_check,
+    alt: "icon_check",
+    content: "Sewa Mobil Lepas Kunci di Bali 24 Jam",
+  },
+  {
+    id: 3,
+    image: icon_check,
+    alt: "icon_check",
+    content: "Sewa Mobil Jangka Panjang Bulanan",
+  },
+  {
+    id: 4,
+    image: icon_check,
+    alt: "icon_check",
+    content: "Gratis Antar - Jemput Mobil di Bandara",
+  },
+  {
+    id: 5,
+    image: icon_check,
+    alt: "icon_check",
+    content: "Layanan Airport Transfer / Drop In Out",
+  },
+];
 
 const faqStatic = [
   {
@@ -129,5 +162,9 @@ const testimonialStatic = [
       star: 4,
     },
   ];
+
   
-  export { testimonialStatic, benefitStatic, faqStatic } ;
+  
+
+
+  export { testimonialStatic, benefitStatic, faqStatic, bestCarStatic } ;

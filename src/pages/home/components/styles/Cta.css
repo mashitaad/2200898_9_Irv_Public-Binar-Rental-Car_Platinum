@@ -1,19 +1,49 @@
-.cta {
+.kotak {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-banner {
+  background-color: #0d28a6;
+  width: 100%;
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+}
+
+.content-banner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-banner h1 {
+  color: white;
+}
+
+.content-banner p {
+  color: white;
+}
+
+
+.cta-banner {
+    border-radius: 10px;
+}
+
+
+
+.content-banner {
+    display: flex;
     justify-content: center;
-  }
+    align-items: center;
+    width: 60%;
+    row-gap: 10px;
+}
 
-.cta-subtitle {
-    margin:1rem auto 2rem auto;
-  }
-
-  .cta-inner{
-    flex-direction: column;
-    align-items: center; 
-    row-gap: 1rem;
-    background-color: #0D28A6; 
-    padding: 4rem; 
-    width: clamp(13.25rem, 90%, 73rem);
-    color: #fff; 
-    text-align: center; 
-    border-radius: 0.8125rem; 
-  }
+.center-banner {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}

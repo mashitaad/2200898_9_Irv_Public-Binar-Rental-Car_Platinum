@@ -1,30 +1,38 @@
-#whyUs {
-    flex-direction: column;
-    padding: 0 8.5rem;
-    row-gap: 2rem;
-    width: 100%;
-  }
+.why-us {
+  padding-bottom: 150px;
+}
 
-  .why-us {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
- 
-.inner {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    column-gap:32px;
-    border: none;
-  }
+.card-whyus img {
+  width: 12%;
+  margin-left: 10%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
 
-  .custom-card {
-    display: block;
-    width: 16.75rem;
-    padding: 1.5rem;
-    border-style: solid;
-    border-color: #D0D0D0;
-    border-width: 1px;
-    border-radius: 0.5rem;
+.card-whyus {
+  border: 3px solid #e5e5e5;
+  height: 25 vh !important;
+  border-radius: 10px;
+}
+
+.title-whyus {
+  margin-bottom: 10%;
+  margin-left: 5%;
+}
+
+.text-whyus {
+  margin-left: 5%;
+  font-weight: 600;
+}
+
+.title-why-us h1 {
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+.title-why-us p {
+  font-weight: 700;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }

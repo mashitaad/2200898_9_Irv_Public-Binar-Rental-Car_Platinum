@@ -1,31 +1,58 @@
 
-#aboutServices {
-    justify-content: center;
-    align-items: center; 
-    margin: 0 1rem; 
-    column-gap: 86px;
-    row-gap: 1rem;
-    margin: 0.25rem 0 0 0;
-    padding: 0 12.875rem;
-  }
-  
-  .about-services {
-    display: flex;
-    flex-direction: column;
-    max-width: 468px;
-    row-gap: 1rem;
-  }
-  
-  #aboutServices ul {
-    position: static;
-    margin: -0.5rem 0 0 0;
-    padding-left: 0;
-    font-size: 0.875rem;
-  }
-  
-  #aboutServices li {
-    background: url(../../../../assets/icons/bullet.svg) no-repeat left center;
-    padding: 0.5rem 3.0625rem 0.5rem 2.5rem;
-    list-style: none;
-    vertical-align: middle;
-  }
+.main {
+  padding-bottom: 75px;
+  margin-top: 100px;
+}
+
+.image_service img {
+  width: 80%;
+}
+
+/* 
+.image_service {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 50% !important;
+} */
+
+
+.image_service img {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 10px;
+}
+
+.service-description {
+  padding-left: 10%;
+}
+
+.service-description h1 {
+  font-size: 1.6vw;
+  line-height: 45px;
+  font-weight: 700;
+  padding-bottom: 30px;
+}
+
+.service-description p {
+  font-size: 1vw;
+  font-weight: 700;
+}
+
+.service-description ul {
+  padding: 0;
+}
+
+.service-description ul li {
+  list-style: none;
+  line-height: 45px;
+  font-weight: 700;
+  font-size: 0.85vw;
+
+}
+
+.service-description ul img {
+  padding-right: 15px;
+}

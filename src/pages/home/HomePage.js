@@ -7,7 +7,7 @@ import WhyUs from './components/WhyUs'
 import AboutServices from './components/AboutServices'
 import Banner from './components/Banner'
 import Navbar from '../../components/layouts/Navbar'
-import {testimonialStatic, benefitStatic, faqStatic} from '../../internal/const/static'
+import {testimonialStatic, benefitStatic, faqStatic, bestCarStatic} from '../../internal/const/static'
 import Footer from '../../components/layouts/Footer'
 
 export default function HomePage() {
@@ -21,6 +21,7 @@ export default function HomePage() {
     testimonialStatic,
     benefitStatic,
     faqStatic,
+    bestCarStatic,
     linkOurService,
     linkWhyUs,
     linkTestimonial,
