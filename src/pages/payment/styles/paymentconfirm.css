@@ -134,3 +134,24 @@
     cursor: pointer;
   }
   
+  .modal-title-notif {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 40px;
+  }
+  
+  .modal-content .modal-notif {
+      height: 600px;
+      background-color: #E5E5E5;
+      border-radius: 10px;
+  }
+  .image-modal {
+    justify-content: center;
+    display: flex;
+    padding-top: 100px;
+  }
+  
+  .count-time-modal {
+    text-align: center;
+    margin-top: 50px;
+  }
