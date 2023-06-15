@@ -5,9 +5,6 @@ import { useState } from 'react';
 import { customerGetOrderById, orderSelector } from '../../../features/orderSlice';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import NavbarLayout from '../../../components/layouts/Navbar';
-import FooterLayout from '../../../components/layouts/Footer'
-import HeaderPayment from './HeaderPayment';
 import logo from '../../../assets/icons/logo.png'
 import successLogo from '../../../assets/icons/success.svg'
 import { BsDownload } from "react-icons/bs";
@@ -64,8 +61,7 @@ export default function Invoice() {
 
   return (
     <>
-      <NavbarLayout />
-      <HeaderPayment navigateBack={navigateBack} padingBottom={true} />
+    
       <div className="container">
         <div className='description-title-ticket mb-5'>
           <img src={successLogo} alt='success'className='mb-3' />
@@ -204,7 +200,7 @@ export default function Invoice() {
           </div>
         </div>
       </div>
-      <FooterLayout />
+
     </>
   )
 }

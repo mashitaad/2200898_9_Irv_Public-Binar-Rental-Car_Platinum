@@ -14,7 +14,7 @@ const dispatch = useDispatch()
 const params = {sort : 'created_at'}
 useEffect(() => {
   dispatch(customerGetAllOrder(params))
-  dispatch(getAllCars())
+  dispatch(getAllCars({pageSize: 100}))
 }, [])
 
 const data = useSelector(orderSelector.selectCustomerAllOrders)
@@ -47,7 +47,7 @@ const cars = useSelector(carSelectors.selectAllCars)
 
   return (
     <>
-      <div className="container">
+      <div className="container container-order-status" >
         <div>
           <Tabs
             defaultActiveKey="payment-all"
