@@ -6,8 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/paymentconfirm.css';
 import '../styles/dropzone.css';
 import { MdContentCopy } from 'react-icons/md';
+import { useSelector } from 'react-redux'
+import { orderSelector } from '../../../features/orderSlice';
+import successLogo from '../../../assets/icons/success.svg'
 
 export const PaymentConfirm = (props) => {
+  const successUpload = useSelector(orderSelector.successUpload)
   const navigate = useNavigate();
 
   const [previewImage, setPreviewImage] = useState(null);
@@ -17,6 +21,7 @@ export const PaymentConfirm = (props) => {
   const [inputNoRek, setInputNoRek] = useState('');
   const [inputTitleBank, setInputTitleBank] = useState('');
 
+  
   const handleChange = (event) => {
     const newValue = event.target.value;
     setInputValue(newValue);
@@ -198,43 +203,43 @@ export const PaymentConfirm = (props) => {
                 <div className="payment-section reminder-payment">{props.children}</div>
                 <div className="payment-section">
                   <h5>Lakukan Transfer Ke</h5>
-                    <div className="payment-section-bank">
-                        <Row>
-                            <Col xs="auto">
-                            <Button className="custom-button custom-btn-light">{inputTitleBank}</Button>
-                            </Col>
-                            <Col>
-                            <div className="bank-info">
-                                <p className="bank-name">{inputBankType} Transfer</p>
-                                <p className="bank-an">a.n Binar Car Rental</p>
-                            </div>
-                            </Col>
-                        </Row>
-                    </div>
-                    <div className="coloumn-copy-rek">
-                        <h5>Nomor Rekening</h5>
-                        <div className="input-group">
-                            <input ref={inputRefRekNumber} type="text" value={inputNoRek} readOnly style={inputStyle} />
-                            <button onClick={handleCopyRekNumber} style={iconCopyStyle}>
-                            <MdContentCopy />
-                            </button>
+                  <div className="payment-section-bank">
+                    <Row>
+                      <Col xs="auto">
+                        <Button className="custom-button custom-btn-light">{inputTitleBank}</Button>
+                      </Col>
+                      <Col>
+                        <div className="bank-info">
+                          <p className="bank-name">{inputBankType} Transfer</p>
+                          <p className="bank-an">a.n Binar Car Rental</p>
                         </div>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className="coloumn-copy-rek">
+                    <h5>Nomor Rekening</h5>
+                    <div className="input-group">
+                      <input ref={inputRefRekNumber} type="text" value={inputNoRek} readOnly style={inputStyle} />
+                      <button onClick={handleCopyRekNumber} style={iconCopyStyle}>
+                        <MdContentCopy />
+                      </button>
                     </div>
-                    <div className="coloumn-copy-totalpay">
-                        <h5>Total Bayar</h5>
-                        <div className="input-group">
-                            <input
-                            ref={inputRefTotalPrice}
-                            type="text"
-                            value={totalPriceDisplay}
-                            onChange={handleChange}
-                            style={inputStyle}
-                            />
-                            <button onClick={handleCopyTotalPrice} style={iconCopyStyle}>
-                            <MdContentCopy />
-                            </button>
-                        </div>
+                  </div>
+                  <div className="coloumn-copy-totalpay">
+                    <h5>Total Bayar</h5>
+                    <div className="input-group">
+                      <input
+                        ref={inputRefTotalPrice}
+                        type="text"
+                        value={totalPriceDisplay}
+                        onChange={handleChange}
+                        style={inputStyle}
+                      />
+                      <button onClick={handleCopyTotalPrice} style={iconCopyStyle}>
+                        <MdContentCopy />
+                      </button>
                     </div>
+                  </div>
                 </div>
                 <div className="payment-section">
                   <div className="payment-info">
@@ -245,33 +250,67 @@ export const PaymentConfirm = (props) => {
             </div>
           </div>
           <div className="col-md-4">
-            <div className="right-content-payment">
-              <p>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
-              <div>
-                <section className="container">
-                  <div {...getRootProps({ className: 'dropzone', style: dropzoneStyleDynamic })}>
-                    <input {...getInputProps()} accept="image/*" />
-                    {previewImage ? (
-                      <img src={previewImage} className="img-fluid" alt="Preview" style={{ height: '40vh', objectFit: 'cover' }} />
-                    ) : (
-                      <p>Drag 'n' drop some files here, or click to select files</p>
-                    )}
+            {!successUpload ? (
+
+              <div className="right-content-payment">
+                <div className='confirm-dropzone-title'>
+                  <h6>Konfirmasi Pembayaran</h6>
+                  <p>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
+                </div>
+
+                <div className='confrim-dorpzone-upload'>
+                  <h6>Upload Bukti Pembayaran</h6>
+                  <p>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
+
+                </div>
+
+                {props.errorMessage && (
+                  <div className="alert alert-danger" role="alert">
+                    <p>
+                      {props.errorMessage}
+                    </p>
                   </div>
-                  <aside>
-                    {acceptedFiles.map((file) => (
-                      <li key={file.path}>
-                        {file.path} - {file.size} bytes
-                      </li>
-                    ))}
-                  </aside>
-                </section>
+                )}
+                <div>
+                  <section className="container">
+                    <div {...getRootProps({ className: 'dropzone', style: dropzoneStyleDynamic })}>
+                      <input {...getInputProps()} accept="image/*" />
+                      {previewImage ? (
+                        <img src={previewImage} className="img-fluid" alt="Preview" style={{ height: '40vh', objectFit: 'cover' }} />
+                      ) : (
+                        <p>Drag 'n' drop some files here, or click to select files</p>
+                      )}
+                    </div>
+                    <aside>
+                      {acceptedFiles.map((file) => (
+                        <li key={file.path}>
+                          {file.path} - {file.size} bytes
+                        </li>
+                      ))}
+                    </aside>
+                  </section>
+                </div>
+                <div className="d-grid gap-2">
+                  <Button variant="flat" onClick={handleClickConfirmation}>
+                    konfirmasi pembayaran
+                  </Button>
+                </div>
               </div>
-              <div className="d-grid gap-2">
-                <Button variant="flat" onClick={handleClickConfirmation}>
-                  konfirmasi pembayaran
-                </Button>
+            ) : (
+              <div className="right-content-payment">
+                <div className='success-upload'>
+                 
+                <div className='description-title-ticket mb-5'>
+          <img src={successLogo} alt='success'className='mb-3' />
+          <h4>Upload berhasil</h4>
+          <p>tunggu sebentar anda akan di arahankan kehalaman selanjutnya</p>
+        </div>
+                 
+                </div>
               </div>
-            </div>
+
+            )}
+
           </div>
         </div>
       </div>
