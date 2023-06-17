@@ -31,9 +31,9 @@ export default function PaymentReceiptPage() {
                 padingBottom={false} />
 
             {order?.status === false ?
-                <PendingInvoice />
+                <PendingInvoice/>
                 :
-                <Invoice/>
+                <Invoice />
             }
             <FooterLayout />
         </>

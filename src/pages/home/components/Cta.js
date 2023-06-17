@@ -18,7 +18,7 @@ const Cta = (props) => {
                     elit. Assumenda, quas. Eaque esse consequuntur voluptatum
                     ab doloremque molestiae ad saepe quidem.
                   </p>
-                  <Link to="/car">   <button className="button_banner">Mulai Sewa Mobil</button></Link>
+                  <Link to="/car/list">   <button className="button_banner">Mulai Sewa Mobil</button></Link>
                 </div>
               </div>
             </div>
