@@ -55,3 +55,39 @@
   margin-top: 8px;
   margin-right: 4px;
 }
+
+.countdown-ticket .time-block {
+  display: inline-block;
+  background-color: #FA2C5A;
+  color: white;
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 2px;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.countdown-ticket span:not(.time-block) {
+  color: #000000;
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 8px;
+  margin-right: 4px;
+}
+
+
+.countdown-ticket {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  padding-bottom: 20px;
+}
