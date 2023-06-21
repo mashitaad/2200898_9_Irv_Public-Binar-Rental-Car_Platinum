@@ -24,7 +24,7 @@ export default function PaymentReceiptPage() {
   return (
     <>
       <NavbarLayout />
-      <HeaderPayment navigateBack={navigateBack} set={4} padingBottom={false} />
+      <HeaderPayment navigateBack={navigateBack} set={3} padingBottom={false} />
 
       {order?.status === false ? <PendingInvoice /> : <Invoice />}
       <FooterLayout />
