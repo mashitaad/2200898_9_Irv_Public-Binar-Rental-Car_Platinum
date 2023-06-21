@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 
 function HeaderPayment({ navigateBack, set, bankName, padingBottom }) {
-
   const { id } = useParams();
   const [style, setStyle] = useState(padingBottom);
   const renderIcons = () => {
@@ -29,6 +28,10 @@ function HeaderPayment({ navigateBack, set, bankName, padingBottom }) {
       icon1 = <BsCheckCircleFill color="blue" className="me-1" />;
       icon2 = <BsCheckCircleFill color="blue" className="me-2" />;
       icon3 = <Bs3CircleFill color="blue" className="me-2" />;
+    } else if (set === 4) {
+      icon1 = <BsCheckCircleFill color="blue" className="me-1" />;
+      icon2 = <BsCheckCircleFill color="blue" className="me-2" />;
+      icon3 = <BsCheckCircleFill color="blue" className="me-2" />;
     } else {
       icon1 = <Bs1CircleFill color="blue" className="me-1" />;
       icon2 = <Bs2Circle color="blue" className="me-2" />;
