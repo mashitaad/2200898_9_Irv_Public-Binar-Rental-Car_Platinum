@@ -1,58 +1,54 @@
-
 .footer {
-    font-family: 'Arial';
-    padding: auto;
-    margin-bottom: 100px;
-    margin-top: 100px;
+  padding: auto;
+  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
 .icon-footer {
-    height: 32px;
-    width: 32px;
-    border-radius: 50%;
-    background-color: #0D28A6;
-    padding: 0;
-    margin: 0;
-    margin-right: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: #0d28a6;
+  padding: 0;
+  margin: 0;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fi {
-    width: 20px;
-    height: 20px;
-    color: white;
+  width: 20px;
+  height: 20px;
+  color: white;
 }
 
 footer ul {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 footer a {
-    text-decoration: none;
-    color: black;
-
+  text-decoration: none;
+  color: black;
 }
 
 footer li {
-    margin-bottom: 16px;
-
+  margin-bottom: 16px;
 }
 
 .navbar {
-    margin-top: -8px;
-    text-decoration: 'none';
-    list-style-type: 'none';
-    font-family: 'Arial';
-    font-size: '14px';
-    font-weight: '400';
-    line-height: '20px';
-    text-align: 'left';
+  margin-top: -8px;
+  text-decoration: "none";
+  list-style-type: "none";
+  font-family: "Arial";
+  font-size: "14px";
+  font-weight: "400";
+  line-height: "20px";
+  text-align: "left";
 }
 
 .space-container {
-    margin-bottom: 3vh;
+  margin-bottom: 3vh;
 }
