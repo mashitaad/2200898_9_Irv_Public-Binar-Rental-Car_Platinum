@@ -1,54 +1,19 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../../../../assets/images/rectangle.png";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { register } from "../../../../features/registerSlice";
-import { end } from "@popperjs/core";
 
 const SignUp = (props) => {
   const [form, setForm] = useState({
     email: "",
     password: "",
-    role: "customer",
+    confirmPassword: "",
+    role: "Customer",
   });
 
-  const dispatch = useDispatch();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Validasi password
-    if (form.password.length < 6) {
-      setIsSubmitting(false);
-      toast.error("Password must be at least 6 characters long", {
-        position: "top-center",
-      });
-      return;
-    }
-
-    try {
-      const response =  dispatch(register(form));
-      setIsSubmitting(false);
-
-      if (response.error) {
-        toast.error(response.payload.message, {
-          position: "top-center",
-        });
-      }
-    } catch (error) {
-      setIsSubmitting(false);
-      toast.error("An error occurred during registration", {
-        position: "top-center",
-      });
-    }
-  };
-
+  
   return (
     <>
       <div className="container">
@@ -71,8 +36,16 @@ const SignUp = (props) => {
             />
             <h3 className="text-start mt-4 col-lg-6">Sign Up</h3>
 
-            <Form onSubmit={handleSignUp}>
+            <Form onSubmit={(e => {
+              e.preventDefault()
+              props.onSubmit(form)
+            })}>
               <Form.Group className="mb-3 col-lg-9" controlId="formBasicEmail">
+              {props.errorMessage && (
+                  <div className="alert alert-danger" role="alert">
+                    {props.errorMessage}
+                  </div>
+                )}
                 <Form.Label>Email*</Form.Label>
                 <Form.Control
                   type="email"
@@ -106,6 +79,24 @@ const SignUp = (props) => {
                   placeholder="6+ karakter"
                 />
               </Form.Group>
+              <Form.Group
+                className="mb-3 col-lg-9"
+                controlId="formBasicPassword"
+              >
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="password"
+                  value={form.confirmPassword}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      confirmPassword: e.target.value,
+                    })
+                  }
+                  placeholder="6+ karakter"
+                />
+              </Form.Group>
 
               <Button
                 variant="primary"
@@ -113,7 +104,7 @@ const SignUp = (props) => {
                 style={{ background: "rgb(13,40,166)" }}
                 type="submit"
               >
-                {isSubmitting ? "Loading..." : "SignUp"}
+                Sign Up
               </Button>
             </Form>
             <p className="mt-3">
@@ -161,7 +152,7 @@ const SignUp = (props) => {
             />
           </div>
         </section>
-        <ToastContainer position="top-center" />
+      
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { render, fireEvent, waitFor, screen } from "@testing-library/react";
 import { useDispatch } from "react-redux";
 import SignUp from "../components/SignUp";
 import { MemoryRouter } from 'react-router-dom';
@@ -63,7 +63,7 @@ describe("SignUp component", () => {
             </MemoryRouter>
         );
         const emailInput = getByLabelText("Email*");
-        const passwordInput = getByLabelText("Create Password*");
+        const passwordInput = screen.getByLabelText('Password');
         const signUpButton = getByText("SignUp");
 
 
