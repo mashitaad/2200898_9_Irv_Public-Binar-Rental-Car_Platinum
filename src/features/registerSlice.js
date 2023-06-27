@@ -5,6 +5,7 @@ import config from "../config";
 export const register = createAsyncThunk(
   "user/register",
   async (params = {}, { rejectWithValue }) => {
+    console.log(params)
     try {
       const apiUrl = config.apiBaseUrl;
       const response = await axios.post(
@@ -32,16 +33,16 @@ const registerSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state) => {
-        state.loading = "pending";
+        state.loading = true;
         state.errorMessage = null;
       })
       .addCase(register.fulfilled, (state, action) => {
-        state.loading = "fulfilled";
+        state.loading = false;
         state.token = action.payload;
         state.errorMessage = null;
       })
       .addCase(register.rejected, (state, action) => {
-        state.loading = "rejected";
+        state.loading = false;
         state.errorMessage = action.payload;
       });
   },
