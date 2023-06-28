@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Accordion, Button, Col, Row } from "react-bootstrap";
 import "../styles/payment.css"
 import { AiOutlineCheck } from 'react-icons/ai';
+import FiPeople from "../../../assets/icons/fi_users.svg";
 
 
 export default function Payment(props) {
@@ -130,24 +131,49 @@ export default function Payment(props) {
         </div>
         <div className="col-md-5 mt-5 detail-payment">
           <Row>
-            <div className="car-name-payment">
-              <p>{props.data.name}</p>
+          <div className="car-name-payment" style={{ marginTop: "0px" }}>
+              <p style={{ fontWeight: "700", fontSize: "14px" }}>{props.data.name}</p>
+              <div
+                className="car-name-payment d-flex mb-4 "
+                style={{ marginTop: "-12px" }}
+              >
+                <img
+                  style={{ marginTop: "-15px", marginRight: "5px" }}
+                  src={FiPeople}
+                ></img>
+                <p style={{ fontWeight: "400", fontSize: "10px" ,lineHeight: "14px"}}>{props.data.category}</p>
+              </div>
             </div>
+          </Row>
+          
+           <Row>
+            
           </Row>
           <Row>
             <Accordion className="accordion-detail" defaultActiveKey="0">
               <Accordion.Item eventKey="0">
-                <Accordion.Header>Total</Accordion.Header>
+                <Row>
+                  <Col>
+                    <Accordion.Header>Total</Accordion.Header>
+                  </Col>
+                  <Col
+                    className="d-flex justify-content-end"
+                    style={{ fontWeight: "700", fontSize: "14px" }}
+                  >
+                    {formatter.format(props.data.price * dayDifference)}
+                  </Col>
+              </Row>
                 <Accordion.Body>
                   <h5>Harga</h5>
                   <ul>
                     <li>
-                      <Row>
+                    <Row>
                         <Col>
                           Sewa Mobil {formatter.format(props.data.price)} x{" "}
                           {dayDifference} hari{" "}
                         </Col>
-                        <Col>
+                        <Col className="d-flex justify-content-end"
+                        >
                           {formatter.format(props.data.price * dayDifference)}
                         </Col>
                       </Row>
@@ -156,16 +182,16 @@ export default function Payment(props) {
                   <h5>Biaya Lainya</h5>
                   <ul>
                     <li>
-                      <Row>
+                    <Row>
                         <Col>Pajak </Col>
-                        <Col style={{ color: 'green' }}>Termasuk</Col>
+                        <Col style={{ color: 'green' }} className="d-flex justify-content-end">Termasuk</Col>
 
                       </Row>
                     </li>
                     <li>
                       <Row>
                         <Col>Biaya Makan Sopir </Col>
-                        <Col style={{ color: 'green' }}>Termasuk</Col>
+                        <Col style={{ color: 'green' }} className="d-flex justify-content-end">Termasuk</Col>
 
                       </Row>
                     </li>
@@ -181,9 +207,20 @@ export default function Payment(props) {
           </Row>
           <Row>
             <div className="total-payment">
-              <Row>
+            <Row>
                 <Col>Total</Col>
-                <Col>{formatter.format(props.data.price * dayDifference)}</Col>
+                <Col
+                  className="d-flex justify-content-end fw-bold"
+                  style={{
+                    fontFamily:"arial",
+                    
+                    fontWeight: "700",
+                    fontSize: "14px",
+                    lineHeight: "20px",
+                  }}
+                >
+                  {formatter.format(props.data.price * dayDifference)}
+                </Col>
               </Row>
 
             </div>
