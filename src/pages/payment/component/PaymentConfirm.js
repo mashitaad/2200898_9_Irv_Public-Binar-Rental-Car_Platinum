@@ -9,6 +9,10 @@ import { MdContentCopy } from 'react-icons/md';
 import { useSelector } from 'react-redux'
 import { orderSelector } from '../../../features/orderSlice';
 import successLogo from '../../../assets/icons/success.svg'
+import IndexInstructionBCA from './PaymentIntruction/PaymentInstructionBCA';
+import IndexInstructionBNI from './PaymentIntruction/PaymentInstructionBNI';
+import IndexInstructionMandiri from './PaymentIntruction/PaymentInstructionMandiri';
+
 
 export const PaymentConfirm = (props) => {
   const successUpload = useSelector(orderSelector.successUpload)
@@ -193,6 +197,10 @@ export const PaymentConfirm = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const bankType = localStorage.getItem('order_data')
+  const bankTypeObjt = JSON.parse(bankType)
+  const namaBank = bankTypeObjt.bankType
+
   return (
     <>
       <div className="container">
@@ -243,7 +251,11 @@ export const PaymentConfirm = (props) => {
                 </div>
                 <div className="payment-section">
                   <div className="payment-info">
-                    <PaymentInstruction />
+                  {
+                  namaBank === "BCA" ? < IndexInstructionBCA /> 
+                  :namaBank === "BNI" ? <IndexInstructionBNI /> 
+                  : <IndexInstructionMandiri />  
+                  }
                   </div>
                 </div>
               </div>
