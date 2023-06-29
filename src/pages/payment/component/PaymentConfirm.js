@@ -9,6 +9,7 @@ import { MdContentCopy } from 'react-icons/md';
 import { useSelector } from 'react-redux'
 import { orderSelector } from '../../../features/orderSlice';
 import successLogo from '../../../assets/icons/success.svg'
+
 import IndexInstructionBCA from './PaymentIntruction/PaymentInstructionBCA';
 import IndexInstructionBNI from './PaymentIntruction/PaymentInstructionBNI';
 import IndexInstructionMandiri from './PaymentIntruction/PaymentInstructionMandiri';
@@ -201,7 +202,9 @@ export const PaymentConfirm = (props) => {
   const bankTypeObjt = JSON.parse(bankType)
   const namaBank = bankTypeObjt.bankType
 
+
   return (
+
     <>
       <div className="container">
         <div className="row">
@@ -251,6 +254,7 @@ export const PaymentConfirm = (props) => {
                 </div>
                 <div className="payment-section">
                   <div className="payment-info">
+
                   {
                   namaBank === "BCA" ? < IndexInstructionBCA /> 
                   :namaBank === "BNI" ? <IndexInstructionBNI /> 

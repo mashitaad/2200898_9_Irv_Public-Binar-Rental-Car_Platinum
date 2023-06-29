@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Nav, Tabs, Tab } from 'react-bootstrap';
 
-export default function PaymentInstructionMandiri() {
+export default function PaymentInstructionBCA() {
 
     const [tabKey, initTabKey] = useState(
         'atmbca',
@@ -13,7 +13,7 @@ export default function PaymentInstructionMandiri() {
     return (
        
         <div>
-            <h1>MANDIRI</h1>
+            <h1>BCA</h1>
             <Nav className='payment-option d-flex gap-5 '>
                 <Tabs activeKey={tabKey} onSelect={(e) => initTabKey(e)} >
                     <Tab eventKey="atmbca" title="ATM BCA" >
