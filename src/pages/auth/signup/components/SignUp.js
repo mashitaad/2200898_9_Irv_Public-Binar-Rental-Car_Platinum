@@ -13,7 +13,6 @@ const SignUp = (props) => {
     role: "Customer",
   });
 
-  
   return (
     <>
       <div className="container">
@@ -36,12 +35,17 @@ const SignUp = (props) => {
             />
             <h3 className="text-start mt-4 col-lg-6">Sign Up</h3>
 
-            <Form onSubmit={(e => {
-              e.preventDefault()
-              props.onSubmit(form)
-            })}>
-              <Form.Group className="mb-3 col-lg-9" controlId="formBasicEmail">
-              {props.errorMessage && (
+            <Form
+              onSubmit={(e) => {
+                e.preventDefault();
+                props.onSubmit(form);
+              }}
+            >
+              <Form.Group
+                className="mb-3 col-lg-9"
+                controlId="formBasicEmail"
+              >
+                {props.errorMessage && (
                   <div className="alert alert-danger" role="alert">
                     {props.errorMessage}
                   </div>
@@ -147,12 +151,12 @@ const SignUp = (props) => {
                 position: "absolute",
                 left: "115px",
                 top: "200px",
-                maxHeight: "calc(100vh - 200px)",
+                width: "calc(100% - 115px)",
+                height: "calc(100vh - 200px)",
               }}
             />
           </div>
         </section>
-      
       </div>
     </>
   );
