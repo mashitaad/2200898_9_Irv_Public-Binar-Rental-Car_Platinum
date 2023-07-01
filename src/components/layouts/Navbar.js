@@ -66,7 +66,7 @@ export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurServic
     <>
       {['md'].map((expand) => (
         
-        <Navbar  key={expand} fixed="top" expand={expand} className={colorChange ? 'bg-light pt-3 trans-02 pt-5' : 'bg-transparent trans-02 pt-5'}>
+        <Navbar key={expand} fixed="top" expand={expand} className={colorChange ? 'bg-light pt-3 trans-02 pb-3' : 'bg-transparent trans-02'}>
           <Container fluid>
             <Navbar.Brand href="/" className="logobrand">
               <img src={logo} alt="logo" />
