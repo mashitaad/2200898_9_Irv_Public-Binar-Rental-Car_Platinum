@@ -16,7 +16,7 @@ const SignUp = (props) => {
   return (
     <>
       <div className="container">
-        <section className="d-flex">
+        <section className="d-flex" >
           <div
             className="left_data"
             style={{
