@@ -38,7 +38,9 @@ const SignUpPage = () => {
     } 
   }
   return (
+    <>
     <SignUp onSubmit={handleSignUp}  errorMessage = {errorMessage}/>
+    </>
   )
 }
 
