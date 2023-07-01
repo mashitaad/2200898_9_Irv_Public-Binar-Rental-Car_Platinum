@@ -12,7 +12,7 @@ const SignIn = (props) => {
 
   return (
     <>
-      <div className='container'>
+      <div className=''>
         <section className='d-flex'>
           <div
             className='left_data'
@@ -98,7 +98,7 @@ const SignIn = (props) => {
           <div
             className='right_data'
             style={{
-              flex: '0 0 100%',
+              flex: '0 0 50%',
               backgroundColor: '#0D28A6',
               height: '100vh',
               display: 'flex',
