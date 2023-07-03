@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import '../styles/headerpayment.css';
 import rectangle from '../../../assets/images/rectangle36.png';
