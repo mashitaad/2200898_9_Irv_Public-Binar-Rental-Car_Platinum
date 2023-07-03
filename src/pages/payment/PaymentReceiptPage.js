@@ -26,7 +26,7 @@ export default function PaymentReceiptPage() {
     <>
       <Helmet>
         <title>Invoice</title>
-        <meta name="description" content="Details of purchase transactions that have been made." />
+        <meta name="description" content="Details of purchase transactions that have been made" />
         <link rel="canonical" href="/payment/invoice/:id" />
       </Helmet>
       <NavbarLayout />

@@ -38,7 +38,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>Homepage</title>
-        <meta name="description" content="This is binar rental car homepage." />
+        <meta name="description" content="This is binar rental car homepage" />
         <link rel="canonical" href="/" />
       </Helmet>
       <div className="main-container">

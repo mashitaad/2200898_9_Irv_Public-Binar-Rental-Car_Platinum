@@ -73,7 +73,7 @@ export const PaymentPage = () => {
     <>
       <Helmet>
         <title>Payment</title>
-        <meta name="description" content="Payment page that shows the nominal to be paid." />
+        <meta name="description" content="Payment page that shows the nominal to be paid" />
         <link rel="canonical" href="/payment" />
       </Helmet>
       <NavbarLayout />
