@@ -5,19 +5,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getCarById } from '../../../../features/carSlice';
 import CarDetailPage from './carDetail.test';
 
-// Mock the react-redux useSelector and useDispatch hooks
 jest.mock('react-redux', () => ({
   useSelector: jest.fn(),
   useDispatch: jest.fn()
 }));
 
-// Mock the react-router-dom useNavigate and useParams hooks
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
   useParams: jest.fn()
 }));
 
-// Mock the getCarById action creator
 jest.mock('../../../../features/carSlice', () => ({
   getCarById: jest.fn()
 }));
@@ -39,7 +36,6 @@ describe('CarDetailPage', () => {
 
     render(<CarDetailPage />);
 
-    // Assert loading spinner is rendered
     expect(screen.getByTestId('loading-spinner')).toBeInTheDocument();
   });
 
@@ -49,7 +45,6 @@ describe('CarDetailPage', () => {
       make: 'Toyota',
       model: 'Camry',
       year: 2022
-      // Add more properties as needed
     };
 
     useSelector.mockReturnValue({
@@ -80,20 +75,15 @@ describe('CarDetailPage', () => {
     });
 
     render(<CarDetailPage />);
-
-    // Mock the calendar selection
     const startDate = new Date('2023-06-01');
     const endDate = new Date('2023-06-05');
     fireEvent.change(screen.getByLabelText('Start Date'), { target: { value: startDate } });
     fireEvent.change(screen.getByLabelText('End Date'), { target: { value: endDate } });
 
-    // Click the submit button
     fireEvent.click(screen.getByText('Lanjutkan Pembayaran'));
 
-    // Assert that the navigate function was called with the correct path
     expect(navigate).toHaveBeenCalledWith('/payment');
 
-    // Assert that the getCarById action creator was called with the correct id
     expect(getCarById).toHaveBeenCalledWith('1');
   });
 });

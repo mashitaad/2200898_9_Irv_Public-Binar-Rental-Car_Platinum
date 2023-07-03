@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import CarDetail from '../components/CarDetaill';
+import CarDetail from '../components/CarDetail';
 
 describe('CarDetail', () => {
   const car = {
