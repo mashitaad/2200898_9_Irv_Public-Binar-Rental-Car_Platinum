@@ -15,6 +15,7 @@ import {
   bestCarStatic
 } from '../../internal/const/static';
 import Footer from '../../components/layouts/Footer';
+import { Helmet } from 'react-helmet-async';
 
 export default function HomePage() {
   const linkOurService = useRef(null);
@@ -34,15 +35,22 @@ export default function HomePage() {
   };
 
   return (
-    <div className="main-container">
-      <Navbar {...props} />
-      <Banner />
-      <AboutServices {...props} />
-      <WhyUs {...props} />
-      <Testimonial {...props} />
-      <Cta {...props} />
-      <Faq {...props} />
-      <Footer {...props} />
-    </div>
+    <>
+      <Helmet>
+        <title>Homepage</title>
+        <meta name="description" content="This is binar rental car homepage." />
+        <link rel="canonical" href="/" />
+      </Helmet>
+      <div className="main-container">
+        <Navbar {...props} />
+        <Banner />
+        <AboutServices {...props} />
+        <WhyUs {...props} />
+        <Testimonial {...props} />
+        <Cta {...props} />
+        <Faq {...props} />
+        <Footer {...props} />
+      </div>
+    </>
   );
 }

@@ -10,6 +10,7 @@ import HeaderPayment from './component/HeaderPayment';
 import NavbarLayout from '../../components/layouts/Navbar';
 import FooterLayout from '../../components/layouts/Footer';
 import { useCookies } from 'react-cookie';
+import { Helmet } from 'react-helmet-async';
 
 export const PaymentPage = () => {
   const [disabledButton, setDisableButton] = useState(true);
@@ -70,6 +71,14 @@ export const PaymentPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Payment</title>
+        <meta
+          name="description"
+          content="Payment page that shows the nominal to be paid."
+        />
+        <link rel="canonical" href="/payment" />
+      </Helmet>
       <NavbarLayout />
       <HeaderPayment navigateBack={navigateBack} padingBottom={true} />
       <OrderDetail data={orderDetailDataJson} />

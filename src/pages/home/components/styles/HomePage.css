@@ -30,7 +30,7 @@ button.custom:hover {
 .main-container {
     display: flex;
     flex-direction: column;
-    row-gap: 6.25rem;
+    row-gap: 5rem;
   }
   
 .cust-container {
