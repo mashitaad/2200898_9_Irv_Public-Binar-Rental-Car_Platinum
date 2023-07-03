@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import './styles/AboutServices.css';
-import img_service from '../../../assets/images/lesti-kejora.svg';
+import img_service from '../../../assets/images/lesti-kejora.webp';
 
 const AboutServices = ({ bestCarStatic, linkOurService }) => {
   return (

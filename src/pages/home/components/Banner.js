@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../../../assets/images/img_car.svg';
+import hero from '../../../assets/images/img_car.webp';
 import './styles/banner.css';
 import { Link } from 'react-router-dom';
 export default function Banner() {
