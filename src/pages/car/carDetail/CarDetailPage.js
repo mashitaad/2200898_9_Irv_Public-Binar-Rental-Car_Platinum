@@ -155,7 +155,7 @@ const CarDetailPage = () => {
             <div className="sign-up">
               <p>
                 Don't Have account yet?
-                <Link to="/register">
+                <Link to="/signup">
                   <strong> Sign Up</strong>{' '}
                 </Link>
               </p>
