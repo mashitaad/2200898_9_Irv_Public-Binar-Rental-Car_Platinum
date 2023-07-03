@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import CarList from './components/CarList';
 import FromFillter from '../../../components/from-filter/FromFilter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,18 @@ export default function CarListPage() {
 
   const onFilter = (payload) => {
     dispatch(getAllCars(payload));
+  };
+
+  const linkOurService = useRef(null);
+  const linkWhyUs = useRef(null);
+  const linkTestimonial = useRef(null);
+  const linkFaq = useRef(null);
+
+  const props = {
+    linkOurService,
+    linkWhyUs,
+    linkTestimonial,
+    linkFaq
   };
 
   return (
