@@ -7,6 +7,7 @@ import { carSelectors, getAllCars } from '../../../features/carSlice';
 import Banner from '../../home/components/Banner';
 import NavbarLayout from '../../../components/layouts/Navbar';
 import FooterLayout from '../../../components/layouts/Footer';
+import { Helmet } from 'react-helmet-async';
 
 export default function CarListPage() {
   const dispatch = useDispatch();
@@ -35,7 +36,15 @@ export default function CarListPage() {
 
   return (
     <>
-      <NavbarLayout {...props} />
+      <Helmet>
+        <title>Car List</title>
+        <meta
+          name="description"
+          content="Displays the entire list of cars that are ready to be rented."
+        />
+        <link rel="canonical" href="/car/list" />
+      </Helmet>
+      <NavbarLayout />
       <Banner />
       <FromFillter onSubmit={onFilter} />
       {loading ? (

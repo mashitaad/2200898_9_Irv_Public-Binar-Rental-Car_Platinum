@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { login, register } from '../../../features/authSlice';
 import { useCookies } from 'react-cookie';
+import { Helmet } from 'react-helmet-async';
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,11 @@ const SignUpPage = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Sign Up</title>
+        <meta name="description" content="Make an account to rent our car" />
+        <link rel="canonical" href="/signup" />
+      </Helmet>
       <SignUp onSubmit={handleSignUp} errorMessage={errorMessage} />
     </>
   );
