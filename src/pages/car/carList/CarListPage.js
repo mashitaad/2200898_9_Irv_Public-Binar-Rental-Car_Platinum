@@ -7,7 +7,6 @@ import { carSelectors, getAllCars } from '../../../features/carSlice';
 import Banner from '../../home/components/Banner';
 import NavbarLayout from '../../../components/layouts/Navbar';
 import FooterLayout from '../../../components/layouts/Footer';
-import { Helmet } from 'react-helmet-async';
 
 export default function CarListPage() {
   const dispatch = useDispatch();
