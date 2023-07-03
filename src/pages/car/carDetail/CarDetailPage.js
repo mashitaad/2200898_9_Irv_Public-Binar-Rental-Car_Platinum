@@ -16,6 +16,7 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import { login } from '../../../features/authSlice';
 import './styles/siginmodal.css';
+import { Helmet } from 'react-helmet-async';
 
 const CarDetailPage = () => {
   const navigate = useNavigate();
@@ -83,6 +84,14 @@ const CarDetailPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Car Detail</title>
+        <meta
+          name="description"
+          content="Displays the details of the car selected for rent."
+        />
+        <link rel="canonical" href="/car/list/:id" />
+      </Helmet>
       <NavbarLayout />
       <Banner />
       <FromFilterDetail data={car} />
