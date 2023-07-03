@@ -29,7 +29,7 @@ const SiginInPage = () => {
     <>
       <Helmet>
         <title>Sign In</title>
-        <meta name="description" content="Sign in to rent some car" />
+        <meta name="description" content="Sign in to rent some car." />
         <link rel="canonical" href="/signin" />
       </Helmet>
       <SignIn onSubmit={submit} message={errorMessage} />

@@ -41,7 +41,7 @@ const SignUpPage = () => {
     <>
       <Helmet>
         <title>Sign Up</title>
-        <meta name="description" content="Make an account to rent our car" />
+        <meta name="description" content="Make an account to rent our car." />
         <link rel="canonical" href="/signup" />
       </Helmet>
       <SignUp onSubmit={handleSignUp} errorMessage={errorMessage} />
