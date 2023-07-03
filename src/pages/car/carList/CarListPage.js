@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import CarList from './components/CarList'
-import FromFillter from '../../../components/from-filter/FromFilter'
+import React, { useEffect, useRef } from 'react';
+import CarList from './components/CarList';
+import FromFillter from '../../../components/from-filter/FromFilter';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import { carSelectors, getAllCars } from '../../../features/carSlice';
@@ -11,7 +11,7 @@ import FooterLayout from '../../../components/layouts/Footer';
 export default function CarListPage() {
   const dispatch = useDispatch();
   const loading = useSelector(carSelectors.loading);
-  
+
   const data = useSelector(carSelectors.selectAllCars);
   useEffect(() => {
     dispatch(getAllCars());
@@ -21,18 +21,29 @@ export default function CarListPage() {
     dispatch(getAllCars(payload));
   };
 
+  const linkOurService = useRef(null);
+  const linkWhyUs = useRef(null);
+  const linkTestimonial = useRef(null);
+  const linkFaq = useRef(null);
+
+  const props = {
+    linkOurService,
+    linkWhyUs,
+    linkTestimonial,
+    linkFaq
+  };
+
   return (
     <>
-    <NavbarLayout/>
-    <Banner />
+      <NavbarLayout {...props} />
+      <Banner />
       <FromFillter onSubmit={onFilter} />
-     {loading ? (
+      {loading ? (
         <LoadingSpinner />
       ) : (
         <>{data.cars !== undefined && <CarList cars={data.cars} />}</>
-      )} 
-      <FooterLayout/> 
-
+      )}
+      <FooterLayout />
     </>
   );
 }

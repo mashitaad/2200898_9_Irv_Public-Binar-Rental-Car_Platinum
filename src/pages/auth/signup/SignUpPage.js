@@ -1,47 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import SignUp from './components/SignUp';
-import axios from 'axios';
-import config from '../../../config';
 import { useNavigate } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
-import { authSelector, login, register } from '../../../features/authSlice';
+import { useDispatch } from 'react-redux';
+import { login, register } from '../../../features/authSlice';
 import { useCookies } from 'react-cookie';
+import { Helmet } from 'react-helmet-async';
 
 const SignUpPage = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
   const [cookies, setCookie] = useCookies(['token']);
-  const loading = useSelector(authSelector.loading)
-  const [errorMessage, setErrorMessage] = useState('')
-  const navigate = useNavigate()
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleSignUp = async (payload) => {
     if (payload.password.length < 6) {
-      setErrorMessage('password harus lebih dari 6 karakter')
-      return
-    } 
-     if (payload.password !== payload.confirmPassword) {
-      setErrorMessage('password dan confirm password tidak sama')
-      return
+      setErrorMessage('password harus lebih dari 6 karakter');
+      return;
+    }
+    if (payload.password !== payload.confirmPassword) {
+      setErrorMessage('password dan confirm password tidak sama');
+      return;
     }
 
     try {
-     await dispatch(register(payload)).unwrap()
+      await dispatch(register(payload)).unwrap();
 
-     const result = await dispatch(login({email: payload.email, password: payload.password})).unwrap()
-     
-     setCookie('token', result.access_token, { path: '/' });
+      const result = await dispatch(
+        login({ email: payload.email, password: payload.password })
+      ).unwrap();
 
-     navigate('/')
-     
+      setCookie('token', result.access_token, { path: '/' });
+
+      navigate('/');
     } catch (error) {
-      setErrorMessage(error.message)
-    } 
-  }
+      setErrorMessage(error.message);
+    }
+  };
   return (
-    <SignUp onSubmit={handleSignUp}  errorMessage = {errorMessage}/>
-  )
-}
-
-
+    <>
+      <Helmet>
+        <title>Sign Up</title>
+        <meta name="description" content="Make an account to rent our car." />
+        <link rel="canonical" href="/signup" />
+      </Helmet>
+      <SignUp onSubmit={handleSignUp} errorMessage={errorMessage} />
+    </>
+  );
+};
 
 export default SignUpPage;

@@ -2,15 +2,10 @@ import React, { useState } from 'react';
 import { Nav, Tabs, Tab } from 'react-bootstrap';
 
 const PaymentInstructionBCA = () => {
-
-    const [tabKey, initTabKey] = useState(
-        'atmbca',
-    )
-
+  const [tabKey, initTabKey] = useState('atmbca');
 
   return (
     <div>
-          
             <Nav className='payment-option d-flex gap-5 '>
                 <Tabs activeKey={tabKey} onSelect={(e) => initTabKey(e)} >
                     <Tab eventKey="atmbca" title="ATM BCA" >
@@ -54,4 +49,5 @@ const PaymentInstructionBCA = () => {
   )
 }
 
-export default PaymentInstructionBCA
+
+export default PaymentInstructionBCA;

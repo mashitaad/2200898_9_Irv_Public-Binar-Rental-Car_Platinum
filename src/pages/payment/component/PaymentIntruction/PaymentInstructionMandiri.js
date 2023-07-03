@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { Nav, Tabs, Tab } from 'react-bootstrap';
 
 const PaymentInstructionMandiri = () => {
-
-    const [tabKey, initTabKey] = useState(
-        'atmmandiri'
-    )
+  const [tabKey, initTabKey] = useState('atmmandiri');
 
   return (
     <div>
@@ -46,9 +43,9 @@ const PaymentInstructionMandiri = () => {
                 </div>
             </Tab>
         </Tabs>
-    </Nav>
-</div>
-  )
-}
+      </Nav>
+    </div>
+  );
+};
 
-export default PaymentInstructionMandiri
+export default PaymentInstructionMandiri;

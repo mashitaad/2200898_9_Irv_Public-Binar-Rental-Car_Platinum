@@ -6,7 +6,7 @@ describe('CarDetail', () => {
     image: 'car-image.jpg',
     name: 'Car Name',
     category: 'medium',
-    price: 100000,
+    price: 100000
   };
 
   test('renders car image', () => {

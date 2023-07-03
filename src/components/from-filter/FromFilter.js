@@ -1,21 +1,20 @@
-import "./fromfilter.css"
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+import './fromfilter.css';
+import { useState } from 'react';
 
 export default function Fromfilter(props) {
-
   const [form, setForm] = useState({
     name: '',
     category: '',
     isRented: '',
     maxPrice: '',
-    minPrice: '',
-
-  })
+    minPrice: ''
+  });
 
   const handlePriceChange = (e) => {
     const { value } = e.target;
     let minPrice, maxPrice;
-  
+
     switch (value) {
       case 'lessThan400K':
         minPrice = '';
@@ -39,26 +38,26 @@ export default function Fromfilter(props) {
       minPrice,
       maxPrice
     });
-  }
+  };
 
-  const [buttonText, setButtonText] = useState('Pilih Mobil')
+  const [buttonText, setButtonText] = useState('Pilih Mobil');
 
   const handleClick = () => {
-    setButtonText('edit')
-  }
-
+    setButtonText('edit');
+  };
 
   return (
     <>
-
       <div className="container seacrh-car">
-      <div className="title-search">
+        <div className="title-search">
           <h5>Pencarianmu</h5>
         </div>
-        <form className="table-option" onSubmit={(e) => {
-          e.preventDefault()
-          props.onSubmit(form)
-        }}>
+        <form
+          className="table-option"
+          onSubmit={(e) => {
+            e.preventDefault();
+            props.onSubmit(form);
+          }}>
           <div className="grid-input">
             <label htmlFor="inputEmail4" className="form-label">
               Nama Mobil
@@ -68,27 +67,31 @@ export default function Fromfilter(props) {
               className="form-control"
               id="inputNamaMobil"
               placeholder="ketik nama/type mobil"
-              onChange={e => setForm({
-                ...form,
-                ...{
-                  name: e.target.value
-                }
-              })}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  ...{
+                    name: e.target.value
+                  }
+                })
+              }
             />
           </div>
           <div className="grid-input">
             <label htmlFor="inputState" className="form-label">
               Category
             </label>
-            <select id="inputState" 
-            className="form-select"
-            onChange={e => setForm({
-              ...form,
-              ...{
-                category: e.target.value
-              }
-            })}
-            >
+            <select
+              id="inputState"
+              className="form-select"
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  ...{
+                    category: e.target.value
+                  }
+                })
+              }>
               <option value="">Masukan Kapasitas Mobil</option>
               <option value="small">2 - 4 orang</option>
               <option value="medium">4 - 6 orang</option>
@@ -99,12 +102,9 @@ export default function Fromfilter(props) {
             <label htmlFor="inputState" className="form-label">
               Harga
             </label>
-            <select id="inputState" 
-            className="form-select"
-            onChange= {handlePriceChange}
-            >
+            <select id="inputState" className="form-select" onChange={handlePriceChange}>
               <option value="">Masukan Harga Per Hari</option>
-              <option value="lessThan400K" >&lt; Rp.400000</option>
+              <option value="lessThan400K">&lt; Rp.400000</option>
               <option value="between400Kand600K">Rp.400000 - Rp.600000</option>
               <option value="moreThan600K">&gt; Rp.600000</option>
             </select>
@@ -113,15 +113,17 @@ export default function Fromfilter(props) {
             <label htmlFor="inputState" className="form-label">
               Status
             </label>
-            <select id="inputState" 
-            className="form-select"
-            onChange={e => setForm({
-              ...form,
-              ...{
-                isRented: e.target.value
-              }
-            })}
-            >
+            <select
+              id="inputState"
+              className="form-select"
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  ...{
+                    isRented: e.target.value
+                  }
+                })
+              }>
               <option value="">Pilih Status Mobil</option>
               <option value="false">free</option>
               <option value="true">disewa</option>
@@ -129,11 +131,10 @@ export default function Fromfilter(props) {
           </div>
 
           <div className="grid-input-button">
-            <button 
-            type="submit" 
-            className="button_banner"
-            onClick={handleClick}
-             > {buttonText}</button>
+            <button type="submit" className="button_banner" onClick={handleClick}>
+              {' '}
+              {buttonText}
+            </button>
           </div>
         </form>
       </div>
@@ -142,5 +143,5 @@ export default function Fromfilter(props) {
 }
 
 Fromfilter.defaultProps = {
-  onSubmit: () => {},
-}
+  onSubmit: () => {}
+};

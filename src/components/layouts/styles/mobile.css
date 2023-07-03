@@ -19,7 +19,14 @@
     line-height: 25px;
     font-weight: 500;
   }
+.col-md-9.card-content-payment {
+  display: flex;
+  flex-direction: column;
+}
 
+.payment-ticket {
+  width: 100%;
+}
   .image_hero {
     width: 100% !important;
   }
@@ -111,6 +118,29 @@
   .ket-bank {
     margin-left: 9px;
   }
+
+  .ant-sidenav{
+    display: none;
+  }
+  .pay-track {
+      flex-direction: column;
+      row-gap: 15px;
+  
+  }
+  .sign-up-custome {
+      flex-direction: column;
+      row-gap: 15px;
+      justify-content: center;
+      height: 100vh;
+  }
+  .sign-up-data,.right_data {
+    display: none !important;
+  }
+  .left_data{
+    padding: 25px;
+    padding-left: 25px !important;
+  }
+
 }
 @media screen and (max-width: 375px) {
   .main-banner {

@@ -1,33 +1,27 @@
-import React, { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { customerGetOrderById, orderSelector } from '../../../features/orderSlice';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import logo from '../../../assets/icons/logo.png'
-import successLogo from '../../../assets/icons/success.svg'
-import { BsDownload } from "react-icons/bs";
-import { MdOutlineDownloading } from "react-icons/md";
+import logo from '../../../assets/icons/logo.png';
+import successLogo from '../../../assets/icons/success.svg';
+import { BsDownload } from 'react-icons/bs';
+import { MdOutlineDownloading } from 'react-icons/md';
 import moment from 'moment';
 import 'moment/locale/id';
-import '../styles/paymentreceipt.css'
-import "../styles/paymentticket.css"
-
+import '../styles/paymentreceipt.css';
+import '../styles/paymentticket.css';
 
 export default function Invoice() {
-  const { id } = useParams()
+  const { id } = useParams();
   const dispatch = useDispatch();
   const order = useSelector(orderSelector.selectCustomerOrdeyById);
-  const navigate = useNavigate();
-  const navigateBack = () => {
-    navigate(-1);
-  };
-
 
   useEffect(() => {
-    dispatch(customerGetOrderById(id))
-  }, [])
+    dispatch(customerGetOrderById(id));
+  }, []);
 
   const [loader, setLoader] = useState(false);
 
@@ -42,47 +36,46 @@ export default function Invoice() {
       doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight);
       setLoader(false);
       doc.save('receipt.pdf');
-    })
-  }
-
+    });
+  };
 
   const finishDate = new Date(order?.finish_rent_at);
   const startDate = new Date(order?.start_rent_at);
 
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
   const timeDifference = finishDate.getTime() - startDate.getTime();
-  const dayDifference = Math.round(timeDifference / millisecondsPerDay)
+  const dayDifference = Math.round(timeDifference / millisecondsPerDay);
 
-  const formatter = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
+  const formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0
   });
 
   return (
     <>
-    
       <div className="container">
-        <div className='description-title-ticket mb-5'>
-          <img src={successLogo} alt='success'className='mb-3' />
+        <div className="description-title-ticket mb-5">
+          <img src={successLogo} alt="success" className="mb-3" />
           <h4>Pembayaran berhasil</h4>
           <p>Tunjukan Invoice ini Ke Petugas BCR di titik temu</p>
         </div>
         <div className="payment-ticket">
-
-          <div className='invoice-download mb-1'>
+          <div className="invoice-download mb-1">
             <p>Invoice</p>
             <button
               className="receipt-modal-download-button"
               onClick={downloadPDF}
-              disabled={!(loader === false)}
-            >
+              disabled={!(loader === false)}>
               {loader ? (
-                <span><MdOutlineDownloading /> Mengunduh</span>
+                <span>
+                  <MdOutlineDownloading /> Mengunduh
+                </span>
               ) : (
-                <span><BsDownload /> Unduh </span>
+                <span>
+                  <BsDownload /> Unduh{' '}
+                </span>
               )}
-
             </button>
           </div>
 
@@ -93,14 +86,10 @@ export default function Invoice() {
                   <img alt="logo" src={logo} />
                 </div>
                 <h5>Binar Car Rental</h5>
-                <h6>
-                  Jalan Suroyo No. 161 Mayangan Kota robolonggo 672000
-                </h6>
+                <h6>Jalan Suroyo No. 161 Mayangan Kota robolonggo 672000</h6>
                 <div className="phone-and-website">
                   <p>
-                    <a href={`binarcarrental@gmail.com`}>
-                      binarcarrental@gmail.com
-                    </a>
+                    <a href={`binarcarrental@gmail.com`}>binarcarrental@gmail.com</a>
                   </p>
                   <p> 081-233-334-808</p>
                 </div>
@@ -123,7 +112,6 @@ export default function Invoice() {
                   <span>{order?.id}</span>
                 </div>
 
-
                 <div className="colored-row">
                   <span>Transaction Details</span>
                   <span />
@@ -131,64 +119,35 @@ export default function Invoice() {
 
                 <div className="data-row border-bottom">
                   <span>
-                    <span className="font-weight">
-                      Car Type
-                      :
-                    </span>
-                    {' '}
-                    {order?.Car?.name}
+                    <span className="font-weight">Car Type :</span> {order?.Car?.name}
                   </span>
                   <span>
-                    <span className="font-weight">
-                      Price
-                      {' '}
-                      :
-                    </span>
-                    {' '}
+                    <span className="font-weight">Price :</span>{' '}
                     {formatter.format(order?.Car?.price)}
                   </span>
                 </div>
 
                 <div className="data-row border-bottom">
                   <span>
-                    <span className="font-weight">
-                      start rent :
-                      {' '}
-
-                    </span>
-                    {' '}
+                    <span className="font-weight">start rent : </span>{' '}
                     {moment(order?.start_rent_at).format('DD MMMM YYYY')}
                   </span>
                   <span>
-                    <span className="font-weight">
-                      finish rent :
-                    </span>
-                    {' '}
+                    <span className="font-weight">finish rent :</span>{' '}
                     {moment(order?.finish_rent_at).format('DD MMMM YYYY')}
                   </span>
                 </div>
                 <div className="data-row border-bottom">
                   <span>
-                    <span className="font-weight">
-                      total day
-                      {' '}
-                      :
-                    </span>
-                    {' '}
-                    {dayDifference}
+                    <span className="font-weight">total day :</span> {dayDifference}
                   </span>
-
                 </div>
                 <div className="colored-row">
                   <span>total Price </span>
                   <span />
                 </div>
                 <div className="data-row border-bottom">
-
-                  <span className="font-weight">
-
-                    {formatter.format(order?.total_price)}
-                  </span>
+                  <span className="font-weight">{formatter.format(order?.total_price)}</span>
                   <span />
                 </div>
                 <div className="colored-row">
@@ -200,7 +159,6 @@ export default function Invoice() {
           </div>
         </div>
       </div>
-
     </>
-  )
+  );
 }
