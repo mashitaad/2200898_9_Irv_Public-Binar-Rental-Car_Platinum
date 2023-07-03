@@ -17,7 +17,7 @@ const SignUp = (props) => {
   return (
     <>
       <div className="">
-        <section className="d-flex">
+        <section className="d-flex sign-up-custome">
           <div
             className="left_data"
             style={{
@@ -103,7 +103,7 @@ const SignUp = (props) => {
             </p>
           </div>
           <div
-            className="right_data"
+            className="right_data sign-up-data"
             style={{
               flex: '0 0 50%',
               backgroundColor: '#0D28A6',

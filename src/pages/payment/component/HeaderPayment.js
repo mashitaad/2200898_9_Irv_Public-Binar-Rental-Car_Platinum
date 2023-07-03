@@ -52,7 +52,7 @@ function HeaderPayment({ navigateBack, set, bankName, padingBottom }) {
   return (
     <div className={`bg-secondary-custom mb-40px ${style ? 'pb-custom' : 'mb-2'}`}>
       <Container className="mb-7">
-        <Row className="justify-content-between">
+        <Row className="justify-content-between pay-track">
           <Col className="text-start">
             <Link
               className="mb-4 text-decoration-none"
