@@ -205,11 +205,11 @@ export const PaymentConfirm = (props) => {
                   <div className="payment-section-bank">
                     <Row>
                       <Col xs="auto">
-                        <Button className="custom-button custom-btn-light">{inputTitleBank}</Button>
+                        <Button className="custom-button custom-btn-light">{namaBank}</Button>
                       </Col>
                       <Col>
                         <div className="bank-info">
-                          <p className="bank-name">{inputBankType} Transfer</p>
+                          <p className="bank-name">{namaBank} Transfer</p>
                           <p className="bank-an">a.n Binar Car Rental</p>
                         </div>
                       </Col>
