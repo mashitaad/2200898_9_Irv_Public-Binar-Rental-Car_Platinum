@@ -13,7 +13,7 @@ const AboutServices = ({ bestCarStatic, linkOurService }) => {
               <img className="img-fluid" src={img_service} alt="image_service" />
             </div>
           </div>
-          <div className="col-md-6 d-flex align-items-center ml-5">
+          <div className="col-md-6 d-flex align-items-center ml-5" id="testcoy">
             <div className="service-description" ref={linkOurService}>
               <h1>Best Car Rental for any kind of trip in (Lokasimu)!</h1>
               <p>

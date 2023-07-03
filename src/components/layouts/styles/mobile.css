@@ -19,7 +19,14 @@
     line-height: 25px;
     font-weight: 500;
   }
+.col-md-9.card-content-payment {
+  display: flex;
+  flex-direction: column;
+}
 
+.payment-ticket {
+  width: 100%;
+}
   .image_hero {
     width: 100% !important;
   }
@@ -110,6 +117,15 @@
 
   .ket-bank {
     margin-left: 9px;
+  }
+
+  .ant-sidenav{
+    display: none;
+  }
+  .pay-track {
+      flex-direction: column;
+      row-gap: 15px;
+  
   }
 }
 @media screen and (max-width: 375px) {
