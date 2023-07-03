@@ -85,7 +85,7 @@ export default function NavbarLayout({ linkWhyUs, linkTestimonial, linkOurServic
 
               <Offcanvas.Body className="justify-content-end">
                 <Nav className="ml-auto navlist">
-                  <Nav.Link href="#" onClick={() => handleClick(linkOurService)}>
+                  <Nav.Link href="#testcoy" onClick={() => handleClick(linkOurService)}>
                     Our Service
                   </Nav.Link>
                   <Nav.Link href="#" onClick={() => handleClick(linkWhyUs)}>

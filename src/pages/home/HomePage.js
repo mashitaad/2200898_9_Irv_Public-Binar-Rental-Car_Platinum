@@ -7,6 +7,7 @@ import WhyUs from './components/WhyUs';
 import AboutServices from './components/AboutServices';
 import Banner from './components/Banner';
 import Navbar from '../../components/layouts/Navbar';
+
 import {
   testimonialStatic,
   benefitStatic,

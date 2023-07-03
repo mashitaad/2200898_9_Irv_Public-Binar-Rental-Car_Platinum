@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import CarList from './components/CarList';
 import FromFillter from '../../../components/from-filter/FromFilter';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,17 +22,21 @@ export default function CarListPage() {
     dispatch(getAllCars(payload));
   };
 
+  const linkOurService = useRef(null);
+  const linkWhyUs = useRef(null);
+  const linkTestimonial = useRef(null);
+  const linkFaq = useRef(null);
+
+  const props = {
+    linkOurService,
+    linkWhyUs,
+    linkTestimonial,
+    linkFaq
+  };
+
   return (
     <>
-      <Helmet>
-        <title>Car List</title>
-        <meta
-          name="description"
-          content="Displays the entire list of cars that are ready to be rented."
-        />
-        <link rel="canonical" href="/car/list" />
-      </Helmet>
-      <NavbarLayout />
+      <NavbarLayout {...props} />
       <Banner />
       <FromFillter onSubmit={onFilter} />
       {loading ? (
