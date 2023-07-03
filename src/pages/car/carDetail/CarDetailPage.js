@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import CarDetail from './components/CarDetail'
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
+import React, { useEffect, useState } from 'react';
+import CarDetail from './components/CarDetail';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import FromFilterDetail from '../../../components/from-filter/FromFilterDetail';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,33 +9,32 @@ import { carSelectors, getCarById } from '../../../features/carSlice';
 import LoadingSpinner from '../../../components/ui/LoadingSpinner';
 import Banner from '../../home/components/Banner';
 import NavbarLayout from '../../../components/layouts/Navbar';
-import FooterLayout from '../../../components/layouts/Footer'
+import FooterLayout from '../../../components/layouts/Footer';
 import FormCalendar from './components/FormCalendar';
 import { format } from 'date-fns';
 import { Button, Form, Modal } from 'react-bootstrap';
 import { useCookies } from 'react-cookie';
 import { login } from '../../../features/authSlice';
-import './styles/siginmodal.css'
+import './styles/siginmodal.css';
 
 const CarDetailPage = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
 
   const dispatch = useDispatch();
   const [cookie, setCookie] = useCookies(['token']);
   const car = useSelector(carSelectors.selectCarById);
-  const loading = useSelector(carSelectors.loading)
-  const [message, setMessage] = useState('')
+  const loading = useSelector(carSelectors.loading);
+  const [message, setMessage] = useState('');
   const [show, setShow] = useState(false);
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: ''
   });
 
   const handleSaveChanges = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-
       const result = await dispatch(login(formData)).unwrap();
       setCookie('token', result.access_token, { path: '/' });
 
@@ -49,9 +50,7 @@ const CarDetailPage = () => {
 
   useEffect(() => {
     dispatch(getCarById(id));
-
   }, [dispatch, id]);
-
 
   const calendarHandle = (payload) => {
     if (payload.length <= 0) {
@@ -71,7 +70,7 @@ const CarDetailPage = () => {
         let requestOrder = {
           start_date_at: formattedDate(payload[0]),
           finish_date_at: formattedDate(payload[1]),
-          car_id: car?.id,
+          car_id: car?.id
         };
 
         const newData = { ...requestOrder, ...car };
@@ -80,8 +79,7 @@ const CarDetailPage = () => {
         navigate('/payment');
       }
     }
-  }
-
+  };
 
   return (
     <>
@@ -91,10 +89,13 @@ const CarDetailPage = () => {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <>{car !== undefined &&
-          <CarDetail car={car} message={message} >
-            <FormCalendar onSubmit={calendarHandle} message={message} />
-          </CarDetail>}</>
+        <>
+          {car !== undefined && (
+            <CarDetail car={car} message={message}>
+              <FormCalendar onSubmit={calendarHandle} message={message} />
+            </CarDetail>
+          )}
+        </>
       )}
       <FooterLayout />
       <Modal show={show} onHide={handleClose}>
@@ -102,7 +103,7 @@ const CarDetailPage = () => {
           <Modal.Title>Sigin untuk melanjutkan pembayaran</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form >
+          <Form>
             <Form.Group className="mb-3" controlId="email">
               {message && (
                 <div className="alert alert-danger" role="alert">
@@ -115,9 +116,12 @@ const CarDetailPage = () => {
                 placeholder="Enter email"
                 name="email"
                 value={formData.email}
-                onChange={e => setFormData({
-                  ...formData, ...{ email: e.target.value }
-                })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    ...{ email: e.target.value }
+                  })
+                }
               />
             </Form.Group>
 
@@ -128,35 +132,34 @@ const CarDetailPage = () => {
                 placeholder="Password"
                 name="password"
                 value={formData.password}
-                onChange={e => setFormData({
-                  ...formData, ...{ password: e.target.value }
-                })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    ...{ password: e.target.value }
+                  })
+                }
               />
             </Form.Group>
 
             <div className="d-grid gap-2 sign-button">
-              <Button
-                type="sumbit"
-                variant="custome"
-                onClick={handleSaveChanges}
-              >
+              <Button type="sumbit" variant="custome" onClick={handleSaveChanges}>
                 sign in
               </Button>
             </div>
             <div className="sign-up">
-              <p>Don't Have account yet?
-                <Link to='/register'><strong> Sign Up</strong> </Link>
+              <p>
+                Don't Have account yet?
+                <Link to="/register">
+                  <strong> Sign Up</strong>{' '}
+                </Link>
               </p>
             </div>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-
-        </Modal.Footer>
+        <Modal.Footer></Modal.Footer>
       </Modal>
     </>
-  )
-}
-
+  );
+};
 
 export default CarDetailPage;

@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import HeaderPayment from "./component/HeaderPayment";
-import NavbarLayout from "../../components/layouts/Navbar";
-import FooterLayout from "../../components/layouts/Footer";
-import { useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { customerGetOrderById, orderSelector } from "../../features/orderSlice";
-import PendingInvoice from "./component/PendingInvoice";
-import Invoice from "./component/Invoice";
+import React, { useEffect } from 'react';
+import HeaderPayment from './component/HeaderPayment';
+import NavbarLayout from '../../components/layouts/Navbar';
+import FooterLayout from '../../components/layouts/Footer';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { customerGetOrderById, orderSelector } from '../../features/orderSlice';
+import PendingInvoice from './component/PendingInvoice';
+import Invoice from './component/Invoice';
 
 export default function PaymentReceiptPage() {
   const navigate = useNavigate();

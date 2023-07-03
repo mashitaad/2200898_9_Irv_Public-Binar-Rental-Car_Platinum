@@ -68,6 +68,7 @@ describe('CarDetailPage', () => {
 
   test('handles calendar submission', () => {
     const navigate = jest.fn();
+    // eslint-disable-next-line no-unused-vars
     const { id } = useParams();
 
     useNavigate.mockReturnValue(navigate);

@@ -1,22 +1,21 @@
-import React, { useState } from "react";
-import { Accordion, Button, Col, Row } from "react-bootstrap";
-import "../styles/payment.css"
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
+import { Accordion, Button, Col, Row } from 'react-bootstrap';
+import '../styles/payment.css';
 import { AiOutlineCheck } from 'react-icons/ai';
-import FiPeople from "../../../assets/icons/fi_users.svg";
-
+import FiPeople from '../../../assets/icons/fi_users.svg';
 
 export default function Payment(props) {
   const { children } = props;
-
 
   const [bcaTransfer, setBCATransfer] = useState(false);
   const [bniTransfer, setBNITransfer] = useState(false);
   const [mandiriTransfer, setMandiriTransfer] = useState(false);
 
-  const formatter = new Intl.NumberFormat("id-ID", {
-    style: "currency",
-    currency: "IDR",
-    minimumFractionDigits: 0,
+  const formatter = new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0
   });
 
   const finishDate = new Date(props.data.finish_date_at);
@@ -34,11 +33,10 @@ export default function Payment(props) {
     setMandiriTransfer(false);
 
     props.handleClick({
-      BankType: "BCA",
+      BankType: 'BCA',
       totalPrice: totalPriceRent,
-      BankName: "BCA Transfer",
+      BankName: 'BCA Transfer'
     });
-
   };
 
   const handleBNIClick = (e) => {
@@ -47,9 +45,9 @@ export default function Payment(props) {
     setBCATransfer(false);
     setMandiriTransfer(false);
     props.handleClick({
-      BankType: "BNI",
+      BankType: 'BNI',
       totalPrice: totalPriceRent,
-      BankName: "BNI Transfer",
+      BankName: 'BNI Transfer'
     });
   };
 
@@ -59,9 +57,9 @@ export default function Payment(props) {
     setBNITransfer(false);
     setBCATransfer(false);
     props.handleClick({
-      BankType: "Mandiri",
+      BankType: 'Mandiri',
       totalPrice: totalPriceRent,
-      BankName: "Mandiri Transfer",
+      BankName: 'Mandiri Transfer'
     });
   };
 
@@ -73,45 +71,56 @@ export default function Payment(props) {
             <div className="title-payment">
               <h5>Pilih Bank Transfer</h5>
               <p>
-                Kamu bisa membayar dengan transfer melalui ATM, internet Banking
-                atau Mobile Banking
+                Kamu bisa membayar dengan transfer melalui ATM, internet Banking atau Mobile Banking
               </p>
             </div>
             <div className="bank-option">
               <div>
-              <Row>
-                <Col>
-                  <Button variant="light" className={`custom-button custom-btn-light ${bcaTransfer ? 'active' : ''}`} onClick={handleBCAClick}>
-                    BCA
-                  </Button>
-                </Col>
-                <Col>
-                  <p className="ket-bank">BCA Transfer</p>
-                </Col>
-                <Col>
-                  {bcaTransfer ? <AiOutlineCheck className="icon" color="#5CB85F" /> : null}
-                </Col>
-              </Row>
-              <hr className="divider" />
-
                 <Row>
                   <Col>
-                  <Button variant="light" className={`custom-button custom-btn-light ${bniTransfer ? 'active' : ''}`} onClick={handleBNIClick} active={bniTransfer}>
-                    BNI
-                  </Button>
+                    <Button
+                      variant="light"
+                      className={`custom-button custom-btn-light ${bcaTransfer ? 'active' : ''}`}
+                      onClick={handleBCAClick}>
+                      BCA
+                    </Button>
                   </Col>
                   <Col>
-                    <p className="ket-bank">BNI Transfer</p>
+                    <p className="ket-bank">BCA Transfer</p>
                   </Col>
                   <Col>
-                  {bniTransfer ? <AiOutlineCheck className="icon" color="#5CB85F" /> : null}
-                </Col>
+                    {bcaTransfer ? <AiOutlineCheck className="icon" color="#5CB85F" /> : null}
+                  </Col>
                 </Row>
                 <hr className="divider" />
 
                 <Row>
                   <Col>
-                    <Button variant="light" className={`custom-button custom-btn-light ${mandiriTransfer ? 'active' : ''}`} onClick={handleMandiriClick}>
+                    <Button
+                      variant="light"
+                      className={`custom-button custom-btn-light ${bniTransfer ? 'active' : ''}`}
+                      onClick={handleBNIClick}
+                      active={bniTransfer}>
+                      BNI
+                    </Button>
+                  </Col>
+                  <Col>
+                    <p className="ket-bank">BNI Transfer</p>
+                  </Col>
+                  <Col>
+                    {bniTransfer ? <AiOutlineCheck className="icon" color="#5CB85F" /> : null}
+                  </Col>
+                </Row>
+                <hr className="divider" />
+
+                <Row>
+                  <Col>
+                    <Button
+                      variant="light"
+                      className={`custom-button custom-btn-light ${
+                        mandiriTransfer ? 'active' : ''
+                      }`}
+                      onClick={handleMandiriClick}>
                       MANDIRI
                     </Button>
                   </Col>
@@ -119,36 +128,28 @@ export default function Payment(props) {
                     <p className="ket-bank">Mandiri Transfer</p>
                   </Col>
                   <Col>
-                  {mandiriTransfer ? <AiOutlineCheck className="icon" color="#5CB85F" /> : null}
-                </Col>
+                    {mandiriTransfer ? <AiOutlineCheck className="icon" color="#5CB85F" /> : null}
+                  </Col>
                 </Row>
                 <hr className="divider" />
-                
               </div>
             </div>
-            
           </div>
         </div>
         <div className="col-md-5 mt-5 detail-payment">
           <Row>
-          <div className="car-name-payment" style={{ marginTop: "0px" }}>
-              <p style={{ fontWeight: "700", fontSize: "14px" }}>{props.data.name}</p>
-              <div
-                className="car-name-payment d-flex mb-4 "
-                style={{ marginTop: "-12px" }}
-              >
-                <img
-                  style={{ marginTop: "-15px", marginRight: "5px" }}
-                  src={FiPeople}
-                ></img>
-                <p style={{ fontWeight: "400", fontSize: "10px" ,lineHeight: "14px"}}>{props.data.category}</p>
+            <div className="car-name-payment" style={{ marginTop: '0px' }}>
+              <p style={{ fontWeight: '700', fontSize: '14px' }}>{props.data.name}</p>
+              <div className="car-name-payment d-flex mb-4 " style={{ marginTop: '-12px' }}>
+                <img style={{ marginTop: '-15px', marginRight: '5px' }} src={FiPeople}></img>
+                <p style={{ fontWeight: '400', fontSize: '10px', lineHeight: '14px' }}>
+                  {props.data.category}
+                </p>
               </div>
             </div>
           </Row>
-          
-           <Row>
-            
-          </Row>
+
+          <Row></Row>
           <Row>
             <Accordion className="accordion-detail" defaultActiveKey="0">
               <Accordion.Item eventKey="0">
@@ -158,22 +159,19 @@ export default function Payment(props) {
                   </Col>
                   <Col
                     className="d-flex justify-content-end"
-                    style={{ fontWeight: "700", fontSize: "14px" }}
-                  >
+                    style={{ fontWeight: '700', fontSize: '14px' }}>
                     {formatter.format(props.data.price * dayDifference)}
                   </Col>
-              </Row>
+                </Row>
                 <Accordion.Body>
                   <h5>Harga</h5>
                   <ul>
                     <li>
-                    <Row>
+                      <Row>
                         <Col>
-                          Sewa Mobil {formatter.format(props.data.price)} x{" "}
-                          {dayDifference} hari{" "}
+                          Sewa Mobil {formatter.format(props.data.price)} x {dayDifference} hari{' '}
                         </Col>
-                        <Col className="d-flex justify-content-end"
-                        >
+                        <Col className="d-flex justify-content-end">
                           {formatter.format(props.data.price * dayDifference)}
                         </Col>
                       </Row>
@@ -182,17 +180,19 @@ export default function Payment(props) {
                   <h5>Biaya Lainya</h5>
                   <ul>
                     <li>
-                    <Row>
+                      <Row>
                         <Col>Pajak </Col>
-                        <Col style={{ color: 'green' }} className="d-flex justify-content-end">Termasuk</Col>
-
+                        <Col style={{ color: 'green' }} className="d-flex justify-content-end">
+                          Termasuk
+                        </Col>
                       </Row>
                     </li>
                     <li>
                       <Row>
                         <Col>Biaya Makan Sopir </Col>
-                        <Col style={{ color: 'green' }} className="d-flex justify-content-end">Termasuk</Col>
-
+                        <Col style={{ color: 'green' }} className="d-flex justify-content-end">
+                          Termasuk
+                        </Col>
                       </Row>
                     </li>
                   </ul>
@@ -207,22 +207,20 @@ export default function Payment(props) {
           </Row>
           <Row>
             <div className="total-payment">
-            <Row>
+              <Row>
                 <Col>Total</Col>
                 <Col
                   className="d-flex justify-content-end fw-bold"
                   style={{
-                    fontFamily:"arial",
-                    
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    lineHeight: "20px",
-                  }}
-                >
+                    fontFamily: 'arial',
+
+                    fontWeight: '700',
+                    fontSize: '14px',
+                    lineHeight: '20px'
+                  }}>
                   {formatter.format(props.data.price * dayDifference)}
                 </Col>
               </Row>
-
             </div>
           </Row>
           <Row>{children}</Row>
@@ -233,5 +231,5 @@ export default function Payment(props) {
 }
 
 Payment.defaultProps = {
-  handleClick: () => "",
+  handleClick: () => ''
 };

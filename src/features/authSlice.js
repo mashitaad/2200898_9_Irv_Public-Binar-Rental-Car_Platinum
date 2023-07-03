@@ -1,35 +1,27 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import config from "../config";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import config from '../config';
 
-
-export const login = createAsyncThunk(
-  "user/login",
-  async (params = {}, { rejectWithValue }) => {
-    try {
-      const apiUrl = config.apiBaseUrl
-      const response = await axios.post(apiUrl + "/customer/auth/login", params);
-      return response.data;
-    } catch (err) {
-      if (!err.response) {
-        throw err;
-      }
-      return rejectWithValue(err.response.data);
+export const login = createAsyncThunk('user/login', async (params = {}, { rejectWithValue }) => {
+  try {
+    const apiUrl = config.apiBaseUrl;
+    const response = await axios.post(apiUrl + '/customer/auth/login', params);
+    return response.data;
+  } catch (err) {
+    if (!err.response) {
+      throw err;
     }
+    return rejectWithValue(err.response.data);
   }
-);
-
+});
 
 export const register = createAsyncThunk(
-  "user/register",
+  'user/register',
   async (params = {}, { rejectWithValue }) => {
-    console.log(params)
+    console.log(params);
     try {
       const apiUrl = config.apiBaseUrl;
-      const response = await axios.post(
-        apiUrl + "/customer/auth/register",
-        params
-      );
+      const response = await axios.post(apiUrl + '/customer/auth/register', params);
       return response.data;
     } catch (err) {
       if (!err.response) {
@@ -41,7 +33,7 @@ export const register = createAsyncThunk(
 );
 
 const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: {
     data: {},
     loading: false,
@@ -80,9 +72,9 @@ const authSlice = createSlice({
 });
 
 export const authSelector = {
-  selectToken : (state) => state.auth.data,
+  selectToken: (state) => state.auth.data,
   loading: (state) => state.auth.loading,
   errorMessage: (state) => state.auth.errorMessage
-}
+};
 
 export default authSlice.reducer;

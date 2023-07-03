@@ -31,7 +31,7 @@ describe('SignIn component', () => {
     fireEvent.click(submitButton);
     expect(onSubmitMock).toHaveBeenCalledWith({
       email: 'test@example.com',
-      password: 'password123',
+      password: 'password123'
     });
   });
 
