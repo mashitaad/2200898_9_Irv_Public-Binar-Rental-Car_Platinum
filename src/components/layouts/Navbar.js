@@ -8,7 +8,7 @@ import { ButtonAuth } from '../ui/ButtonAuth';
 import { useCookies } from 'react-cookie';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'js-cookie';
-import personImage from '../../assets/person/default.jpg';
+import personImage from '../../assets/person/default.webp';
 import { CgProfile } from 'react-icons/cg';
 import { FaShoppingCart } from 'react-icons/fa';
 import { FiLogOut } from 'react-icons/fi';
