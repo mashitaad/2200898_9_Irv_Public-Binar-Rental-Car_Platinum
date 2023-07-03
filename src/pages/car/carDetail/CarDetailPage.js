@@ -86,10 +86,7 @@ const CarDetailPage = () => {
     <>
       <Helmet>
         <title>Car Detail</title>
-        <meta
-          name="description"
-          content="Displays the details of the car selected for rent."
-        />
+        <meta name="description" content="Displays the details of the car selected for rent." />
         <link rel="canonical" href="/car/list/:id" />
       </Helmet>
       <NavbarLayout />

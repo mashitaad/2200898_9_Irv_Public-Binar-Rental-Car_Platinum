@@ -36,15 +36,7 @@ export default function CarListPage() {
 
   return (
     <>
-      <Helmet>
-        <title>Car List</title>
-        <meta
-          name="description"
-          content="Displays the entire list of cars that are ready to be rented."
-        />
-        <link rel="canonical" href="/car/list" />
-      </Helmet>
-      <NavbarLayout />
+      <NavbarLayout {...props} />
       <Banner />
       <FromFillter onSubmit={onFilter} />
       {loading ? (
