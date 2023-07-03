@@ -21,10 +21,9 @@
     
     .payment-option-button {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
         gap: 15px;
     }
-
 .container-order-status{
     margin-top: 200px;
 }

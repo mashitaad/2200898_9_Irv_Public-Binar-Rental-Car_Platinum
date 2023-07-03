@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import '../styles/reminderpayment.css'
+import '../styles/reminderpayment.css';
 const ReminderPaymnet = (props) => {
   const [time, setTime] = useState(0);
   const [deadlineTime, setDeadlineTime] = useState('');
@@ -43,28 +44,30 @@ const ReminderPaymnet = (props) => {
     const minutes = Math.floor((time % (60 * 60 * 1000)) / (60 * 1000));
     const seconds = Math.floor((time % (60 * 1000)) / 1000);
 
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds
+      .toString()
+      .padStart(2, '0')}`;
   };
 
   return (
-    <div className='row'>
-      <div className='col-md-6'>
-        <div className='reminder-title'>
-          <h5 className='title'>Selesaikan pembayaran sebelum</h5>
-          <h5 className='date'>{deadlineTime}</h5>
+    <div className="row">
+      <div className="col-md-6">
+        <div className="reminder-title">
+          <h5 className="title">Selesaikan pembayaran sebelum</h5>
+          <h5 className="date">{deadlineTime}</h5>
         </div>
       </div>
-      <div className='col-md-6'>
+      <div className="col-md-6">
         <div className="countdown">
-          <span className="time-block">{formatTime(time).split(":")[0]}</span>
+          <span className="time-block">{formatTime(time).split(':')[0]}</span>
           <span>:</span>
-          <span className="time-block">{formatTime(time).split(":")[1]}</span>
+          <span className="time-block">{formatTime(time).split(':')[1]}</span>
           <span>:</span>
-          <span className="time-block">{formatTime(time).split(":")[2]}</span>
+          <span className="time-block">{formatTime(time).split(':')[2]}</span>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ReminderPaymnet;

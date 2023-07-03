@@ -1,22 +1,23 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable react/prop-types */
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { useDropzone } from 'react-dropzone';
-import PaymentInstruction from './PaymentInstruction';
 import { useNavigate } from 'react-router-dom';
 import '../styles/paymentconfirm.css';
 import '../styles/dropzone.css';
 import { MdContentCopy } from 'react-icons/md';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { orderSelector } from '../../../features/orderSlice';
-import successLogo from '../../../assets/icons/success.svg'
+import successLogo from '../../../assets/icons/success.svg';
 
 import IndexInstructionBCA from './PaymentIntruction/PaymentInstructionBCA';
 import IndexInstructionBNI from './PaymentIntruction/PaymentInstructionBNI';
 import IndexInstructionMandiri from './PaymentIntruction/PaymentInstructionMandiri';
 
-
 export const PaymentConfirm = (props) => {
-  const successUpload = useSelector(orderSelector.successUpload)
+  const successUpload = useSelector(orderSelector.successUpload);
   const navigate = useNavigate();
 
   const [previewImage, setPreviewImage] = useState(null);
@@ -26,7 +27,6 @@ export const PaymentConfirm = (props) => {
   const [inputNoRek, setInputNoRek] = useState('');
   const [inputTitleBank, setInputTitleBank] = useState('');
 
-  
   const handleChange = (event) => {
     const newValue = event.target.value;
     setInputValue(newValue);
@@ -88,7 +88,8 @@ export const PaymentConfirm = (props) => {
     setImage(file);
   }, []);
 
-  const { acceptedFiles, getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } = useDropzone({ onDrop });
+  const { acceptedFiles, getRootProps, getInputProps, isDragActive, isDragAccept, isDragReject } =
+    useDropzone({ onDrop });
 
   const handleClickConfirmation = (e) => {
     e.preventDefault();
@@ -108,19 +109,19 @@ export const PaymentConfirm = (props) => {
     marginBottom: '16px',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   };
 
   const activeStyle = {
-    border: '2px dashed #007bff',
+    border: '2px dashed #007bff'
   };
 
   const acceptStyle = {
-    border: '2px dashed #00e676',
+    border: '2px dashed #00e676'
   };
 
   const rejectStyle = {
-    border: '2px dashed #ff1744',
+    border: '2px dashed #ff1744'
   };
 
   let dropzoneStyleDynamic = { ...dropzoneStyle };
@@ -134,23 +135,12 @@ export const PaymentConfirm = (props) => {
     dropzoneStyleDynamic = { ...dropzoneStyleDynamic, ...rejectStyle };
   }
 
-  const copyButtonStyle = {
-    padding: '9px 12px',
-    gap: '8px',
-    width: '100%',
-    height: '36px',
-    background: '#FFFFFF',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
   const iconCopyStyle = {
     display: 'inline-block',
     width: '20px',
     height: '20px',
     paddingTop: '5px',
-    paddingRight: '5px',
+    paddingRight: '5px'
   };
 
   const inputStyle = {
@@ -159,7 +149,7 @@ export const PaymentConfirm = (props) => {
     height: '30px',
     background: '#FFFFFF',
     border: '1px solid #3C3C3C',
-    borderRadius: '2px',
+    borderRadius: '2px'
   };
 
   const [bcaTransfer, setBCATransfer] = useState(false);
@@ -198,13 +188,11 @@ export const PaymentConfirm = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const bankType = localStorage.getItem('order_data')
-  const bankTypeObjt = JSON.parse(bankType)
-  const namaBank = bankTypeObjt.bankType
-
+  const bankType = localStorage.getItem('order_data');
+  const bankTypeObjt = JSON.parse(bankType);
+  const namaBank = bankTypeObjt.bankType;
 
   return (
-
     <>
       <div className="container">
         <div className="row">
@@ -230,7 +218,13 @@ export const PaymentConfirm = (props) => {
                   <div className="coloumn-copy-rek">
                     <h5>Nomor Rekening</h5>
                     <div className="input-group">
-                      <input ref={inputRefRekNumber} type="text" value={inputNoRek} readOnly style={inputStyle} />
+                      <input
+                        ref={inputRefRekNumber}
+                        type="text"
+                        value={inputNoRek}
+                        readOnly
+                        style={inputStyle}
+                      />
                       <button onClick={handleCopyRekNumber} style={iconCopyStyle}>
                         <MdContentCopy />
                       </button>
@@ -254,12 +248,13 @@ export const PaymentConfirm = (props) => {
                 </div>
                 <div className="payment-section">
                   <div className="payment-info">
-
-                  {
-                  namaBank === "BCA" ? < IndexInstructionBCA /> 
-                  :namaBank === "BNI" ? <IndexInstructionBNI /> 
-                  : <IndexInstructionMandiri />  
-                  }
+                    {namaBank === 'BCA' ? (
+                      <IndexInstructionBCA />
+                    ) : namaBank === 'BNI' ? (
+                      <IndexInstructionBNI />
+                    ) : (
+                      <IndexInstructionMandiri />
+                    )}
                   </div>
                 </div>
               </div>
@@ -267,24 +262,26 @@ export const PaymentConfirm = (props) => {
           </div>
           <div className="col-md-4">
             {!successUpload ? (
-
               <div className="right-content-payment">
-                <div className='confirm-dropzone-title'>
+                <div className="confirm-dropzone-title">
                   <h6>Konfirmasi Pembayaran</h6>
-                  <p>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
+                  <p>
+                    Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera
+                    kami cek tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.
+                  </p>
                 </div>
 
-                <div className='confrim-dorpzone-upload'>
+                <div className="confrim-dorpzone-upload">
                   <h6>Upload Bukti Pembayaran</h6>
-                  <p>Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti bayarmu</p>
-
+                  <p>
+                    Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload bukti
+                    bayarmu
+                  </p>
                 </div>
 
                 {props.errorMessage && (
                   <div className="alert alert-danger" role="alert">
-                    <p>
-                      {props.errorMessage}
-                    </p>
+                    <p>{props.errorMessage}</p>
                   </div>
                 )}
                 <div>
@@ -292,7 +289,12 @@ export const PaymentConfirm = (props) => {
                     <div {...getRootProps({ className: 'dropzone', style: dropzoneStyleDynamic })}>
                       <input {...getInputProps()} accept="image/*" />
                       {previewImage ? (
-                        <img src={previewImage} className="img-fluid" alt="Preview" style={{ height: '40vh', objectFit: 'cover' }} />
+                        <img
+                          src={previewImage}
+                          className="img-fluid"
+                          alt="Preview"
+                          style={{ height: '40vh', objectFit: 'cover' }}
+                        />
                       ) : (
                         <p>Drag 'n' drop some files here, or click to select files</p>
                       )}
@@ -314,19 +316,15 @@ export const PaymentConfirm = (props) => {
               </div>
             ) : (
               <div className="right-content-payment">
-                <div className='success-upload'>
-                 
-                <div className='description-title-ticket mb-5'>
-          <img src={successLogo} alt='success'className='mb-3' />
-          <h4>Upload berhasil</h4>
-          <p>tunggu sebentar anda akan di arahankan kehalaman selanjutnya</p>
-        </div>
-                 
+                <div className="success-upload">
+                  <div className="description-title-ticket mb-5">
+                    <img src={successLogo} alt="success" className="mb-3" />
+                    <h4>Upload berhasil</h4>
+                    <p>tunggu sebentar anda akan di arahankan kehalaman selanjutnya</p>
+                  </div>
                 </div>
               </div>
-
             )}
-
           </div>
         </div>
       </div>

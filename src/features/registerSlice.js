@@ -1,17 +1,14 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import config from "../config";
+/* eslint-disable prettier/prettier */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import config from '../config';
 
 export const register = createAsyncThunk(
-  "user/register",
+  'user/register',
   async (params = {}, { rejectWithValue }) => {
-    console.log(params)
     try {
       const apiUrl = config.apiBaseUrl;
-      const response = await axios.post(
-        apiUrl + "/customer/auth/register",
-        params
-      );
+      const response = await axios.post(apiUrl + '/customer/auth/register', params);
       return response.data;
     } catch (err) {
       if (!err.response) {
@@ -23,11 +20,11 @@ export const register = createAsyncThunk(
 );
 
 const registerSlice = createSlice({
-  name: "register",
+  name: 'register',
   initialState: {
     data: {},
     loading: false,
-    errorMessage: null,
+    errorMessage: null
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -45,13 +42,13 @@ const registerSlice = createSlice({
         state.loading = false;
         state.errorMessage = action.payload;
       });
-  },
+  }
 });
 
 export const registerSelector = {
   selectToken: (state) => state.register.data,
   loading: (state) => state.register.loading,
-  errorMessage: (state) => state.register.errorMessage,
+  errorMessage: (state) => state.register.errorMessage
 };
 
 export default registerSlice.reducer;
